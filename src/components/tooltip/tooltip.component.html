@@ -1,0 +1,16 @@
+<!-- <div class="col-md-4" *ngIf="false">
+  <span class="classFirst">
+    ESEMPIO
+    <span class="impClass">
+      esempio
+    </span>
+  </span>
+</div> -->
+<!-- <div class="col-md-4"> -->
+  <span class="classFirst" [ngClass]="icon ? icon : ''">
+    <span *ngIf="message" class="message">{{message}}</span>
+    <span class="impClass">
+      {{messageTool}}
+    </span>
+  </span>
+<!-- </div> -->

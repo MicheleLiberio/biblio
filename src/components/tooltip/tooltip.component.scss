@@ -1,0 +1,43 @@
+.classFirst {
+    position: relative;
+    cursor: pointer;
+}
+
+.message {
+    width: 120px;
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+}
+
+.impClass{
+    bottom:  29px;
+    position: absolute;
+    background-color: #555;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    text-transform: lowercase;
+    font-weight: 100;
+    right: 0%;
+    visibility: hidden;
+    opacity: 0.8;
+    font-size: 16px;
+    width: 120px;
+    text-align: center;
+}
+
+
+.impClass:after {
+    content: '\f0dd';
+    font: normal normal normal 17px/1 FontAwesome;
+    position: absolute;
+    top: 66%;
+    left: 50%;
+    color: #555;
+}
+
+.classFirst:hover .impClass{
+    visibility: visible;
+}

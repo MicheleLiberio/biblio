@@ -1,0 +1,38 @@
+.inp {
+	height: 40px;
+	// width: 195px;
+    font-size: 13px;
+    border-radius: 0px;
+}
+
+input.form-control.inp {
+    outline-width: 0px;
+}
+
+.form-control:focus {
+    border-color: #db2e25;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(255 255 255);
+}
+
+.icon_invalid {
+    font-size: 30px;
+    color: #db2e25;
+}
+
+.icon_valid {
+    font-size: 30px;
+    color: green;
+}
+
+.cancel {
+    position: absolute;
+    top: calc(45% - 0.5em);
+    right: 30px;
+    color: #db2e25;
+    cursor: pointer;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+    background-color: rgba(239, 239, 239, 0.3);
+}

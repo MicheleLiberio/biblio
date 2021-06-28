@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="col-md-12">
+  <!-- <div class="row text-center">VARIOUS COMPONENTS</div> -->
+  <div class="row" *ngIf="false">Button</div>
+  <div class="row" *ngIf="false">
+      <div class="col-md-2">
+        <div class="row">
+          Button abilitato
+        </div>
+        <div class="row">
+          <app-button
+            [style]="'first'"
+            [title] = "'ricerca'"
+            [disabled] = "false"
+            (nbpClick) = "prova($event)"
+          ></app-button>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="row">
+          Button disabilitato
+        </div>
+        <div class="row">
+          <app-button
+            [title] = "'ricerca'"
+            [disabled] = "true"
+            (nbpClick) = "prova($event)"
+          ></app-button>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="row">
+          Button 
+        </div>
+        <div class="row">
+          <app-button
+            [style]="'second'"
+            [title] = "'annulla'"
+            (nbpClick) = "prova($event)"
+          ></app-button>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="row">
+          Button con icona
+        </div>
+        <div class="row">
+          <app-button
+            [icon] = "'bi bi-search'"
+            [style]="'first'"
+            [title] = "'ricerca'"
+            [disabled] = "false"
+            (nbpClick) = "prova($event)"
+          ></app-button>
+        </div>
+      </div>
+  </div>
+  <!-- <div class="row">INPUT</div> -->
+  <div class="row" *ngIf="false">
+    <div class="col-md-3">
+      <app-input
+        [id]="'Nome'"
+        [value]="'Nome'"
+        [label]="'Nome'"
+        [pattern]="'mail'"
+        [placeholder] = "'Inserisci nome'"
+        [disabled]="false"
+        [(sharedVar)]="modelNome"
+        [required]="true"
+      ></app-input>
+    </div>
+  </div>
+  <div class="row" *ngIf="false">
+    <div class="col-md-4">
+      <app-dropdown
+        *ngIf="array"
+        [label]="'Stato occupazionale'"
+        [disabled]="false"
+        [required]="false"
+        [placeholder]="'Scegli stato occupazionale'"
+        [value]="'Stato occupazionale'"
+        [array]="country"
+        [idArray]="'alpha3Code'"
+        [valueArray]="'name'"
+      ></app-dropdown>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    <app-tooltip
+      [message]="'messaggio'"
+      [messageTool]="'errore'"
+    ></app-tooltip>
+  </div>
+</div>
+
+
+
+
+
+
+
+

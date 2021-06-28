@@ -1,0 +1,6 @@
+<div [ngClass]="{'btn_disabled': disabled === true, 
+                'btn_first': disabled === false && style === 'first',
+                'btn_second': style === 'second'}" 
+    (click)="click()">
+    {{title}} <span ng-if="icon" [ngClass]="icon ? icon : ''" class="icona"></span>
+</div>

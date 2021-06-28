@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <label for="pet-select">{{label}}</label>
+  </div>
+
+    <div class="col-md-10">
+      <div class="row">
+        <div id="" class="col-md-12 selectdiv" [ngClass]="{'disabledD': disabled === true}" (click) = "clickOnDrop()">
+          <!-- {{sharedVar.value}} -->
+          <input #idForm="ngModel" [(ngModel)]="valueChose" [disabled]="disabled" placeholder="{{placeholder}}" 
+                (ngModelChange)="filter($event)">
+        </div>
+        <span *ngIf="required">
+          <span [ngClass]="{'icon_invalid': idForm.invalid, 'icon_valid' : idForm.valid}">
+            <span *ngIf="tooltipInp">
+              <i [ngClass]="{'bi bi-exclamation': idForm.invalid, 'bi bi-check': idForm.valid}" data-toggle="tooltip"
+                data-placement="top" title="{{idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid}}">
+              </i>
+              <script>
+                $(document).ready(function () {
+                  $('[data-toggle="tooltip"]').tooltip();
+                });
+              </script>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div *ngIf = "open" class="row array">
+        <div *ngFor = "let val of array2" class="col-md-12 option" (click) = "choose(val)">
+          {{val[valueArray]}}
+        </div>
+      </div>
+    </div>
+
+</div>
