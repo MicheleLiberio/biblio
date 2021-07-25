@@ -18,10 +18,10 @@
           data-placement="top" title="{{idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid}}">
         </i>
       </span>
-      <app-tooltip
+      <lbry-tooltip
         [messageTool]= "idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid"
         [icon]="idForm.invalid ? 'bi bi-exclamation' : 'bi bi-check'"
-      ></app-tooltip>
+      ></lbry-tooltip>
     </span>
   </span>
 </div>

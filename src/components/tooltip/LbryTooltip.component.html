@@ -1,12 +1,11 @@
-<!-- <div class="col-md-4" *ngIf="false">
-  <span class="classFirst">
-    ESEMPIO
+<!-- <div class="col-md-4">
+  <div class="classFirst">
+    {{message}}
     <span class="impClass">
-      esempio
+      {{messageTool}}
     </span>
-  </span>
+  </div>
 </div> -->
-<!-- <div class="col-md-4"> -->
   <span class="classFirst" [ngClass]="icon ? icon : ''">
     <span *ngIf="message" class="message">{{message}}</span>
     <span class="impClass">

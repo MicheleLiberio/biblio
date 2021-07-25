@@ -1,6 +1,7 @@
 .classFirst {
     position: relative;
     cursor: pointer;
+    display: inline-block;
 }
 
 .message {
@@ -11,8 +12,8 @@
     text-align: center;
 }
 
-.impClass{
-    bottom:  29px;
+.classFirst .impClass{
+    bottom:  45px;
     position: absolute;
     background-color: #555;
     color: white;
@@ -23,9 +24,10 @@
     right: 0%;
     visibility: hidden;
     opacity: 0.8;
-    font-size: 16px;
-    width: 120px;
+    font-size: 10px;
+    width: 85px;
     text-align: center;
+    left: -33px;
 }
 
 
@@ -33,7 +35,7 @@
     content: '\f0dd';
     font: normal normal normal 17px/1 FontAwesome;
     position: absolute;
-    top: 66%;
+    top: 70%;
     left: 50%;
     color: #555;
 }
