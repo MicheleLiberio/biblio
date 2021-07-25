@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  selector: 'lbry-button',
+  templateUrl: './lbryButton.component.html',
+  styleUrls: ['./lbryButton.component.scss']
 })
-export class ButtonComponent implements OnInit {
+export class LbryButtonComponent implements OnInit {
 
   @Input() icon: string;
   @Input() style: string;
