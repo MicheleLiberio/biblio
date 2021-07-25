@@ -2,11 +2,11 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  selector: 'lbry-input',
+  templateUrl: './lbryInput.component.html',
+  styleUrls: ['./lbryInput.component.scss']
 })
-export class InputComponent implements OnInit {
+export class lbryInputComponent implements OnInit {
 
   constructor() { }
 

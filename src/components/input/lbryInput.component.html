@@ -17,15 +17,10 @@
         <i [ngClass]="{'bi bi-exclamation': idForm.invalid, 'bi bi-check': idForm.valid}" data-toggle="tooltip"
           data-placement="top" title="{{idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid}}">
         </i>
-        <!-- <script>
-          $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-          });
-        </script> -->
       </span>
       <app-tooltip
-        [messageTool]= "tooltipTitleInvalid"
-        [icon]="'bi bi-exclamation'"
+        [messageTool]= "idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid"
+        [icon]="idForm.invalid ? 'bi bi-exclamation' : 'bi bi-check'"
       ></app-tooltip>
     </span>
   </span>

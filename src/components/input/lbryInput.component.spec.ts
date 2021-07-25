@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { InputComponent } from './input.component';
+import { InputComponent } from './lbryInput.component';
 
 describe('InputComponent', () => {
   let component: InputComponent;
