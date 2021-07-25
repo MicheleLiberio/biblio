@@ -6,7 +6,7 @@ import {NgForm} from '@angular/forms';
   templateUrl: './lbryInput.component.html',
   styleUrls: ['./lbryInput.component.scss']
 })
-export class lbryInputComponent implements OnInit {
+export class LbryInputComponent implements OnInit {
 
   constructor() { }
 

@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss']
+  selector: 'lbry-dropdown',
+  templateUrl: './lbryDropdown.component.html',
+  styleUrls: ['./lbryDropdown.component.scss']
 })
-export class DropdownComponent implements OnInit {
+export class LbryDropdownComponent implements OnInit {
 
 
   @Input() value: any

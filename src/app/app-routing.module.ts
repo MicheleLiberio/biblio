@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LbryButtonComponent } from '../components/button/lbryButton.component';
-import { InputComponent } from '../components/input/input.component';
-import { DropdownComponent } from '../components/dropdown/dropdown.component';
+import { LbryInputComponent } from '../components/input/lbryInput.component';
+import { LbryDropdownComponent } from '../components/dropdown/lbryDropdown.component';
 import { TooltipComponent } from 'src/components/tooltip/tooltip.component';
 import { TableComponent } from 'src/components/table/table.component';
 import { ColComponent } from 'src/components/col/col.component';
@@ -23,8 +23,8 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent]
 export const components = [LbryButtonComponent, 
-                          InputComponent, 
-                          DropdownComponent, 
+                          LbryInputComponent, 
+                          LbryDropdownComponent, 
                           TooltipComponent, 
                           TableComponent,
                           ColComponent]
