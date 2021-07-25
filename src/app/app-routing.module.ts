@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LbryButtonComponent } from '../components/button/lbryButton.component';
 import { LbryInputComponent } from '../components/input/lbryInput.component';
 import { LbryDropdownComponent } from '../components/dropdown/lbryDropdown.component';
-import { TooltipComponent } from 'src/components/tooltip/tooltip.component';
+import { LbryTooltipComponent } from 'src/components/tooltip/LbryTooltip.component';
 import { TableComponent } from 'src/components/table/table.component';
 import { ColComponent } from 'src/components/col/col.component';
 
@@ -25,6 +25,6 @@ export const routingComponents = [HomeComponent, BorrowComponent, ParentComponen
 export const components = [LbryButtonComponent, 
                           LbryInputComponent, 
                           LbryDropdownComponent, 
-                          TooltipComponent, 
+                          LbryTooltipComponent, 
                           TableComponent,
                           ColComponent]
