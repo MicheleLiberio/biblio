@@ -35,7 +35,7 @@
     padding-left: 12px;
     
     input {
-        width: 90%;
+        width: 80%;
         height: 80%;
         border: 0px;
         padding-left: 0px;
@@ -117,3 +117,11 @@ input {
   ::-webkit-scrollbar-thumb:hover {
     background: #db2e25; 
   }
+
+.cancel {
+    position: absolute;
+    top: calc(45% - 0.5em);
+    right: 40px;
+    color: #db2e25;
+    cursor: pointer;
+}

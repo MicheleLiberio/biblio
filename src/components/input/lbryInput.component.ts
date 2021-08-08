@@ -31,7 +31,7 @@ export class LbryInputComponent implements OnInit {
   }
 
   change(newValue) {
-    console.log('newvalue', newValue)
+    // console.log('newvalue', newValue)
     // this.sharedVar = newValue;
     this.sharedVarChange.emit(newValue);
   }

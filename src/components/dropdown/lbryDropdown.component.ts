@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'lbry-dropdown',
@@ -16,8 +17,9 @@ export class LbryDropdownComponent implements OnInit {
   @Input() array: any;
   @Input() idArray: string;
   @Input() valueArray: string;
+  @Input() sharedVar: any;
+  @Output() sharedVarChange = new EventEmitter();
   open: boolean = false;
-  sharedVar: any;
   valueChose: string;
   tooltipInp: any;
   tooltipTitleInvalid: string;
@@ -28,7 +30,11 @@ export class LbryDropdownComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.sharedVar = 'start'
+    if (!this.sharedVar) {
+      this.sharedVar = {};
+      this.sharedVar[this.valueArray] = null;
+      this.valueChose = this.sharedVar[this.valueArray];
+    }
     this.array2 = Object.assign([],  this.array);
     this.tooltipInp = false;
     this.tooltipTitleInvalid = 'Il campo ' + this.value + ' non è valido.'
@@ -45,8 +51,12 @@ export class LbryDropdownComponent implements OnInit {
   }
 
   filter(filtro){
-    this.filtro = filtro;
-    this.array2 = this.array.filter(val => val[this.valueArray].toUpperCase().includes(filtro.toUpperCase()))
+    if (filtro) {
+      this.filtro = filtro;
+      this.array2 = this.array.filter(val => val[this.valueArray].toUpperCase().includes(filtro.toUpperCase()))
+    } else {
+      this.array2 = this.array
+    }
   }
 
   change(newValue) {
@@ -58,6 +68,14 @@ export class LbryDropdownComponent implements OnInit {
     this.sharedVar = Object.assign({}, val);
     this.valueChose = this.sharedVar[this.valueArray];
     this.open = !this.open;
+    this.sharedVarChange.emit(this.sharedVar);
+  }
+
+  cancel(f: NgForm) {
+    f.reset();
+    this.sharedVar = {};
+    this.sharedVar[this.valueArray] = null;
+    this.sharedVarChange.emit(this.sharedVar);
   }
 
 }
