@@ -1,102 +1,439 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <div class="col-md-12">
-  <!-- <div class="row text-center">VARIOUS COMPONENTS</div> -->
-  <div class="row" *ngIf="false">Button</div>
-  <div class="row" *ngIf="false">
-      <div class="col-md-2">
-        <div class="row">
-          Button abilitato
-        </div>
-        <div class="row">
-          <app-button
-            [style]="'first'"
-            [title] = "'ricerca'"
-            [disabled] = "false"
-            (nbpClick) = "prova($event)"
-          ></app-button>
-        </div>
+
+  <div class="row text-center">VARIOUS COMPONENTS</div>
+  <div class="row components">
+    <div class="col-md-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'button'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('button')"
+        ></lbry-button>
       </div>
-      <div class="col-md-2">
-        <div class="row">
-          Button disabilitato
-        </div>
-        <div class="row">
-          <app-button
-            [title] = "'ricerca'"
-            [disabled] = "true"
-            (nbpClick) = "prova($event)"
-          ></app-button>
-        </div>
+    </div>
+    <div class="col-md-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'input'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('input')"
+        ></lbry-button>
       </div>
-      <div class="col-md-2">
-        <div class="row">
-          Button 
-        </div>
-        <div class="row">
-          <app-button
-            [style]="'second'"
-            [title] = "'annulla'"
-            (nbpClick) = "prova($event)"
-          ></app-button>
-        </div>
+    </div>
+    <div class="col-md-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'dropdown'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('dropdown')"
+        ></lbry-button>
       </div>
-      <div class="col-md-2">
-        <div class="row">
-          Button con icona
-        </div>
-        <div class="row">
-          <app-button
-            [icon] = "'bi bi-search'"
-            [style]="'first'"
-            [title] = "'ricerca'"
-            [disabled] = "false"
-            (nbpClick) = "prova($event)"
-          ></app-button>
-        </div>
+    </div>
+    <div class="col-md-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'table'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('table')"
+        ></lbry-button>
       </div>
-  </div>
-  <!-- <div class="row">INPUT</div> -->
-  <div class="row" *ngIf="false">
-    <div class="col-md-3">
-      <app-input
-        [id]="'Nome'"
-        [value]="'Nome'"
-        [label]="'Nome'"
-        [pattern]="'mail'"
-        [placeholder] = "'Inserisci nome'"
-        [disabled]="false"
-        [(sharedVar)]="modelNome"
-        [required]="true"
-      ></app-input>
+    </div>
+    <div class="col-md-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'filter'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('filter')"
+        ></lbry-button>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'modal'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('modal')"
+        ></lbry-button>
+      </div>
     </div>
   </div>
-  <div class="row" *ngIf="false">
-    <div class="col-md-4">
-      <app-dropdown
-        *ngIf="array"
-        [label]="'Stato occupazionale'"
-        [disabled]="false"
-        [required]="false"
-        [placeholder]="'Scegli stato occupazionale'"
-        [value]="'Stato occupazionale'"
-        [array]="country"
-        [idArray]="'alpha3Code'"
-        [valueArray]="'name'"
-      ></app-dropdown>
+
+  <div *ngIf = "comp == 'button'">
+    <div class="row">BUTTON</div>
+    <div class="row">
+        <div class="col-md-2">
+          <div class="row">
+          BUTTON ABILITATO
+          </div>
+          <div class="row">
+            <lbry-button
+              [style]="styleButton.first"
+              [title] = "'ricerca'"
+              [disabled] = "false"
+              (nbpClick) = "prova($event)"
+            ></lbry-button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            BUTTON DISABILITATO
+          </div>
+          <div class="row">
+            <lbry-button
+              [title] = "'ricerca'"
+              [disabled] = "true"
+              (nbpClick) = "prova($event)"
+            ></lbry-button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            BUTTON 
+          </div>
+          <div class="row">
+            <lbry-button
+              [style]="styleButton.second"
+              [title] = "'annulla'"
+              (nbpClick) = "prova($event)"
+            ></lbry-button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            BUTTON CON ICONA
+          </div>
+          <div class="row">
+            <lbry-button
+              [icon] = "'bi bi-search'"
+              [style]="styleButton.first"
+              [title] = "'ricerca'"
+              [disabled] = "false"
+              (nbpClick) = "prova($event)"
+            ></lbry-button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            BUTTON SELECT
+          </div>
+          <div class="row">
+            <lbry-button
+              [style]="styleButton.third"
+              [title] = "'ricerca'"
+              [disabled] = "false"
+              (nbpClick) = "prova($event)"
+            ></lbry-button>
+          </div>
+        </div>
     </div>
   </div>
-  <div class="row" style="margin-top: 20px;">
-    <app-tooltip
-      [message]="'messaggio'"
-      [messageTool]="'errore'"
-    ></app-tooltip>
+
+  <div *ngIf = "comp == 'input'">
+    <div class="row">
+      <div class="col-md-3">INPUT</div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <lbry-input
+          [id]="'Nome'"
+          [value]="'Nome'"
+          [label]="'Nome'"
+          [pattern]="'mail'"
+          [placeholder] = "'Inserisci nome'"
+          [disabled]="false"
+          [(sharedVar)]="modelNome"
+          [required]="false"
+        ></lbry-input>
+      </div>
+    </div>
   </div>
+
+  <div *ngIf = "comp == 'dropdown'">
+    <div class="row">
+      <div class="col-md-3">DROPDOWN</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <lbry-dropdown
+          *ngIf="array"
+          [label]="'Stato occupazionale'"
+          [disabled]="false"
+          [required]="false"
+          [placeholder]="'Scegli stato occupazionale'"
+          [value]="'Stato occupazionale'"
+          [array]="country"
+          [idArray]="'alpha3Code'"
+          [valueArray]="'name'"
+          [(sharedVar)]="occupationalState"
+          (sharedVarChange)="prova($event)"
+        ></lbry-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf = "comp == 'table'">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">TABLE</div>
+      </div>
+      <div class="row">
+        <app-table 
+          [arrayTable]="array2"
+          [idTable]="'myTable'"
+          (nbpClick)="prova($event)"
+          [headerTemplate]="customTabButtons"
+          #myTable>
+          <app-col
+            [id]="'autore'"
+            [title]="'autore'"
+            [field]= "'autore'"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [id]="'titolo'"
+            [title]="'titolo'"
+            [field]= "'titolo'"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [id]="'anno'"
+            [title]="'anno'"
+            [field]= "'anno'"
+            [sort]="true"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [id]="'editore'"
+            [title]="'editore'"
+            [field]= "'editore'"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [id]="'status'"
+            [title]="'status'"
+            [field]= "'status'"
+            (getItem) = "myTable.getItem($event)"
+          >
+          <ng-template let-data>
+            <span [ngClass]="{ 'status': true, 'text-success': data === 'disponibile', 
+                  'text-warning': data ==='solo lettura', 'text-danger': data === 'non disponbile'}">
+                  {{data.toUpperCase()}}
+            </span>
+          </ng-template>
+          </app-col>
+          <app-col
+            [id]="'catalogazione'"
+            [title]="'catalogazione'"
+            [field]= "'catalogazione'"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [id]="'azioni'"
+            [title]="'azioni'"
+            (getItem) = "myTable.getItem($event)"
+          >
+          <ng-template let-data="data">
+            <lbry-button
+              [style]="'first'"
+              [title] = "'ricerca'"
+              [disabled] = "false"
+              (nbpClick) = "prova(data)">
+            </lbry-button>
+          </ng-template>
+          </app-col> 
+        </app-table>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row"  *ngIf="false">
+    <app-table 
+      *ngIf="country"
+      [arrayTable]="country"
+      [idTable]="'myTable'"
+      [numberItems]="8"
+      #myTable>
+      <app-col
+        [id]="'name'"
+        [title]="'name'"
+        [field]= "'name'"
+        [sort]="true"
+        (getItem) = "myTable.getItem($event)"
+      ></app-col>
+      <app-col
+        [id]="'area'"
+        [title]="'area'"
+        [field]= "'area'"
+        [sort]="true"
+        (getItem) = "myTable.getItem($event)"
+      >
+      <ng-template let-data>
+        <span>{{data ? data.toLocaleString() : data}}</span>
+      </ng-template>
+      </app-col>
+      <app-col
+        [id]="'population'"
+        [title]="'population'"
+        [field]= "'population'"
+        [sort]="true"
+        (getItem) = "myTable.getItem($event)"
+      >
+      <ng-template let-data>
+        <span>{{data.toLocaleString()}}</span>
+      </ng-template>
+      </app-col>
+      <app-col
+        [id]="'capital'"
+        [title]="'capital'"
+        [field]= "'capital'"
+        (getItem) = "myTable.getItem($event)"
+      ></app-col>
+      <app-col
+        [id]="'currencies'"
+        [title]="'currencies'"
+        [field]= "'currencies'"
+        (getItem) = "myTable.getItem($event)"
+      ></app-col>
+      <app-col
+        [title]="'languages'"
+        [field]= "'languages'"
+        (getItem) = "myTable.getItem($event)"
+      ></app-col>
+      <app-col
+        [id]="'region'"
+        [title]="'region'"
+        [field]= "'region'"
+        (getItem) = "myTable.getItem($event)"
+      >
+    </app-col>
+    <app-col
+        [id]="'flag'"
+        [title]="'flag'"
+        [field]="'flag'"
+        (getItem) = "myTable.getItem($event)"
+      >
+      <ng-template let-data>
+        <img  src="{{data}}" alt="HTML5 Icon" style="width:50px;height:50px;">
+      </ng-template>
+      </app-col>
+
+    </app-table>
+  </div>
+
+  <div *ngIf = "comp == 'filter'">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">FILTER</div>
+      </div>
+      <div class="row">
+        <lbry-filter
+          *ngIf="country"
+          [arrayFilter]="country"
+          (getArrayFilters)="getArrayFilters($event)"
+          #myFilter
+        >
+        <lbry-filter-col
+          [id]="'nazione'"
+          [title]="'nazione'"
+          [type]="'input'"
+          [field]="'name'"
+          [col]="2"
+          (getItem)="myFilter.getItem($event)"
+        ></lbry-filter-col>
+        <lbry-filter-col
+          [id]="'region'"
+          [title]="'regione'"
+          [type]="'dropdown'"
+          [field]="'region'"
+          [col]="2"
+          (getItem)="myFilter.getItem($event)"
+        ></lbry-filter-col>
+        </lbry-filter>
+      </div>
+      <div class="row">
+        <app-table 
+          *ngIf="arrayFilterNew"
+          [arrayTable]="arrayFilterNew"
+          [idTable]="'myTable'"
+          #myTable>
+          <app-col
+            [id]="'name'"
+            [title]="'name'"
+            [field]= "'name'"
+            [sort]="true"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [id]="'area'"
+            [title]="'area'"
+            [field]= "'area'"
+            [sort]="true"
+            (getItem) = "myTable.getItem($event)"
+          >
+          <ng-template let-data>
+            <span>{{data ? data.toLocaleString() : data}}</span>
+          </ng-template>
+          </app-col>
+          <app-col
+            [id]="'population'"
+            [title]="'population'"
+            [field]= "'population'"
+            [sort]="true"
+            (getItem) = "myTable.getItem($event)"
+          >
+          <ng-template let-data>
+            <span>{{data.toLocaleString()}}</span>
+          </ng-template>
+          </app-col>
+          <app-col
+            [id]="'capital'"
+            [title]="'capital'"
+            [field]= "'capital'"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [id]="'currencies'"
+            [title]="'currencies'"
+            [field]= "'currencies'"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [title]="'languages'"
+            [field]= "'languages'"
+            (getItem) = "myTable.getItem($event)"
+          ></app-col>
+          <app-col
+            [id]="'region'"
+            [title]="'region'"
+            [field]= "'region'"
+            (getItem) = "myTable.getItem($event)"
+          >
+        </app-col>
+        <app-col
+            [id]="'flag'"
+            [title]="'flag'"
+            [field]="'flag'"
+            (getItem) = "myTable.getItem($event)"
+          >
+          <ng-template let-data>
+            <img  src="{{data}}" alt="HTML5 Icon" style="width:50px;height:50px;">
+          </ng-template>
+          </app-col>
+    
+        </app-table>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf = "comp == 'modal'">
+    <ngbd-modal-basic></ngbd-modal-basic>
+  </div>
+
 </div>
-
-
-
-
-
-
-
-

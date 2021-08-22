@@ -9,6 +9,9 @@ import { LbryDropdownComponent } from '../components/dropdown/lbryDropdown.compo
 import { LbryTooltipComponent } from 'src/components/tooltip/LbryTooltip.component';
 import { TableComponent } from 'src/components/table/table.component';
 import { ColComponent } from 'src/components/col/col.component';
+import { LbryAccordionComponent } from 'src/components/accordion/lbryAccordion.component';
+import { LbryFilterComponent } from 'src/components/filter/lbryFilter.component';
+import { LbryFilterColComponent } from 'src/components/filterCol/lbryFilterCol.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,7 +21,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  declarations: []
 })
 export class AppRoutingModule { }
 export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent]
@@ -27,4 +31,7 @@ export const components = [LbryButtonComponent,
                           LbryDropdownComponent, 
                           LbryTooltipComponent, 
                           TableComponent,
-                          ColComponent]
+                          ColComponent,
+                          LbryAccordionComponent,
+                          LbryFilterComponent,
+                          LbryFilterColComponent]

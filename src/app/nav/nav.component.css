@@ -1,6 +1,7 @@
 .header_first {
     position: relative;
     min-height: 40px;
+    text-transform: uppercase;
 }
 
 .header_second {
@@ -8,6 +9,7 @@
     min-height: 93px;
     margin-bottom: 20px;
     background-color: #2d2d2d;
+    text-transform: uppercase;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {

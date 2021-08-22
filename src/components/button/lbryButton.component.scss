@@ -51,6 +51,29 @@
   
 }
 
+.btn_third {
+  padding: 9px 20px;
+  background: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  background-color: #ffffff;
+  font-family: 'Roboto',sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #db2e25;
+  width: max-content;
+  border: 1px solid #db2e25;
+  border-radius: 25px;
+  cursor:pointer;
+}
+
+.btn_third:hover {
+	// background-color:#414141;
+  border: 1px solid #414141;
+  color: #414141;
+  
+}
+
 .icona {
   margin-left: 10px;
 }

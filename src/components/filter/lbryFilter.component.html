@@ -1,0 +1,46 @@
+<lbry-accordion
+  [isCollapsed] = "true"
+>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let data of dataFilter; index as i">
+      <div class="col-xs-{{data.col}}">
+        <div *ngIf="data.type === 'input'; else dropdown">
+          <lbry-input
+            [id]="data.id"
+            [value]="data.title"
+            [label]="data.title"
+            [placeholder] = "null"
+            [(sharedVar)]="data.ngModel"
+            (sharedVarChange)="changeNgModel($event, 'input')"
+          ></lbry-input>
+        </div>
+        <ng-template #dropdown>
+          <lbry-dropdown
+            [label]="data.title"
+            [placeholder]="null"
+            [value]="data.title"
+            [array]="data.array"
+            [idArray]="data.id"
+            [valueArray]="data.field"
+            [(sharedVar)]="data.ngModel"
+            (sharedVarChange)="changeNgModel($event, 'dropdown')"
+          >
+          </lbry-dropdown>
+        </ng-template>
+      </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10"></div>
+    <div class="col-xs-2">
+      <lbry-button
+        [style]="styleButton.first"
+        [title] = "'ricerca'"
+        [disabled] = "abilita()"
+        (nbpClick) = "ricerca()"
+      ></lbry-button>
+    </div>
+  </div>
+</div>
+</lbry-accordion>
