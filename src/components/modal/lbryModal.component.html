@@ -1,0 +1,37 @@
+    <!-- The Modal -->
+      <div id="prova" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" [ngStyle]= "{'width': size === 'large' ? '80%' : (size === 'medium' ? '50%' : '30%')}">
+          <span>
+            <div class="row" style="position: relative; height: 30px;">
+              <div class="col-12" style="text-align: center;">
+                {{title}}
+              </div>
+              <div class="col-12" style="text-align: right; position: absolute;">
+                <span class="close bi bi-x-lg" (click) = onclick()></span>
+              </div>
+            </div>
+          </span> 
+          <ng-content></ng-content>
+          <span>
+            <div class="row">
+              <div class="col-6">
+                <lbry-button
+                [style]="styleButton.second"
+                [title] = "'annulla'"
+                (nbpClick) = "prova($event)"
+              ></lbry-button>
+              </div>
+              <div class="col-6 button-right">
+                <div style="flex-flow: row-reverse;">
+                  <lbry-button
+                    [title] = "'ricerca'"
+                    [disabled] = "false"
+                    (nbpClick) = "prova($event)"
+                  ></lbry-button>
+                </div>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>

@@ -1,4 +1,5 @@
 import { styleButton } from './../../components/button/LbryButton.enum';
+import { sizeModal } from './../../components/modal/lbryModal.enum';
 import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 
 import {ajax} from 'rxjs/ajax';
@@ -12,6 +13,7 @@ export class ParentComponentComponent implements OnInit {
 
   modelNome: string;
   styleButton = styleButton;
+  sizeModal = sizeModal;
 
   array = [{'id': 'dog', 'value': 'dog'}, 
       {'id': 'cat', 'value': 'cat'},  
@@ -35,6 +37,7 @@ export class ParentComponentComponent implements OnInit {
   arrayFilterNew: any;
   flag: any;
   comp: string;
+  openModal: boolean;
   
   constructor(
     private cdref: ChangeDetectorRef
@@ -94,6 +97,10 @@ export class ParentComponentComponent implements OnInit {
 
   selectComp(comp: string) {
     this.comp = comp;
+  }
+
+  onclickModal(){
+    this.openModal = true;
   }
 
 }

@@ -12,6 +12,7 @@ import { ColComponent } from 'src/components/col/col.component';
 import { LbryAccordionComponent } from 'src/components/accordion/lbryAccordion.component';
 import { LbryFilterComponent } from 'src/components/filter/lbryFilter.component';
 import { LbryFilterColComponent } from 'src/components/filterCol/lbryFilterCol.component';
+import { LbryModalComponent } from 'src/components/modal/lbryModal.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -34,4 +35,5 @@ export const components = [LbryButtonComponent,
                           ColComponent,
                           LbryAccordionComponent,
                           LbryFilterComponent,
-                          LbryFilterColComponent]
+                          LbryFilterColComponent,
+                          LbryModalComponent]

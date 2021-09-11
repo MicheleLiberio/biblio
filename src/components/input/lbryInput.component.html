@@ -5,11 +5,13 @@
 </div>
 <div class="row">
   <div class="col-md-10">
-    <input #idForm="ngModel" type="email" class="form-control inp" [disabled]="disabled" placeholder="{{placeholder}}"
+    <div class="intrn">
+      <input #idForm="ngModel" type="email" class="form-control inp" [disabled]="disabled" placeholder="{{placeholder}}"
       [required]="required" [(ngModel)]="sharedVar" (ngModelChange)="change($event)">
-    <span *ngIf="sharedVar" class="cancel" (click)="cancel(idForm)">
-      <i class="bi bi-x-lg"></i>
-    </span>
+      <span *ngIf="sharedVar" class="cancel" (click)="cancel(idForm)">
+        <i class="bi bi-x-lg"></i>
+      </span>
+    </div>
   </div>
   <span *ngIf="required">
     <span [ngClass]="{'icon_invalid': idForm.invalid, 'icon_valid' : idForm.valid}">

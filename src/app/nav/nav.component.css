@@ -19,16 +19,18 @@
 
 .navbar-nav {
     padding-top: 23px !important;
+    flex-direction: row;
 }
 
 .navbar-nav>li>a {
     padding-top: 15px;
-    padding-bottom: 32px !important;
+    padding-bottom: 48px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     font-family: 'Roboto',sans-serif;
     font-size: 14px;
     color: white;
+    text-decoration: none;
 }
 
 .navbar-nav>li>a:hover  {
