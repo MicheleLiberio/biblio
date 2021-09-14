@@ -13,6 +13,7 @@ import { LbryAccordionComponent } from 'src/components/accordion/lbryAccordion.c
 import { LbryFilterComponent } from 'src/components/filter/lbryFilter.component';
 import { LbryFilterColComponent } from 'src/components/filterCol/lbryFilterCol.component';
 import { LbryModalComponent } from 'src/components/modal/lbryModal.component';
+import { LbryLoaderComponent } from 'src/components/loader/lbryLoader.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -36,4 +37,5 @@ export const components = [LbryButtonComponent,
                           LbryAccordionComponent,
                           LbryFilterComponent,
                           LbryFilterColComponent,
-                          LbryModalComponent]
+                          LbryModalComponent,
+                          LbryLoaderComponent]

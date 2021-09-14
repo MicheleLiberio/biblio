@@ -8,6 +8,7 @@ import { Component, Input, OnInit, ContentChild, TemplateRef } from '@angular/co
 export class LbryAccordionComponent implements OnInit {
 
   @Input() isCollapsed: boolean;
+  @Input() title: string;
   @ContentChild(TemplateRef, {static: true}) template: TemplateRef<any>;
 
 

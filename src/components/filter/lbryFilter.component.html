@@ -2,9 +2,9 @@
   [isCollapsed] = "true"
 >
 <div class="container">
-  <div class="row">
-    <div *ngFor="let data of dataFilter; index as i">
-      <div class="col-xs-{{data.col}}">
+  <div class="row mb-3">
+    <ng-container *ngFor="let data of dataFilter; index as i">
+      <div class="col-{{data.col}}">
         <div *ngIf="data.type === 'input'; else dropdown">
           <lbry-input
             [id]="data.id"
@@ -29,7 +29,7 @@
           </lbry-dropdown>
         </ng-template>
       </div>
-      </div>
+    </ng-container>
   </div>
   <div class="row">
     <div class="col-xs-10"></div>

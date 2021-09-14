@@ -1,41 +1,43 @@
 <div class="container">
-  <table class="table" id={{idTable}}>
-    <tr class="text-center head">
-      <th *ngFor="let data of dataTable; index as i">
-        <span id = {{data.id}}>
-          {{data.title}}
-          <span *ngIf="data.sort" (click)="sortTable($event, 'asc')" class="bi bi-sort-down-alt" id = {{data.id}}></span>
-          <span *ngIf="data.sort" (click)="sortTable($event, 'desc')" class="bi bi-sort-down" id = {{data.id}}></span>
+  <div class="row">
+    <table class="table" id={{idTable}}>
+      <tr class="text-center head">
+        <th *ngFor="let data of dataTable; index as i">
+          <span id = {{data.id}}>
+            {{data.title}}
+            <span *ngIf="data.sort" (click)="sortTable($event, 'asc')" class="bi bi-sort-down-alt" id = {{data.id}}></span>
+            <span *ngIf="data.sort" (click)="sortTable($event, 'desc')" class="bi bi-sort-down" id = {{data.id}}></span>
+          </span>
+        </th>
+      </tr>
+      <tr *ngFor="let value of array">
+        <td *ngFor="let date of dataTable" class="value">
+          <span *ngIf="!date.template; else template">
+            {{value[date.field]}}
+          </span>
+          <ng-template #template>
+            <ng-container [ngTemplateOutlet]="date.template"
+            [ngTemplateOutletContext]="{$implicit: value[date.field], data: value}">
+            </ng-container>
+          </ng-template>
+        </td>
+      </tr>
+    </table>
+    
+    <div class="row main-color text-center" *ngIf="showPagination">
+      <span>
+        <span><i class="bi bi-chevron-double-left arrow" (click)="clickFirstPage()"></i></span>
+        <span><i class="bi bi-chevron-left arrow" (click)="clickNumberGroupPageBack()" *ngIf="indexPagShow !==1"></i></span>
+        <span><i class="bi bi-three-dots" *ngIf="indexPagShow !==1"></i></span>
+        <span *ngFor="let index of numPaginationsShow" class="ind" [ngClass] = "index === indexChosen ? 'main-color' : 'black-color'"
+        (click)="clickNumberPag(index)">
+          {{index}}
         </span>
-      </th>
-    </tr>
-    <tr *ngFor="let value of array">
-      <td *ngFor="let date of dataTable" class="value">
-        <span *ngIf="!date.template; else template">
-          {{value[date.field]}}
-        </span>
-        <ng-template #template>
-          <ng-container [ngTemplateOutlet]="date.template"
-          [ngTemplateOutletContext]="{$implicit: value[date.field], data: value}">
-          </ng-container>
-        </ng-template>
-      </td>
-    </tr>
-  </table>
-  
-  <div class="row main-color text-center" *ngIf="showPagination">
-    <span>
-      <span><i class="bi bi-chevron-double-left arrow" (click)="clickFirstPage()"></i></span>
-      <span><i class="bi bi-chevron-left arrow" (click)="clickNumberGroupPageBack()" *ngIf="indexPagShow !==1"></i></span>
-      <span><i class="bi bi-three-dots" *ngIf="indexPagShow !==1"></i></span>
-      <span *ngFor="let index of numPaginationsShow" class="ind" [ngClass] = "index === indexChosen ? 'main-color' : 'black-color'"
-      (click)="clickNumberPag(index)">
-        {{index}}
+        <span><i class="bi bi-three-dots" *ngIf="indexPagShow !== numPagShow"></i></span>
+        <span><i class="bi bi-chevron-right arrow" (click)="clickNumberGroupPageNext()" *ngIf="indexPagShow !== numPagShow"></i></span>
+        <span><i class="bi bi-chevron-double-right arrow" (click)="clickLastPage()"></i></span>
       </span>
-      <span><i class="bi bi-three-dots" *ngIf="indexPagShow !== numPagShow"></i></span>
-      <span><i class="bi bi-chevron-right arrow" (click)="clickNumberGroupPageNext()" *ngIf="indexPagShow !== numPagShow"></i></span>
-      <span><i class="bi bi-chevron-double-right arrow" (click)="clickLastPage()"></i></span>
-    </span>
+    </div>
   </div>
 </div>
 

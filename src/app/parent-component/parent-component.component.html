@@ -1,8 +1,8 @@
-<div class="col-md-12">
+<div class="col-12">
 
   <div class="row text-center">VARIOUS COMPONENTS</div>
   <div class="row components">
-    <div class="col-md-2">
+    <div class="col-2 my-2">
       <div class="row">
         <lbry-button
           [style]="styleButton.third"
@@ -12,7 +12,7 @@
         ></lbry-button>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-2 my-2">
       <div class="row">
         <lbry-button
           [style]="styleButton.third"
@@ -22,7 +22,7 @@
         ></lbry-button>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-2 my-2">
       <div class="row">
         <lbry-button
           [style]="styleButton.third"
@@ -32,7 +32,17 @@
         ></lbry-button>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-2 my-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'accordion'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('accordion')"
+        ></lbry-button>
+      </div>
+    </div>
+    <div class="col-2 my-2">
       <div class="row">
         <lbry-button
           [style]="styleButton.third"
@@ -42,7 +52,7 @@
         ></lbry-button>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-2 my-2">
       <div class="row">
         <lbry-button
           [style]="styleButton.third"
@@ -52,7 +62,7 @@
         ></lbry-button>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-2 my-2">
       <div class="row">
         <lbry-button
           [style]="styleButton.third"
@@ -62,12 +72,22 @@
         ></lbry-button>
       </div>
     </div>
+    <div class="col-2 my-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'loader'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('loader')"
+        ></lbry-button>
+      </div>
+    </div>
   </div>
 
   <div *ngIf = "comp == 'button'">
     <div class="row">BUTTON</div>
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-2">
           <div class="row">
           BUTTON ABILITATO
           </div>
@@ -80,7 +100,7 @@
             ></lbry-button>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-2">
           <div class="row">
             BUTTON DISABILITATO
           </div>
@@ -92,7 +112,7 @@
             ></lbry-button>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-2">
           <div class="row">
             BUTTON 
           </div>
@@ -104,7 +124,7 @@
             ></lbry-button>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-2">
           <div class="row">
             BUTTON CON ICONA
           </div>
@@ -118,7 +138,7 @@
             ></lbry-button>
           </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-2">
           <div class="row">
             BUTTON SELECT
           </div>
@@ -136,10 +156,10 @@
 
   <div *ngIf = "comp == 'input'">
     <div class="row">
-      <div class="col-md-3">INPUT</div>
+      <div class="col-3">INPUT</div>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-3">
         <lbry-input
           [id]="'Nome'"
           [value]="'Nome'"
@@ -156,10 +176,10 @@
 
   <div *ngIf = "comp == 'dropdown'">
     <div class="row">
-      <div class="col-md-3">DROPDOWN</div>
+      <div class="col-3">DROPDOWN</div>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-4">
         <lbry-dropdown
           *ngIf="array"
           [label]="'Stato occupazionale'"
@@ -177,10 +197,17 @@
     </div>
   </div>
 
+
+  <div *ngIf = "comp == 'accordion'">
+    <lbry-accordion
+      [title]="'ACCORDION'"
+    ></lbry-accordion>
+  </div>
+
   <div *ngIf = "comp == 'table'">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">TABLE</div>
+        <div class="col-3">TABLE</div>
       </div>
       <div class="row">
         <app-table 
@@ -330,7 +357,7 @@
   <div *ngIf = "comp == 'filter'">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">FILTER</div>
+        <div class="col-3">FILTER</div>
       </div>
       <div class="row">
         <lbry-filter
@@ -434,10 +461,10 @@
 
   <div *ngIf = "comp == 'modal'">
     <lbry-button
-                    [title] = "'Open Modal'"
-                    [disabled] = "false"
-                    (nbpClick) = "onclickModal()"
-                  ></lbry-button>
+      [title] = "'Open Modal'"
+      [disabled] = "false"
+      (nbpClick) = "onclickModal()"
+    ></lbry-button>
     <lbry-modal
       [idModal] = "'prova'"
       [title] = "'TITOLO'"
@@ -450,6 +477,17 @@
     Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. 
     While using W3Schools, you agree to have read and accepted our terms of use, cookie and privacy policy.
   </lbry-modal>
+  </div>
+
+  <div *ngIf = "comp == 'loader'">
+    <lbry-button
+        [title] = "'Open Loader'"
+        [disabled] = "false"
+        (nbpClick) = "onClickLoader()"
+    ></lbry-button>
+    <lbry-loader
+      *ngIf = "openLoader"
+    ></lbry-loader>
   </div>
 
 </div>

@@ -38,6 +38,7 @@ export class ParentComponentComponent implements OnInit {
   flag: any;
   comp: string;
   openModal: boolean;
+  openLoader: boolean;
   
   constructor(
     private cdref: ChangeDetectorRef
@@ -101,6 +102,10 @@ export class ParentComponentComponent implements OnInit {
 
   onclickModal(){
     this.openModal = true;
+  }
+
+  onClickLoader() {
+    this.openLoader = true;
   }
 
 }
