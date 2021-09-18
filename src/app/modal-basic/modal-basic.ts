@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ContentChild, Input, TemplateRef, SimpleChanges, ViewChildren, QueryList} from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
