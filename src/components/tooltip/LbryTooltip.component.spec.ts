@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { TooltipComponent } from './LbryTooltip.component';
+import { LbryTooltipComponent } from './lbryTooltip.component';
 
 describe('TooltipComponent', () => {
-  let component: TooltipComponent;
-  let fixture: ComponentFixture<TooltipComponent>;
+  let component: LbryTooltipComponent;
+  let fixture: ComponentFixture<LbryTooltipComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TooltipComponent ]
+      declarations: [ LbryTooltipComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TooltipComponent);
+    fixture = TestBed.createComponent(LbryTooltipComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lbry-tooltip',
-  templateUrl: './LbryTooltip.component.html',
-  styleUrls: ['./LbryTooltip.component.scss']
+  templateUrl: './lbryTooltip.component.html',
+  styleUrls: ['./lbryTooltip.component.scss']
 })
 export class LbryTooltipComponent implements OnInit {
 

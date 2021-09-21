@@ -49,11 +49,4 @@ export class LbryModalComponent implements OnInit {
     this.openModalStatus.emit(this.openModal);
   }
   
-  // When the user clicks anywhere outside of the modal, close it
-  // window.onclick = function(event) {
-  //   if (event.target == modal) {
-  //     modal.style.display = "none";
-  //   }
-  // }
-  
 }

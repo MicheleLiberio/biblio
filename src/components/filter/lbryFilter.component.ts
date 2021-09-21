@@ -101,7 +101,6 @@ export class LbryFilterComponent implements OnInit {
         }
         break;
     }
-    // console.log('vsfvsdvsdvsdv')
   }
 
 }

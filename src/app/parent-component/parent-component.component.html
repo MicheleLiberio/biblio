@@ -210,7 +210,7 @@
         <div class="col-3">TABLE</div>
       </div>
       <div class="row">
-        <app-table 
+        <lbry-table 
           [arrayTable]="array2"
           [idTable]="'myTable'"
           (nbpClick)="prova($event)"
@@ -274,14 +274,14 @@
             </lbry-button>
           </ng-template>
           </app-col> 
-        </app-table>
+        </lbry-table>
       </div>
     </div>
   </div>
 
 
   <div class="row"  *ngIf="false">
-    <app-table 
+    <lbry-table 
       *ngIf="country"
       [arrayTable]="country"
       [idTable]="'myTable'"
@@ -351,7 +351,7 @@
       </ng-template>
       </app-col>
 
-    </app-table>
+    </lbry-table>
   </div>
 
   <div *ngIf = "comp == 'filter'">
@@ -385,7 +385,7 @@
         </lbry-filter>
       </div>
       <div class="row">
-        <app-table 
+        <lbry-table 
           *ngIf="arrayFilterNew"
           [arrayTable]="arrayFilterNew"
           [idTable]="'myTable'"
@@ -454,7 +454,7 @@
           </ng-template>
           </app-col>
     
-        </app-table>
+        </lbry-table>
       </div>
     </div>
   </div>

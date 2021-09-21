@@ -1,11 +1,11 @@
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, ContentChild, ChangeDetectorRef, SimpleChanges} from '@angular/core';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  selector: 'lbry-table',
+  templateUrl: './lbryTable.component.html',
+  styleUrls: ['./lbryTable.component.scss']
 })
-export class TableComponent implements OnInit {
+export class LbryTableComponent implements OnInit {
 
   @Input() arrayTable: any;
   @Input() idTable: string;
@@ -180,58 +180,6 @@ export class TableComponent implements OnInit {
             });
           }
       }
-      // for (i = 1; i < (this.rows.length - 1); i++) {
-      //   //start by saying there should be no switching:
-      //   shouldSwitch = false;
-      //   /*Get the two elements you want to compare,
-      //   one from current row and one from the next:*/
-      //   x = this.rows[i].getElementsByTagName("TD")[n].getElementsByTagName("span")[0];
-      //   y = this.rows[i + 1].getElementsByTagName("TD")[n].getElementsByTagName("span")[0];
-
-      //   value1 = x.innerHTML.toLowerCase();
-      //   value2 = y.innerHTML.toLowerCase();
-        
-      //   /*check if the two rows should switch place,
-      //   based on the direction, asc or desc:*/
-      //   if (dir == "asc") {
-      //     if (isNumber) {
-      //       if (Number(value1) > Number(value2)) {
-      //         //if so, mark as a switch and break the loop:
-      //         shouldSwitch= true;
-      //         break;
-      //       } 
-      //     } else if (value1 > value2) {
-      //         shouldSwitch = true;
-      //         break;
-      //       }
-      //   } else if (dir == "desc") {
-      //     if (isNumber) {
-      //       if (Number(value1) < Number(value2)) {
-      //         //if so, mark as a switch and break the loop:
-      //         shouldSwitch = true;
-      //         break;
-      //       }
-      //     } else if (value1 < value2) {
-      //       shouldSwitch = true;
-      //       break;
-      //     } 
-      //   }
-      // }
-      // if (shouldSwitch) {
-      //   /*If a switch has been marked, make the switch
-      //   and mark that a switch has been done:*/
-      //   this.rows[i].parentNode.insertBefore(this.rows[i + 1], this.rows[i]);
-      //   switching = true;
-      //   //Each time a switch is done, increase this count by 1:
-      //   switchcount ++;      
-      // } else {
-      //   /*If no switching has been done AND the direction is "asc",
-      //   set the direction to "desc" and run the while loop again.*/
-      //   if (switchcount == 0 && dir == "asc") {
-      //     dir = "desc";
-      //     switching = true;
-      //   }
-      // }
     }
   }
 

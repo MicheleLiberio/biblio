@@ -6,8 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { LbryButtonComponent } from '../components/button/lbryButton.component';
 import { LbryInputComponent } from '../components/input/lbryInput.component';
 import { LbryDropdownComponent } from '../components/dropdown/lbryDropdown.component';
-import { LbryTooltipComponent } from 'src/components/tooltip/LbryTooltip.component';
-import { TableComponent } from 'src/components/table/table.component';
+import { LbryTooltipComponent } from 'src/components/tooltip/lbryTooltip.component';
+import { LbryTableComponent } from 'src/components/table/lbryTable.component';
 import { ColComponent } from 'src/components/col/col.component';
 import { LbryAccordionComponent } from 'src/components/accordion/lbryAccordion.component';
 import { LbryFilterComponent } from 'src/components/filter/lbryFilter.component';
@@ -32,7 +32,7 @@ export const components = [LbryButtonComponent,
                           LbryInputComponent, 
                           LbryDropdownComponent, 
                           LbryTooltipComponent, 
-                          TableComponent,
+                          LbryTableComponent,
                           ColComponent,
                           LbryAccordionComponent,
                           LbryFilterComponent,

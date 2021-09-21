@@ -61,7 +61,6 @@ export class LbryDropdownComponent implements OnInit {
 
   change(newValue) {
     console.log('newvalue', newValue)
-    // this.sharedVar = newValue;
   }
   
   choose(val) {
