@@ -1,0 +1,33 @@
+<div class="row components">
+  <div class="col-2 my-2">
+    <div class="row">
+      <lbry-button
+        [style]="styleButton.third"
+        [title] = "'first page'"
+        [disabled] = "false"
+        (nbpClick) = "selectPage('first')"
+      ></lbry-button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="page === 'first'">
+  <div _ngcontent-fsw-c2="" class="justify-content-center">
+    <div class="text-center">
+      <span style="
+    top: 10px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+">Ricerca</span>
+    </div>
+</div>
+
+<div _ngcontent-fsw-c2="" class="row" style="
+    border: 1px solid red;
+    height: 90px;
+    position:  relative;
+    z-index: 0;
+    ">
+</div>
+</div>

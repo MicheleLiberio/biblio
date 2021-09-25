@@ -7,14 +7,16 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalBasiccc } from 'src/app/modal-basic/modal-basic';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
     NavComponent,
     routingComponents,
     components,
-    NgbdModalBasiccc
+    NgbdModalBasiccc,
+      PagesComponent
    ],
   imports: [
     BrowserModule,
