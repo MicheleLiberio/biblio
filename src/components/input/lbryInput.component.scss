@@ -1,42 +1,49 @@
-.intrn {
-    position: relative;
-    .inp {
-        height: 40px;
-        // width: 195px;
-        font-size: 15px;
-        border-radius: 0px;
+.sup {
+    display: contents;
+    .intrn {
+        position: relative;
+        .inp {
+            height: 40px;
+            // width: 195px;
+            font-size: 15px;
+            border-radius: 0px;
+            // position: absolute;
+        }
+        
+        input.form-control.inp {
+            outline-width: 0px;
+        }
+        
+        .form-control:focus {
+            border-color: #db2e25;
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(255 255 255);
+        }
+    
+        .cancel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #db2e25;
+            cursor: pointer;
+        }
+        
     }
     
-    input.form-control.inp {
-        outline-width: 0px;
-    }
     
-    .form-control:focus {
-        border-color: #db2e25;
-        outline: 0;
-        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(255 255 255);
-    }
-
-    .cancel {
-        position: absolute;
-        top: calc(45% - 0.5em);
-        right: 14px;
+    .icon_invalid {
+        font-size: 30px;
         color: #db2e25;
-        cursor: pointer;
     }
     
+    .icon_valid {
+        font-size: 30px;
+        color: green;
+    }
 }
 
 
-.icon_invalid {
-    font-size: 30px;
-    color: #db2e25;
-}
 
-.icon_valid {
-    font-size: 30px;
-    color: green;
-}
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
     background-color: rgba(239, 239, 239, 0.3);
