@@ -1,3 +1,4 @@
+import { PagesComponent } from './pages/pages.component';
 import { ParentComponentComponent } from './parent-component/parent-component.component';
 import { BorrowComponent } from './borrow/borrow.component';
 import { NgModule } from '@angular/core';
@@ -14,11 +15,13 @@ import { LbryFilterComponent } from 'src/components/filter/lbryFilter.component'
 import { LbryFilterColComponent } from 'src/components/filterCol/lbryFilterCol.component';
 import { LbryModalComponent } from 'src/components/modal/lbryModal.component';
 import { LbryLoaderComponent } from 'src/components/loader/lbryLoader.component';
+import { LbrySectionComponent } from 'src/components/section/lbrySection.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'borrow', component: BorrowComponent},
-  {path: 'parent', component: ParentComponentComponent}
+  {path: 'parent', component: ParentComponentComponent},
+  {path: 'pages', component: PagesComponent}
 ];
 
 @NgModule({
@@ -38,4 +41,5 @@ export const components = [LbryButtonComponent,
                           LbryFilterComponent,
                           LbryFilterColComponent,
                           LbryModalComponent,
-                          LbryLoaderComponent]
+                          LbryLoaderComponent,
+                          LbrySectionComponent]

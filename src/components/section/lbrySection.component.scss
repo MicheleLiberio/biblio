@@ -1,0 +1,13 @@
+.title {
+    top: 10px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
+
+.inside {
+    border: 1px solid red;
+    // height: 90px;
+    position:  relative;
+    z-index: 0;
+}

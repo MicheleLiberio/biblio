@@ -106,6 +106,10 @@ export class ParentComponentComponent implements OnInit {
 
   onClickLoader() {
     this.openLoader = true;
+    
+    setTimeout(() => {
+      this.openLoader = false;
+    }, 5000);
   }
 
 }

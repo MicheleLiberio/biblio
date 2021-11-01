@@ -14,10 +14,11 @@ export class LbryInputComponent implements OnInit {
   @Input() value: any
   @Input() label: string;
   @Input() placeholder: string;
-  @Input() pattern: string
+  @Input() type: any
   @Input() disabled: boolean;
   @Input() sharedVar: string;
   @Input() required: boolean;
+  @Input() pattern: string;
   @Output() sharedVarChange = new EventEmitter();
   tooltipInp: any;
   tooltipTitleInvalid: string;
@@ -37,6 +38,10 @@ export class LbryInputComponent implements OnInit {
   }
 
   cancel(f: NgForm) {
-    f.reset();
+    if (this.required) {
+      this.sharedVar = "";
+    } else {
+      f.reset();
+    }
   }
 }
