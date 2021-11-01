@@ -1,1 +1,15 @@
 <p>home works!</p>
+<div class="row">
+    <div class="col-3">
+      <lbry-input
+        [id]="'Mail'"
+        
+        [type]="mail"
+        [label]="'mail'"
+        [pattern]="'[0-9]{10}'"
+        [placeholder] = "'Inserisci mail'"
+        [disabled]="false"
+        [(sharedVar)]="modelNome"
+      ></lbry-input>
+    </div>
+</div>

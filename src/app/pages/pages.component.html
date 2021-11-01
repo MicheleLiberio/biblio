@@ -1,0 +1,111 @@
+<div class="row components">
+  <div class="col-2 my-2">
+    <div class="row">
+      <lbry-button
+        [style]="styleButton.third"
+        [title] = "'first page'"
+        [disabled] = "false"
+        (nbpClick) = "selectPage('first')"
+      ></lbry-button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="page === 'first'">
+  <lbry-section
+    [title]="'Ricerca libro'"
+  >
+  <div class="container">
+    <form novalidate #form="ngForm">
+      <div class="row">
+        <div class="col-4">
+          <div class="m-3">
+            <lbry-input
+              [id]="'Nome autore'"
+              [value]="'Nome autore'"
+              [label]="'Nome autore'"
+              [placeholder] = "'Inserisci nome'"
+              [disabled]="false"
+              [(sharedVar)]="model.nome"
+              [required]="false"
+            ></lbry-input>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="m-3">
+            <lbry-input
+            [id]="'Cognome'"
+            [value]="'Cognome'"
+            [label]="'Cognome Autore'"
+            [placeholder] = "'Inserisci cognome'"
+            [disabled]="false"
+            [(sharedVar)]="model.cognome"
+            [required]="false"
+          ></lbry-input>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="m-3">
+            <lbry-input
+            [id]="'Titolo'"
+            [value]="'Titolo'"
+            [label]="'Titolo'"
+            [placeholder] = "'Inserisci titolo libro'"
+            [disabled]="false"
+            [(sharedVar)]="model.libro"
+            [required]="false"
+          ></lbry-input>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="m-3">
+            <lbry-input
+            [id]="'Casa editrice'"
+            [value]="'Casa editrice'"
+            [label]="'Casa editrice'"
+            [placeholder] = "'Inserisci casa editrice'"
+            [disabled]="false"
+            [(sharedVar)]="model.casaEditrice"
+            [required]="false"
+          ></lbry-input>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="m-3">
+            <lbry-input
+            [id]="'Anno pubblicazione'"
+            [value]="'Anno pubblicazione'"
+            [label]="'Anno pubblicazione'"
+            [placeholder] = "'Inserisci anno pubblicazione'"
+            [disabled]="false"
+            [(sharedVar)]="model.annoPubblicazione"
+            [required]="false"
+          ></lbry-input>
+          </div>
+        </div>
+      </div>
+      <div class="row my-3">
+        <div class="col">
+          <lbry-button
+            [title] = "'Annulla'"
+            [style]="styleButton.second"
+            [disabled] = "false"
+          ></lbry-button>
+        </div>
+        <div class="col text-end">
+          <lbry-button
+            type="submit"
+            [title] = "'Ricerca'"
+            [disabled] = "!control()"
+          ></lbry-button>
+        </div>
+      </div>
+    </form>
+
+    <pre><code>{{ form.value | json }}</code></pre>
+
+    <pre><code>{{ model | json }}</code></pre>
+
+  </div>
+</lbry-section>
+</div>
