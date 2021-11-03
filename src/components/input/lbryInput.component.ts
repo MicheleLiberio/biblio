@@ -16,7 +16,7 @@ export class LbryInputComponent implements OnInit {
   @Input() placeholder: string;
   @Input() type: any
   @Input() disabled: boolean;
-  @Input() sharedVar: string;
+  @Input() ngModel: string;
   @Input() required: boolean;
   @Input() pattern: string;
   @Output() sharedVarChange = new EventEmitter();
@@ -39,7 +39,7 @@ export class LbryInputComponent implements OnInit {
 
   cancel(f: NgForm) {
     if (this.required) {
-      this.sharedVar = "";
+      this.ngModel = "";
     } else {
       f.reset();
     }

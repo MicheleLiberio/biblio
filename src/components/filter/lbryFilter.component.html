@@ -7,11 +7,11 @@
       <div class="col-{{data.col}}">
         <div *ngIf="data.type === 'input'; else dropdown">
           <lbry-input
+            ngDefaultControl
             [id]="data.id"
-            [value]="data.title"
             [label]="data.title"
             [placeholder] = "null"
-            [(sharedVar)]="data.ngModel"
+            [(ngModel)]="data.ngModel"
             (sharedVarChange)="changeNgModel($event, 'input')"
           ></lbry-input>
         </div>

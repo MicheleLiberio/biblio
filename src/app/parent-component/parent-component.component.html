@@ -171,13 +171,13 @@
     <div class="row">
       <div class="col-3">
         <lbry-input
+          ngDefaultControl
           [id]="'Nome'"
-          [value]="'Nome'"
           [label]="'Nome'"
           [pattern]="'mail'"
           [placeholder] = "'Inserisci nome'"
           [disabled]="false"
-          [(sharedVar)]="modelNome"
+          [(ngModel)]="modelNome"
           [required]="false"
         ></lbry-input>
       </div>
