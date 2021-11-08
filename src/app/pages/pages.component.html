@@ -16,17 +16,18 @@
     [title]="'Ricerca libro'"
   >
   <div class="container">
-    <form novalidate #form="ngForm">
+    <form novalidate #form="ngForm" (ngSubmit)="submitForm(form)">
       <div class="row">
         <div class="col-4">
           <div class="m-3">
             <lbry-input
+              ngDefaultControl  
               [id]="'Nome autore'"
-              [value]="'Nome autore'"
+              [name]="'Nome autore'"
               [label]="'Nome autore'"
               [placeholder] = "'Inserisci nome'"
               [disabled]="false"
-              [(sharedVar)]="model.nome"
+              [(ngModel)]="model.nome"
               [required]="false"
             ></lbry-input>
           </div>
@@ -34,12 +35,13 @@
         <div class="col-4">
           <div class="m-3">
             <lbry-input
+            ngDefaultControl
             [id]="'Cognome'"
-            [value]="'Cognome'"
+            [name]="'Cognome'"
             [label]="'Cognome Autore'"
             [placeholder] = "'Inserisci cognome'"
             [disabled]="false"
-            [(sharedVar)]="model.cognome"
+            [(ngModel)]="model.cognome"
             [required]="false"
           ></lbry-input>
           </div>
@@ -47,12 +49,13 @@
         <div class="col-4">
           <div class="m-3">
             <lbry-input
+            ngDefaultControl
             [id]="'Titolo'"
-            [value]="'Titolo'"
+            [name]="'Titolo'"
             [label]="'Titolo'"
             [placeholder] = "'Inserisci titolo libro'"
             [disabled]="false"
-            [(sharedVar)]="model.libro"
+            [(ngModel)]="model.libro"
             [required]="false"
           ></lbry-input>
           </div>
@@ -60,12 +63,13 @@
         <div class="col-4">
           <div class="m-3">
             <lbry-input
+            ngDefaultControl
             [id]="'Casa editrice'"
-            [value]="'Casa editrice'"
+            [name]="'Casa editrice'"
             [label]="'Casa editrice'"
             [placeholder] = "'Inserisci casa editrice'"
             [disabled]="false"
-            [(sharedVar)]="model.casaEditrice"
+            [(ngModel)]="model.casaEditrice"
             [required]="false"
           ></lbry-input>
           </div>
@@ -73,12 +77,13 @@
         <div class="col-4">
           <div class="m-3">
             <lbry-input
+            ngDefaultControl
             [id]="'Anno pubblicazione'"
-            [value]="'Anno pubblicazione'"
+            [name]="'Anno pubblicazione'"
             [label]="'Anno pubblicazione'"
             [placeholder] = "'Inserisci anno pubblicazione'"
             [disabled]="false"
-            [(sharedVar)]="model.annoPubblicazione"
+            [(ngModel)]="model.annoPubblicazione"
             [required]="false"
           ></lbry-input>
           </div>
@@ -115,9 +120,9 @@
   </div>
   <div class="col">
     <div>
-      <div style="color: #db2e25;font-size: 20px;">{{book.title}}</div>
+      <div style="color: #db2e25;font-size: 20px;font-weight: bold;">{{book.title}}</div>
       <div style="font-size: 15px;">
-        <span *ngFor="let author of book.authors" style="margin-right: 10px;">
+        <span *ngFor="let author of book.authors" style="margin-right: 10px;font-size: 18px;">
           {{author}}
         </span>
       </div>
@@ -128,10 +133,10 @@
     </div>
   </div>
   <div class="col-1" style="align-self: center;">
-    <div>Copie: {{book.copie}}</div>
+    <div>Copie: <span style="font-weight: bold;">{{book.copie}}</span></div>
   </div>
   <div style="width: 12.49%;align-self: center;">
-    <div>Disponibili: {{book.disponibili}}</div>
+    <div>Disponibili: <span style="font-weight: bold;" [ngStyle]="{'color: #db2e25': book.disponibili == 0}">{{book.disponibili}}</span></div>
   </div>
   <div class="col-2" style="align-self: center;">
     <lbry-button

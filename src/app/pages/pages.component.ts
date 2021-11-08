@@ -1,5 +1,6 @@
 import { styleButton } from './../../components/button/LbryButton.enum';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 // import  bookList2  from '../../files/bookList2.json'
 
 @Component({
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
+
+  @ViewChild('form', {static: true}) form: NgForm;
 
   styleButton = styleButton;
   page: string;
@@ -272,9 +275,13 @@ export class PagesComponent implements OnInit {
   }
 
   control() {
-    return Boolean((this.model.nome && this.model.cognome) || this.model.libro || this.model.casaEditrice ||
+    return Boolean(this.model.nome || this.model.cognome || this.model.libro || this.model.casaEditrice ||
     this.model.annoPubblicazione)
   }
+
+  submitForm(form: NgForm) {
+   console.log('Form submission');
+ }
 
   prova(event: any) {
     console.log(event);

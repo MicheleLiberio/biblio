@@ -2,14 +2,14 @@
 <div class="row">
     <div class="col-3">
       <lbry-input
+        ngDefaultControl
         [id]="'Mail'"
-        
         [type]="mail"
         [label]="'mail'"
         [pattern]="'[0-9]{10}'"
         [placeholder] = "'Inserisci mail'"
         [disabled]="false"
-        [(sharedVar)]="modelNome"
+        [(ngModel)]="modelNome"
       ></lbry-input>
     </div>
 </div>
