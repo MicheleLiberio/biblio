@@ -1,4 +1,4 @@
-<div class="row components">
+<!-- <div class="row components">
   <div class="col-2 my-2">
     <div class="row">
       <lbry-button
@@ -9,9 +9,9 @@
       ></lbry-button>
     </div>
   </div>
-</div>
+</div> -->
 
-<div *ngIf="page === 'first'">
+<!-- <div *ngIf="page === 'first'"> -->
   <lbry-section
     [title]="'Ricerca libro'"
   >
@@ -108,4 +108,37 @@
 
   </div>
 </lbry-section>
+<div *ngFor="let book of books" class="row" 
+  style="margin: 10px;/* height: 100px; */border-radius: 25px;box-shadow: 0px 0px 12px 0px #888888; padding: 10px;">
+  <div class="col-2 text-center" style="align-self: center;">
+    <img src="{{book.thumbnailUrl}}" width="100">
+  </div>
+  <div class="col">
+    <div>
+      <div style="color: #db2e25;font-size: 20px;">{{book.title}}</div>
+      <div style="font-size: 15px;">
+        <span *ngFor="let author of book.authors" style="margin-right: 10px;">
+          {{author}}
+        </span>
+      </div>
+      <div class="mt-1" style="font-size: 15px;">Manning Publications - {{book.date}}
+        <span style="padding-left: 10px;">{{book.pageCount}} pag</span>
+      </div>
+      <div class="mt-2" style="font-weight:100;font-size: 12px;margin-top: 5px">{{book.shortDescription}}</div>
+    </div>
+  </div>
+  <div class="col-1" style="align-self: center;">
+    <div>Copie: {{book.copie}}</div>
+  </div>
+  <div style="width: 12.49%;align-self: center;">
+    <div>Disponibili: {{book.disponibili}}</div>
+  </div>
+  <div class="col-2" style="align-self: center;">
+    <lbry-button
+      [style]="styleButton.first"
+      [title] = "'prenota'"
+      [disabled] = "book.disponibili == 0"
+      (nbpClick) = "prova(book)"
+    ></lbry-button>
+  </div>
 </div>
