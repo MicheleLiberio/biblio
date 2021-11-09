@@ -1,7 +1,7 @@
-<span id="btn" [ngClass]="{'btn_disabled': disabled === true, 
+<button id="btn" [ngClass]="{'btn_disabled': disabled === true, 
                 'btn_first': disabled === false && style === 'first',
                 'btn_second': style === 'second',
                 'btn_third': style === 'third'}" 
     (click)="click()">
     {{title}} <span ng-if="icon" [ngClass]="icon ? icon : ''" class="icona"></span>
-</span>
+</button>
