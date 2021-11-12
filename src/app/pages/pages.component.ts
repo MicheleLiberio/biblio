@@ -1,5 +1,6 @@
 import { styleButton } from './../../components/button/LbryButton.enum';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { sizeModal } from './../../components/modal/lbryModal.enum';
 import { NgForm } from '@angular/forms';
 // import  bookList2  from '../../files/bookList2.json'
 
@@ -21,6 +22,10 @@ export class PagesComponent implements OnInit {
     casaEditrice: '',
     annoPubblicazione: ''
   }
+
+  openModal: boolean;
+
+  sizeModal = sizeModal;
 
   books =  [
     {
@@ -285,5 +290,6 @@ export class PagesComponent implements OnInit {
 
   prova(event: any) {
     console.log(event);
+    this.openModal = true;
   }
 }
