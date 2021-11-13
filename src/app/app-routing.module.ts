@@ -7,15 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { LbryButtonComponent } from '../components/button/lbryButton.component';
 import { LbryInputComponent } from '../components/input/lbryInput.component';
 import { LbryDropdownComponent } from '../components/dropdown/lbryDropdown.component';
-import { LbryTooltipComponent } from 'src/components/tooltip/LbryTooltip.component';
-import { TableComponent } from 'src/components/table/table.component';
-import { ColComponent } from 'src/components/col/col.component';
-import { LbryAccordionComponent } from 'src/components/accordion/lbryAccordion.component';
-import { LbryFilterComponent } from 'src/components/filter/lbryFilter.component';
-import { LbryFilterColComponent } from 'src/components/filterCol/lbryFilterCol.component';
-import { LbryModalComponent } from 'src/components/modal/lbryModal.component';
-import { LbryLoaderComponent } from 'src/components/loader/lbryLoader.component';
-import { LbrySectionComponent } from 'src/components/section/lbrySection.component';
+import { LbryTooltipComponent } from '../components/tooltip/LbryTooltip.component';
+import { TableComponent } from '../components/table/table.component';
+import { ColComponent } from '../components/col/col.component';
+import { LbryAccordionComponent } from '../components/accordion/lbryAccordion.component';
+import { LbryFilterComponent } from '../components/filter/lbryFilter.component';
+import { LbryFilterColComponent } from '../components/filterCol/lbryFilterCol.component';
+import { LbryModalComponent } from '../components/modal/lbryModal.component';
+import { LbryLoaderComponent } from '../components/loader/lbryLoader.component';
+import { LbrySectionComponent } from '../components/section/lbrySection.component';
+import { LbryRadioComponent } from '../components/radio/lbryRadio.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -42,4 +43,5 @@ export const components = [LbryButtonComponent,
                           LbryFilterColComponent,
                           LbryModalComponent,
                           LbryLoaderComponent,
-                          LbrySectionComponent]
+                          LbrySectionComponent,
+                          LbryRadioComponent]
