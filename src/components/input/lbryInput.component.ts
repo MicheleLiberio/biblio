@@ -19,7 +19,7 @@ export class LbryInputComponent implements OnInit {
   @Input() ngModel: string;
   @Input() required: boolean;
   @Input() pattern: string;
-  @Output() sharedVarChange = new EventEmitter();
+  @Output() ngModelChange = new EventEmitter();
   tooltipInp: any;
   tooltipTitleInvalid: string;
   tooltipTitleValid: string;
@@ -34,14 +34,11 @@ export class LbryInputComponent implements OnInit {
   change(newValue) {
     // console.log('newvalue', newValue)
     // this.sharedVar = newValue;
-    this.sharedVarChange.emit(newValue);
+    this.ngModelChange.emit(newValue);
   }
 
   cancel(f: NgForm) {
-    if (this.required) {
-      this.ngModel = "";
-    } else {
-      f.reset();
-    }
+    this.ngModel = "";
+    this.change(this.ngModel)
   }
 }
