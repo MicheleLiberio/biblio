@@ -9,7 +9,7 @@
       <div class="intrn">
         <input #idForm="ngModel" [type]="type" [pattern]="pattern" class="form-control inp" [disabled]="disabled" placeholder="{{placeholder}}"
         [required]="required" [(ngModel)]="ngModel" (ngModelChange)="change($event)">
-        <span *ngIf="ngModel" class="cancel" (click)="cancel(idForm)">
+        <span *ngIf="ngModel" class="cancel" (click)="cancel()">
           <i class="bi bi-x-lg"></i>
         </span>
       </div>
@@ -44,5 +44,3 @@
     </ng-template>
   </div>
 </div>
-
-<pre><code>{{ idForm.value | json }}</code></pre>
