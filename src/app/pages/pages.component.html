@@ -1,4 +1,4 @@
-<!-- <div class="row components">
+<div class="row components">
   <div class="col-2 my-2">
     <div class="row">
       <lbry-button
@@ -9,9 +9,19 @@
       ></lbry-button>
     </div>
   </div>
-</div> -->
+  <div class="col-2 my-2">
+    <div class="row">
+      <lbry-button
+        [style]="styleButton.third"
+        [title] = "'second page'"
+        [disabled] = "false"
+        (nbpClick) = "selectPage('second')"
+      ></lbry-button>
+    </div>
+  </div>
+</div>
 
-<!-- <div *ngIf="page === 'first'"> -->
+<div *ngIf="page === 'first'">
   <lbry-section
     [title]="'Ricerca libro'"
   >
@@ -107,64 +117,274 @@
       </div>
     </form>
 
-    <pre><code>{{ form.value | json }}</code></pre>
+    <!-- <pre><code>{{ form.value | json }}</code></pre> -->
 
-    <pre><code>{{ model | json }}</code></pre>
+    <!-- <pre><code>{{ model | json }}</code></pre> -->
 
   </div>
-</lbry-section>
-<div *ngFor="let book of books" class="row" 
-  style="margin: 10px;/* height: 100px; */border-radius: 25px;box-shadow: 0px 0px 12px 0px #888888; padding: 10px;">
-  <div class="col-2 text-center" style="align-self: center;">
-    <img src="{{book.thumbnailUrl}}" width="100">
-  </div>
-  <div class="col">
-    <div>
-      <div style="color: #db2e25;font-size: 20px;font-weight: bold;">{{book.title}}</div>
-      <div style="font-size: 15px;">
-        <span *ngFor="let author of book.authors" style="margin-right: 10px;font-size: 18px;">
-          {{author}}
-        </span>
+  </lbry-section>
+  <div *ngFor="let book of books" class="row" 
+    style="margin: 10px;/* height: 100px; */border-radius: 25px;box-shadow: 0px 0px 12px 0px #888888; padding: 10px;">
+    <div class="col-2 text-center" style="align-self: center;">
+      <img src="{{book.thumbnailUrl}}" width="100">
+    </div>
+    <div class="col">
+      <div>
+        <div style="color: #db2e25;font-size: 20px;font-weight: bold;">{{book.title}}</div>
+        <div style="font-size: 15px;">
+          <span *ngFor="let author of book.authors" style="margin-right: 10px;font-size: 18px;">
+            {{author}}
+          </span>
+        </div>
+        <div class="mt-1" style="font-size: 15px;">Manning Publications - {{book.date}}
+          <span style="padding-left: 10px;">{{book.pageCount}} pag</span>
+        </div>
+        <div class="mt-2" style="font-weight:100;font-size: 12px;margin-top: 5px">{{book.shortDescription}}</div>
       </div>
-      <div class="mt-1" style="font-size: 15px;">Manning Publications - {{book.date}}
-        <span style="padding-left: 10px;">{{book.pageCount}} pag</span>
-      </div>
-      <div class="mt-2" style="font-weight:100;font-size: 12px;margin-top: 5px">{{book.shortDescription}}</div>
+    </div>
+    <div class="col-1" style="align-self: center;">
+      <div>Copie: <span style="font-weight: bold;">{{book.copie}}</span></div>
+    </div>
+    <div style="width: 12.49%;align-self: center;">
+      <div>Disponibili: <span style="font-weight: bold;" [ngStyle]="{'color: #db2e25': book.disponibili == 0}">{{book.disponibili}}</span></div>
+    </div>
+    <div class="col-2" style="align-self: center;">
+      <lbry-button
+        [style]="styleButton.first"
+        [title] = "'prenota'"
+        [disabled] = "book.disponibili == 0"
+        (nbpClick) = "prova(book)"
+      ></lbry-button>
     </div>
   </div>
-  <div class="col-1" style="align-self: center;">
-    <div>Copie: <span style="font-weight: bold;">{{book.copie}}</span></div>
-  </div>
-  <div style="width: 12.49%;align-self: center;">
-    <div>Disponibili: <span style="font-weight: bold;" [ngStyle]="{'color: #db2e25': book.disponibili == 0}">{{book.disponibili}}</span></div>
-  </div>
-  <div class="col-2" style="align-self: center;">
+<div class="row mt-5 mb-4">
+  <div class="col-6">
     <lbry-button
-      [style]="styleButton.first"
-      [title] = "'prenota'"
-      [disabled] = "book.disponibili == 0"
-      (nbpClick) = "prova(book)"
+        [style]="styleButton.first"
+        [title] = "'Annulla'"
+        [disabled] = "false"
+    ></lbry-button>
+  </div>
+  <div class="col-6" style="text-align: right;">
+    <lbry-button
+        [style]="styleButton.first"
+        [title] = "'Prosegui'"
+        [disabled] = "true"
     ></lbry-button>
   </div>
 </div>
-<lbry-modal
-  [idModal] = "'prova'"
-  [title] = "'TITOLO'"
-  [openModal] = "openModal"
-  [size]="sizeModal.SMALL"
-  (openModalStatus) = "openModal=$event"
->
-  aaaaaaaaa
-  <h1>Custom Radio Buttons</h1>
-<label class="container">One
-  <input type="radio" checked="checked" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Two
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label>Four
-  <input type="radio" name="radio">
-</label>
-</lbry-modal>
+  <lbry-modal
+    [idModal] = "'prova'"
+    [title] = "'Copie del libro'"
+    [openModal] = "openModal"
+    [size]="sizeModal.SMALL"
+    (openModalStatus) = "openModal=$event"
+  >
+    <lbry-radio
+      [label]="'23.2413'"
+      [id]="'23.2413'"
+      [value]="'23.2413'"
+      [disabled]="true"
+    ></lbry-radio>
+    <lbry-radio
+      [label]="'23.2414'"
+      [id]="'23.2414'"
+      [value]="'23.2414'"
+    ></lbry-radio>
+    <lbry-radio
+      [label]="'23.2415'"
+      [id]="'23.2415'"
+      [value]="'23.2415'"
+    ></lbry-radio>
+    <lbry-radio
+      [label]="'23.2416'"
+      [id]="'23.2416'"
+      [value]="'23.2416'"
+    ></lbry-radio>
+    <lbry-radio
+      [label]="'23.2417'"
+      [id]="'23.2417'"
+      [value]="'23.2417'"
+    ></lbry-radio>
+  </lbry-modal>
+</div>
+
+<div *ngIf="page === 'second'">
+  <lbry-section
+    [title]="'Dati libro'"
+  >
+    <div class="container">
+      <form novalidate #form="ngForm" (ngSubmit)="submitForm(form)">
+        <div class="row">
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+                ngDefaultControl  
+                [id]="'Nome autore'"
+                [name]="'Nome autore'"
+                [label]="'Nome autore'"
+                [placeholder] = "'Inserisci nome'"
+                [disabled]="false"
+                [(ngModel)]="model.nome"
+                [required]="false"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+              ngDefaultControl
+              [id]="'Cognome'"
+              [name]="'Cognome'"
+              [label]="'Cognome Autore'"
+              [placeholder] = "'Inserisci cognome'"
+              [disabled]="false"
+              [(ngModel)]="model.cognome"
+              [required]="false"
+            ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+              ngDefaultControl
+              [id]="'Titolo'"
+              [name]="'Titolo'"
+              [label]="'Titolo'"
+              [placeholder] = "'Inserisci titolo libro'"
+              [disabled]="false"
+              [(ngModel)]="model.libro"
+              [required]="false"
+            ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+              ngDefaultControl
+              [id]="'Casa editrice'"
+              [name]="'Casa editrice'"
+              [label]="'Casa editrice'"
+              [placeholder] = "'Inserisci casa editrice'"
+              [disabled]="false"
+              [(ngModel)]="model.casaEditrice"
+              [required]="false"
+            ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+              ngDefaultControl
+              [id]="'Anno pubblicazione'"
+              [name]="'Anno pubblicazione'"
+              [label]="'Anno pubblicazione'"
+              [placeholder] = "'Inserisci anno pubblicazione'"
+              [disabled]="false"
+              [(ngModel)]="model.annoPubblicazione"
+              [required]="false"
+            ></lbry-input>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </lbry-section>
+
+  <lbry-section
+  [title]="'Dati utente'"
+  >
+    <div class="container">
+      <form novalidate #form="ngForm" (ngSubmit)="submitForm(form)">
+        <div class="row">
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+                ngDefaultControl  
+                [id]="'Nome utente'"
+                [name]="'Nome utente'"
+                [label]="'Nome utente'"
+                [placeholder] = "'Inserisci nome'"
+                [disabled]="false"
+                [(ngModel)]="model.nome"
+                [required]="false"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+              ngDefaultControl
+              [id]="'Cognome utente'"
+              [name]="'Cognome utente'"
+              [label]="'Cognome utente'"
+              [placeholder] = "'Inserisci cognome utente'"
+              [disabled]="false"
+              [(ngModel)]="model.cognome"
+              [required]="false"
+            ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+              ngDefaultControl
+              [id]="'Titolo'"
+              [name]="'Titolo'"
+              [label]="'Titolo'"
+              [placeholder] = "'Inserisci titolo libro'"
+              [disabled]="false"
+              [(ngModel)]="model.libro"
+              [required]="false"
+            ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+              ngDefaultControl
+              [id]="'Casa editrice'"
+              [name]="'Casa editrice'"
+              [label]="'Casa editrice'"
+              [placeholder] = "'Inserisci casa editrice'"
+              [disabled]="false"
+              [(ngModel)]="model.casaEditrice"
+              [required]="false"
+            ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="m-3">
+              <lbry-input
+              ngDefaultControl
+              [id]="'Anno pubblicazione'"
+              [name]="'Anno pubblicazione'"
+              [label]="'Anno pubblicazione'"
+              [placeholder] = "'Inserisci anno pubblicazione'"
+              [disabled]="false"
+              [(ngModel)]="model.annoPubblicazione"
+              [required]="false"
+            ></lbry-input>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </lbry-section>
+  <div class="row mt-5 mb-4">
+    <div class="col-6">
+      <lbry-button
+          [style]="styleButton.first"
+          [title] = "'Annulla'"
+          [disabled] = "false"
+      ></lbry-button>
+    </div>
+    <div class="col-6" style="text-align: right;">
+      <lbry-button
+          [style]="styleButton.first"
+          [title] = "'Prosegui'"
+          [disabled] = "true"
+      ></lbry-button>
+    </div>
+  </div>
+</div>

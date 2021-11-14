@@ -1,0 +1,4 @@
+<label [ngClass]="{'disabled': disabled}" class="container">{{label}}
+  <input type="radio" [id]="id" name="radio" [value]="value" [checked] = "checked" [disabled]="disabled">
+  <span id="radio" [ngClass]="{'disabled': disabled}" class="checkmark"></span>
+</label>

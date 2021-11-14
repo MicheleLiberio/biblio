@@ -92,6 +92,16 @@
         ></lbry-button>
       </div>
     </div>
+    <div class="col-2 my-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
+          [title] = "'radio'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('radio')"
+        ></lbry-button>
+      </div>
+    </div>
   </div>
 
   <div *ngIf = "comp == 'button'">
@@ -506,4 +516,19 @@
    ></lbry-section>
   </div>
 
+  <div *ngIf = "comp == 'radio'">
+    <lbry-radio
+      [label]="'One'"
+      [id]="'one'"
+      [value]="'one'"
+      [checked]="false"
+      [disabled]="true"
+    ></lbry-radio>
+    <lbry-radio
+      [label]="'Two'"
+      [id]="'two'"
+      [value]="'two'"
+      [checked]="true"
+    ></lbry-radio>
+  </div>
 </div>
