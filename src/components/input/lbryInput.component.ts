@@ -26,8 +26,8 @@ export class LbryInputComponent implements OnInit {
 
   ngOnInit() {
     this.tooltipInp = false;
-    this.tooltipTitleInvalid = 'Il campo ' + this.value + ' non è valido.'
-    this.tooltipTitleValid = 'Il campo ' + this.value + ' è valido.'
+    this.tooltipTitleInvalid = 'Il campo ' + this.id + ' non è valido.'
+    this.tooltipTitleValid = 'Il campo ' + this.id + ' è valido.'
     setTimeout(()=> this.tooltipInp = true, 500)
   }
 
