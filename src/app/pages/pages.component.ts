@@ -16,8 +16,7 @@ export class PagesComponent implements OnInit {
   styleButton = styleButton;
   page: string;
   model = {
-    nome: '',
-    cognome: '',
+    autore: '',
     libro: '',
     casaEditrice: '',
     annoPubblicazione: ''
@@ -50,7 +49,8 @@ export class PagesComponent implements OnInit {
       ],
       "copie":4,
       "disponibili":0
-   },
+   }
+   ,
    {
       "title":"Android in Action, Second Edition",
       "isbn":"1935182722",
@@ -71,7 +71,8 @@ export class PagesComponent implements OnInit {
       ],
       "copie":5,
       "disponibili":0
-   },
+   }
+   ,
    {
       "title":"Specification by Example",
       "isbn":"1617290084",
@@ -269,7 +270,8 @@ export class PagesComponent implements OnInit {
         if (date){
           book["date"] = date.getFullYear();
         }
-      }
+      };
+      book["read"] = false;
     }
     )
       
@@ -280,8 +282,7 @@ export class PagesComponent implements OnInit {
   }
 
   control() {
-    return Boolean(this.model.nome || this.model.cognome || this.model.libro || this.model.casaEditrice ||
-    this.model.annoPubblicazione)
+    return Boolean(this.model.autore || this.model.libro || this.model.casaEditrice || this.model.annoPubblicazione)
   }
 
   submitForm(form: NgForm) {
@@ -291,5 +292,9 @@ export class PagesComponent implements OnInit {
   prova(event: any) {
     console.log(event);
     this.openModal = true;
+  }
+
+  readMore(event: any) {
+    event.read = !event.read;
   }
 }

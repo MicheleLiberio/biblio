@@ -23,7 +23,7 @@ export class LbryModalComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
+    // console.log(changes);
     if(this.openModal) {
       document.getElementById(this.idModal).style.display = "block";
     }
