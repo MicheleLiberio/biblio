@@ -1,0 +1,51 @@
+label {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.sup {
+    display: contents;
+    .intrn {
+        position: relative;
+        i.search{
+            position:  absolute;
+            top: 18%;
+            left: 90%;
+            font-size: 20px;
+            color:rgba(219, 46, 37, 1);
+        }
+        .inp {
+            height: 40px;
+            // width: 195px;
+            font-size: 15px;
+            border-radius: 0px;
+            // position: absolute;
+        }
+        
+        input.form-control.inp {
+            outline-width: 0px;
+            padding-left: 25px
+        }
+        
+        .form-control:focus {
+            border-color: rgba(219, 46, 37, 1);
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(255 255 255);
+        }
+    
+        .cancel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: rgba(219, 46, 37, 1);
+            cursor: pointer;
+        }
+        
+    }
+    
+}
+
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+    background-color: rgba(239, 239, 239, 0.3);
+}
