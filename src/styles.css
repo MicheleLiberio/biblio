@@ -1,26 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 /*GLOBAL STYLES*/
-.main-color{
-    color: rgba(219, 46, 37, 1);
-}
-
-.main-bg-color{
-    background-color: rgba(219, 46, 37, 1);
-}
-
-.white-color{
-    color: rgba(255, 255, 255, 1);
-}
-
-.black-color{
-    color: rgba(61, 61, 61, 1);
+:root{
+    /*colors*/
+    --main-color: rgba(219, 46, 37, 1);
+    --dark-color: rgba(61, 61, 61, 1);
+    --white-color: rgba(255, 255, 255, 1);
+    --main-light-color: rgba(219,46,37,0.51);
+    --gray-color: rgba(206, 212, 218, 1);
+    --grayer-color: rgba(239, 239, 239, 0.3);
+    --green-color: rgba(0, 128, 0, 1);
+    /*fontsize*/
+    --family: 'Roboto',sans-serif;
+    /*border*/
+    --main-border: 1px solid rgba(219, 46, 37, 1);
+    --dark-border: 1px solid rgba(61, 61, 61, 1);
+    --white-border: 1px solid rgba(255,255,255);
+    --gray-border: 1px solid rgba(206, 212, 218, 1);
 }
 
 .body {
-    font-family: 'Roboto',sans-serif;
+    font-family: var(--family);
     font-size: 15px;
     letter-spacing: 0.5px;
-    color: rgba(61, 61, 61, 1);
+    color: var(--dark-color);
     padding-left: 49px;
     padding-right: 49px;
 }

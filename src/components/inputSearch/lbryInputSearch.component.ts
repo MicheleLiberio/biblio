@@ -1,0 +1,36 @@
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import {NgForm} from '@angular/forms';
+
+@Component({
+  selector: 'lbry-input-search',
+  templateUrl: './lbryInputSearch.component.html',
+  styleUrls: ['./lbryInputSearch.component.scss']
+})
+export class LbryInputSearchComponent implements OnInit {
+
+  constructor() { }
+
+  @Input() id: any;
+  @Input() value: any
+  @Input() label: string;
+  @Input() placeholder: string;
+  @Input() type: any
+  @Input() disabled: boolean;
+  @Input() ngModel: string;
+  @Output() ngModelChange = new EventEmitter();
+
+  ngOnInit() {
+  }
+
+  change(newValue) {
+    // console.log('newvalue', newValue)
+    // this.sharedVar = newValue;
+    this.ngModelChange.emit(newValue);
+  }
+
+  cancel(f: NgForm) {
+    this.ngModel = "";
+    this.change(this.ngModel)
+  }
+
+}

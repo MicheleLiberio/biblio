@@ -26,6 +26,16 @@
       <div class="row">
         <lbry-button
           [style]="styleButton.third"
+          [title] = "'input search'"
+          [disabled] = "false"
+          (nbpClick) = "selectComp('input-search')"
+        ></lbry-button>
+      </div>
+    </div>
+    <div class="col-2 my-2">
+      <div class="row">
+        <lbry-button
+          [style]="styleButton.third"
           [title] = "'dropdown'"
           [disabled] = "false"
           (nbpClick) = "selectComp('dropdown')"
@@ -194,6 +204,24 @@
     </div>
   </div>
 
+  <div *ngIf = "comp == 'input-search'">
+    <div class="row">
+      <div class="col-3">INPUT SEARCH</div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <lbry-input-search
+          ngDefaultControl
+          [id]="'Nome'"
+          [label]="'Nome'"
+          [placeholder] = "'Inserisci ricerca'"
+          [disabled]="false"
+          [(ngModel)]="modelNome"
+        ></lbry-input-search>
+      </div>
+    </div>
+  </div>
+
   <div *ngIf = "comp == 'dropdown'">
     <div class="row">
       <div class="col-3">DROPDOWN</div>
@@ -207,9 +235,9 @@
           [required]="false"
           [placeholder]="'Scegli stato occupazionale'"
           [value]="'Stato occupazionale'"
-          [array]="country"
-          [idArray]="'alpha3Code'"
-          [valueArray]="'name'"
+          [array]="array"
+          [idArray]="'id'"
+          [valueArray]="'value'"
           [(sharedVar)]="occupationalState"
           (sharedVarChange)="prova($event)"
         ></lbry-dropdown>

@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <label>{{label}}<span *ngIf="required">*</span></label>
+  </div>
+</div>
+<div>
+  <div class="sup">
+    <div class="d-inline">
+      <div class="intrn">
+        <input #idForm="ngModel" [type]="type" class="form-control inp" [disabled]="disabled" placeholder="{{placeholder}}"
+         [(ngModel)]="ngModel" (ngModelChange)="change($event)">
+        <!-- <span *ngIf="ngModel" class="cancel" (click)="cancel()">
+          <i class="bi bi-x-lg"></i>
+        </span> -->
+        <i class="bi bi-search search"></i>        
+      </div>
+    </div>
+  </div>
+</div>
