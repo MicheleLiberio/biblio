@@ -1,11 +1,12 @@
 .headerAccordion {
-    background-color: rgba(219, 46, 37, 1);
+    background-color: var(--main-color);
     // height: 30px;
     font-size: 25px;
 }
 
 .collapse_sty {
-    border: 1px solid rgba(219, 46, 37, 1);
-    border-top: 0px solid rgba(219, 46, 37, 1);
+    border-bottom: var(--main-border);
+    border-left: var(--main-border);
+    border-right: var(--main-border);
     padding-bottom: 10px;
 }
