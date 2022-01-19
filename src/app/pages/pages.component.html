@@ -1,4 +1,4 @@
-<div class="row components">
+<!-- <div class="row components">
   <div class="col-2 my-2">
     <div class="row">
       <lbry-button
@@ -19,9 +19,9 @@
       ></lbry-button>
     </div>
   </div>
-</div>
+</div> -->
 
-<div *ngIf="page === 'first'">
+<!-- <div *ngIf="page === 'first'"> -->
   <!-- <lbry-section
     [title]="'Ricerca libro'"
   >
@@ -124,62 +124,48 @@
   <!-- </div>
   </lbry-section> -->
 
-  <div class="container my-5">
-    <div class="row justify-content-center" style="
-    font-weight: bold;
-    font-size: 20px;
-  ">
-      CERCA LIBRO 
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-5 text-center">
-        <div>
-          <lbry-input
-          ngDefaultControl
-          [id]="'ricerca'"
-          [name]="'ricerca'"
-          [placeholder] = "'Inserisci cosa vuoi cercare'"
-          [disabled]="false"
-          [(ngModel)]="model.annoPubblicazione"
-          [required]="false"
-        ></lbry-input>
+  <!-- <form novalidate #form="ngForm" (ngSubmit)="submitForm()">
+    <div class="container my-5">
+      <div class="row justify-content-center" style="
+      font-weight: bold;
+      font-size: 20px;
+    ">
+        CERCA LIBRO 
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-5 text-center">
+          <div>
+            <lbry-input-search
+            ngDefaultControl
+            [id]="'ricerca'"
+            [name]="'ricerca'"
+            [placeholder] = "'Inserisci cosa vuoi cercare'"
+            [disabled]="false"
+            [(ngModel)]="ricerca"
+            [required]="false"
+          ></lbry-input-search>
+          </div>
         </div>
-        <!-- <lbry-button
-            style="margin-left: 30px"
-            type="submit"
-            [title] = "'Ricerca'"
-            [disabled] = "!control()"
-            [style]="styleButton.primary"
-          ></lbry-button> -->
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-5 text-center mt-3 mb-5">
-        <lbry-button
-            type="submit"
-            [title] = "'Ricerca'"
-            [disabled] = "!control()"
-            [style]="styleButton.primary"
-          ></lbry-button>
-      </div>
-    </div>
-  </div>
+  </form> -->
 
-  <div class="">
+  <!-- <div *ngIf="isSearched" class="">
     <div class="row">
       <div style="
   font-weight: bold;
   font-size: 20px;
 ">
-    Risultati della ricerca: 
+    Risultati della ricerca: <span>{{searchBooks.length}}</span>
   </div>
     </div>
     </div>
-  <div>
-    <div *ngFor="let book of books" class="row" 
+  <div *ngIf="isSearched">
+    <div *ngFor="let book of searchBooks" class="row" 
       style="margin: 10px; border-radius: 25px;box-shadow: 0px 0px 12px 0px #888888; padding: 10px; ">
       <div class="col-2 text-center" style="align-self: center;">
-        <img src="{{book.thumbnailUrl}}" width="100">
+        <span *ngIf="book.thumbnailUrl; else noThumbnailUrl"><img src="{{book.thumbnailUrl}}" width="100"></span> 
+        <ng-template #noThumbnailUrl><img src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hepper.jpg" width="100"></ng-template>
       </div>
       <div class="col">
         <div>
@@ -192,8 +178,13 @@
           <div class="mt-1" style="font-size: 15px;">Manning Publications - {{book.date}}
             <span style="padding-left: 10px;">{{book.pageCount}} pag</span>
           </div>
-          <div class="mt-2 text_reduce" [ngClass]="{ 'text_reduce': !book.read, 'text_more': book.read}">{{book.longDescription}}</div>
-            <div (click)="readMore(book)">
+          <div class="mt-1" style="font-size: 15px;">
+            <span *ngFor="let cathegory of book.categories" style="margin-right: 10px;font-size: 18px;">
+              {{cathegory}}
+            </span>
+          </div>
+          <div *ngIf="book.longDescription" class="mt-2 text_reduce" [ngClass]="{ 'text_reduce': !book.read, 'text_more': book.read}">{{book.longDescription}}</div>
+            <div *ngIf="book.longDescription" (click)="readMore(book)">
               <span *ngIf="!book.read" style="font-weight: bold;cursor:  pointer;">Leggi di più...</span>
               <span *ngIf="book.read" style="font-weight: bold;cursor:  pointer;">Riduci</span>
             </div>
@@ -203,7 +194,7 @@
         <div>Copie: <span style="font-weight: bold;">{{book.copie}}</span></div>
       </div>
       <div style="width: 12.49%;align-self: center;">
-        <div>Disponibili: <span style="font-weight: bold;" [ngStyle]="{'color: #db2e25': book.disponibili == 0}">{{book.disponibili}}</span></div>
+        <div>Disponibili: <span style="font-weight: bold;" [ngStyle]="{'color: #db2e25': book.copie == book.prestiti}">{{book.copie - book.prestiti}}</span></div>
       </div>
       <div class="col-2" style="align-self: center;">
         <lbry-button
@@ -265,9 +256,11 @@
       [value]="'23.2417'"
     ></lbry-radio>
   </lbry-modal>
-</div>
+</div> -->
 
-<div *ngIf="page === 'second'">
+<search-book></search-book>
+
+<!-- <div *ngIf="page === 'second'">
   <lbry-section
     [title]="'Dati libro'"
   >
@@ -445,4 +438,4 @@
       ></lbry-button>
     </div>
   </div>
-</div>
+</div> -->
