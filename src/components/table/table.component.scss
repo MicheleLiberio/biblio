@@ -6,7 +6,7 @@
 .head {
 	height: 50px;
     font-size: 16px;
-    background-color: #db2e25;
+    background-color: var(--main-color);
     /* height: 30px !important; */
     cursor: pointer;
     text-transform: uppercase;
@@ -25,7 +25,7 @@ th {
 td {
 	vertical-align: middle !important;
     padding-left: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: var(--gray-border);
 }
 
 .value {
@@ -40,14 +40,14 @@ td {
     line-height: 10px;
 }
 
-.button {
-	cursor: pointer;
-    padding-left: 10px;
-}
+// .button {
+// 	cursor: pointer;
+//     padding-left: 10px;
+// }
 
-.button:hover {
-  color: #c31d1d;
-}
+// .button:hover {
+//   color: rgb(195, 29, 29);
+// }
 
 .arrow {
     font-weight: bold;
@@ -56,10 +56,9 @@ td {
 }
 
 .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+    border: var(--gray-border);
     border-right-width: 0px;
     border-left-width: 0px;
-    border-style: solid;
-    border-color: rgb(221, 221, 221);
     border-image: initial;
 }
 
