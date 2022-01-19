@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, Output, EventEmitter, TemplateRef, ContentChild, ChangeDetectorRef, SimpleChanges} from '@angular/core';
 
 @Component({
-  selector: 'lbry-table',
-  templateUrl: './lbryTable.component.html',
-  styleUrls: ['./lbryTable.component.scss']
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss']
 })
 export class LbryTableComponent implements OnInit {
 

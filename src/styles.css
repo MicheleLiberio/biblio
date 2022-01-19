@@ -9,6 +9,7 @@
     --gray-color: rgba(206, 212, 218, 1);
     --grayer-color: rgba(239, 239, 239, 0.3);
     --green-color: rgba(0, 128, 0, 1);
+    --black-color: rgba(0, 0, 0, 0.4);
     /*fontsize*/
     --family: 'Roboto',sans-serif;
     /*border*/
@@ -16,6 +17,12 @@
     --dark-border: 1px solid rgba(61, 61, 61, 1);
     --white-border: 1px solid rgba(255,255,255);
     --gray-border: 1px solid rgba(206, 212, 218, 1);
+    --grayer-color: 1px solid rgba(239, 239, 239, 0.3);
+    --main-border-xx: 4px solid rgba(219, 46, 37, 1);
+    --dark-border-xx: 4px solid rgba(61, 61, 61, 1);
+    --white-border-xx: 4px solid rgba(255,255,255);
+    --gray-border-xx: 4px solid rgba(206, 212, 218, 1);
+    --grayer-color-xx: 4px solid rgba(239, 239, 239, 0.3);
 }
 
 .body {
