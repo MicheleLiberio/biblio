@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'lbry-radio',
   templateUrl: './lbryRadio.component.html',
-  styleUrls: ['./lbryRadio.component.css']
+  styleUrls: ['./lbryRadio.component.scss']
 })
 export class LbryRadioComponent implements OnInit {
 

@@ -7,13 +7,14 @@
     z-index: 1;
     left: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--black-color);
     .loader {
-        border: 5px solid transparent;
+        border: 4px solid transparent;
         border-radius: 50%;
-        border-top: 5px  rgba(219, 46, 37, 1);
-        border-bottom: 5px solid rgba(219, 46, 37, 1);
-        border-right: 5px solid rgba(219, 46, 37, 1);
+        border-top: var(--main-border-xx);
+        border-top-style: none;
+        border-bottom: var(--main-border-xx);
+        border-right: var(--main-border-xx);
         width: 120px;
         height: 120px;
         margin: 15% auto;
