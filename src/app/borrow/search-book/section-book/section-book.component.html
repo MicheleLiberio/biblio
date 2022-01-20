@@ -1,0 +1,45 @@
+<div class="row section" style="margin: 10px; border-radius: 25px;box-shadow: 0px 0px 12px 0px #888888; padding: 10px; ">
+    <div class="col-2 text-center" style="align-self: center;">
+        <span *ngIf="book.thumbnailUrl; else noThumbnailUrl"><img src="{{book.thumbnailUrl}}" width="100"></span>
+        <ng-template #noThumbnailUrl><img src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hepper.jpg" width="100"></ng-template>
+    </div>
+    <div class="col">
+        <div>
+            <div style="color: #db2e25;font-size: 20px;font-weight: bold;">{{book.title}}</div>
+            <div style="font-size: 15px;">
+                <span *ngFor="let author of book.authors" style="margin-right: 10px;font-size: 18px;">
+        {{author}}
+      </span>
+            </div>
+            <div class="mt-1" style="font-size: 15px;">Manning Publications - {{book.date}}
+                <span style="padding-left: 10px;">{{book.pageCount}} pag</span>
+            </div>
+            <div class="mt-1" style="font-size: 15px;">
+                <span *ngFor="let cathegory of book.categories" style="margin-right: 10px;font-size: 18px;">
+        {{cathegory}}
+      </span>
+            </div>
+            <div *ngIf="book.longDescription" class="mt-2 text_reduce" [ngClass]="{ 'text_reduce': !book.read, 'text_more': book.read}">{{book.longDescription}}</div>
+            <div *ngIf="book.longDescription" (click)="readMore(book)">
+                <span *ngIf="!book.read" style="font-weight: bold;cursor:  pointer;">Leggi di più...</span>
+                <span *ngIf="book.read" style="font-weight: bold;cursor:  pointer;">Riduci</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-1" style="align-self: center;">
+        <div>Copie: <span style="font-weight: bold;">{{book.copie}}</span></div>
+    </div>
+    <div style="width: 12.49%;align-self: center;">
+        <div>Disponibili: <span style="font-weight: bold;" [ngStyle]="{'color: #db2e25': book.copie == book.prestiti}">{{book.copie - book.prestiti}}</span></div>
+    </div>
+    <div class="col-2" style="align-self: center;">
+        <lbry-button [style]="styleButton.first" [title]="'prenota'" [disabled]="book.copie == book.prestiti" (nbpClick)="prova(book)"></lbry-button>
+    </div>
+</div>
+<lbry-modal [idModal]="'prova'" [title]="'Copie del libro'" [openModal]="openModal" [size]="sizeModal.SMALL" (openModalStatus)="openModal=$event">
+    <lbry-radio [label]="'23.2413'" [id]="'23.2413'" [value]="'23.2413'" [disabled]="true"></lbry-radio>
+    <lbry-radio [label]="'23.2414'" [id]="'23.2414'" [value]="'23.2414'"></lbry-radio>
+    <lbry-radio [label]="'23.2415'" [id]="'23.2415'" [value]="'23.2415'"></lbry-radio>
+    <lbry-radio [label]="'23.2416'" [id]="'23.2416'" [value]="'23.2416'"></lbry-radio>
+    <lbry-radio [label]="'23.2417'" [id]="'23.2417'" [value]="'23.2417'"></lbry-radio>
+</lbry-modal>
