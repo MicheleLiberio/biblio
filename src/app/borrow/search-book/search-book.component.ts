@@ -53,7 +53,6 @@ export class SearchBookComponent implements OnInit {
 
   submitForm(form: NgForm) {
     this.isSearched = true;
-    console.log("Form submission");
     this.searchBooks = [];
     this.books.forEach((book) => {
       if (
@@ -65,6 +64,5 @@ export class SearchBookComponent implements OnInit {
         this.searchBooks.push(book);
       }
     });
-    console.log(this.searchBooks);
   }
 }
