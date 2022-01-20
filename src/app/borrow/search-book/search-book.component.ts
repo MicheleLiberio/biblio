@@ -2,7 +2,7 @@ import { styleButton } from "./../../../components/button/LbryButton.enum";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { sizeModal } from "./../../../components/modal/lbryModal.enum";
 import { NgForm } from "@angular/forms";
-import data from '../../../files/bookList2.json'
+import data from '../../../files/bookList2.json';
 
 @Component({
   selector: 'search-book',
@@ -62,23 +62,15 @@ export class SearchBookComponent implements OnInit {
     this.searchBooks = [];
     this.books.forEach((book) => {
       if (
-        book.title.includes(this.ricerca) ||
+        Boolean(this.ricerca) &&
+        (book.title.includes(this.ricerca) ||
         book.authors.includes(this.ricerca) ||
-        book.categories.includes(this.ricerca)
+        book.categories.includes(this.ricerca))
       ) {
         this.searchBooks.push(book);
       }
     });
     console.log(this.searchBooks);
-  }
-
-  prova(event: any) {
-    console.log(event);
-    this.openModal = true;
-  }
-
-  readMore(event: any) {
-    event.read = !event.read;
   }
 
 }

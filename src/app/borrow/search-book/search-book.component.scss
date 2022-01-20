@@ -1,18 +1,4 @@
-.text_reduce {
-    line-height: 1.5rem;
-    max-height: 4.5rem;
-    -webkit-box-orient: vertical !important;
-    display: block;
-    display: -webkit-box;
-    overflow: hidden !important;
-    width: 90%;
-  }
-  
-  .text_more {
-    line-height: 1.5rem;
-    -webkit-box-orient: vertical !important;
-    display: block;
-    display: -webkit-box;
-    overflow: hidden !important;
-  }
-  
+.label {
+    font-weight: bold;
+    font-size: 20px;
+}
