@@ -1,47 +1,47 @@
-        .section {
-            margin: 10px;
-            border-radius: 25px;
-            box-shadow: 0px 0px 12px 0px var(--grayer-color);
-            padding: 10px;
-        }
-        
-        .book_title {
-            color: var(--main-color);
-            font-size: 20px;
-            font-weight: bold
-        }
-        
-        .book_author {
-            margin-right: 10px;
-            font-size: 18px
-        }
-        
-        .book_date {
-            font-size: 15px
-        }
-        
-        .book_category {
-            font-size: 15px
-        }
-        
-        .book_pageCount {
-            padding-left: 10px
-        }
-        
-        .text_reduce {
-            line-height: 1.5rem;
-            max-height: 4.5rem;
-            -webkit-box-orient: vertical !important;
-            display: block;
-            display: -webkit-box;
-            overflow: hidden !important;
-            width: 90%;
-        }
-        
-        .text_more {
-            line-height: 1.5rem;
-            -webkit-box-orient: vertical !important;
-            display: block;
-            display: -webkit-box;
-            overflow: hidden !important;
-        }
+.section {
+    margin: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 12px 0px var(--dark-color);
+    padding: 10px;
+}
+
+.book_title {
+    color: var(--main-color);
+    font-size: 20px;
+    font-weight: bold
+}
+
+.book_author {
+    margin-right: 10px;
+    font-size: 18px
+}
+
+.book_date {
+    font-size: 15px
+}
+
+.book_category {
+    font-size: 15px
+}
+
+.book_pageCount {
+    padding-left: 10px
+}
+
+.text_reduce {
+    line-height: 1.5rem;
+    max-height: 4.5rem;
+    -webkit-box-orient: vertical !important;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden !important;
+    width: 90%;
+}
+
+.text_more {
+    line-height: 1.5rem;
+    -webkit-box-orient: vertical !important;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden !important;
+}

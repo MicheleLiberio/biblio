@@ -2,15 +2,14 @@ import { styleButton } from "./../../../components/button/LbryButton.enum";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { sizeModal } from "./../../../components/modal/lbryModal.enum";
 import { NgForm } from "@angular/forms";
-import data from '../../../files/bookList2.json';
+import data from "../../../files/bookList2.json";
 
 @Component({
-  selector: 'search-book',
-  templateUrl: './search-book.component.html',
-  styleUrls: ['./search-book.component.scss']
+  selector: "search-book",
+  templateUrl: "./search-book.component.html",
+  styleUrls: ["./search-book.component.scss"],
 })
 export class SearchBookComponent implements OnInit {
-
   @ViewChild("form", { static: true }) form: NgForm;
 
   styleButton = styleButton;
@@ -34,7 +33,7 @@ export class SearchBookComponent implements OnInit {
 
   books = data;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.books.forEach((book) => {
@@ -52,10 +51,6 @@ export class SearchBookComponent implements OnInit {
     this.page = page;
   }
 
-  //   control() {
-  //     return Boolean(this.model.autore || this.model.libro || this.model.casaEditrice || this.model.annoPubblicazione)
-  //   }
-
   submitForm(form: NgForm) {
     this.isSearched = true;
     console.log("Form submission");
@@ -64,13 +59,12 @@ export class SearchBookComponent implements OnInit {
       if (
         Boolean(this.ricerca) &&
         (book.title.includes(this.ricerca) ||
-        book.authors.includes(this.ricerca) ||
-        book.categories.includes(this.ricerca))
+          book.authors.includes(this.ricerca) ||
+          book.categories.includes(this.ricerca))
       ) {
         this.searchBooks.push(book);
       }
     });
     console.log(this.searchBooks);
   }
-
 }

@@ -1,15 +1,15 @@
-<div class="row section" style="margin: 10px; border-radius: 25px;box-shadow: 0px 0px 12px 0px #888888; padding: 10px; ">
+<div class="row section">
     <div class="col-2 text-center" style="align-self: center;">
         <span *ngIf="book.thumbnailUrl; else noThumbnailUrl"><img src="{{book.thumbnailUrl}}" width="100"></span>
         <ng-template #noThumbnailUrl><img src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hepper.jpg" width="100"></ng-template>
     </div>
     <div class="col">
         <div>
-            <div style="color: #db2e25;font-size: 20px;font-weight: bold;">{{book.title}}</div>
+            <div class="book_title">{{book.title}}</div>
             <div style="font-size: 15px;">
-                <span *ngFor="let author of book.authors" style="margin-right: 10px;font-size: 18px;">
-        {{author}}
-      </span>
+                <span class="book_author" *ngFor="let author of book.authors">
+                  {{author}}
+                </span>
             </div>
             <div class="mt-1" style="font-size: 15px;">Manning Publications - {{book.date}}
                 <span style="padding-left: 10px;">{{book.pageCount}} pag</span>
