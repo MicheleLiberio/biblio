@@ -12,7 +12,13 @@ export class LbryModalComponent implements OnInit {
   @Input() openModal: boolean;
   @Input() title: string;
   @Input() size: string;
+  @Input() rightButtonTitle: string;
+  @Input() rightButtonDisabled: boolean;
+  @Input() leftButtonTitle: string;
+  @Input() leftButtonDisabled: boolean;
   @Output() openModalStatus = new EventEmitter<boolean>();
+  @Output() rightClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() leftClick: EventEmitter<any> = new EventEmitter<any>();
   styleButton =  styleButton;
   constructor() { }
 
@@ -23,7 +29,7 @@ export class LbryModalComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
+    // console.log(changes);
     if(this.openModal) {
       document.getElementById(this.idModal).style.display = "block";
     }
@@ -49,11 +55,13 @@ export class LbryModalComponent implements OnInit {
     this.openModalStatus.emit(this.openModal);
   }
   
-  // When the user clicks anywhere outside of the modal, close it
-  // window.onclick = function(event) {
-  //   if (event.target == modal) {
-  //     modal.style.display = "none";
-  //   }
-  // }
+  nbpRightClick() {
+    this.rightClick.emit(true);
+  }
+
+  nbpLeftClick() {
+    this.leftClick.emit(true);
+    this.onclick();
+  }
   
 }
