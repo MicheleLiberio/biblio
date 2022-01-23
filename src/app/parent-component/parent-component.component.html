@@ -519,6 +519,12 @@
       [openModal] = "openModal"
       [size]="sizeModal.SMALL"
       (openModalStatus) = "openModal=$event"
+      [leftButtonTitle]="'ANNULLA'"
+      [leftButtonDisabled]="false"
+      (leftClick)="clickfirst($event)"
+      [rightButtonTitle]="'CONFERMA'"
+      [rightButtonDisabled]="false"
+      (rightClick)="clicksecond($event)"
     >
     W3Schools is optimized for learning and training. 
     Examples might be simplified to improve reading and learning. 

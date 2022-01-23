@@ -112,4 +112,12 @@ export class ParentComponentComponent implements OnInit {
     }, 5000);
   }
 
+  clickfirst(event: any) {
+    console.log("right button clicked!!!!");
+  }
+
+  clicksecond(event: any) {
+    console.log("left button clicked!!!!");
+  }
+
 }

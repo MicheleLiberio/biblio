@@ -18,16 +18,17 @@
               <div class="col-6">
                 <lbry-button
                 [style]="styleButton.second"
-                [title] = "'annulla'"
-                (nbpClick) = "prova($event)"
+                [title] = "leftButtonTitle"
+                [disabled]="leftButtonDisabled"
+                (nbpClick) = "nbpLeftClick()"
               ></lbry-button>
               </div>
               <div class="col-6 button-right">
                 <div style="flex-flow: row-reverse;">
                   <lbry-button
-                    [title] = "'ricerca'"
-                    [disabled] = "false"
-                    (nbpClick) = "prova($event)"
+                    [title] = "rightButtonTitle"
+                    [disabled] = "rightButtonDisabled"
+                    (nbpClick) = "nbpRightClick()"
                   ></lbry-button>
                 </div>
               </div>

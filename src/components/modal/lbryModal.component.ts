@@ -12,7 +12,13 @@ export class LbryModalComponent implements OnInit {
   @Input() openModal: boolean;
   @Input() title: string;
   @Input() size: string;
+  @Input() rightButtonTitle: string;
+  @Input() rightButtonDisabled: boolean;
+  @Input() leftButtonTitle: string;
+  @Input() leftButtonDisabled: boolean;
   @Output() openModalStatus = new EventEmitter<boolean>();
+  @Output() rightClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() leftClick: EventEmitter<any> = new EventEmitter<any>();
   styleButton =  styleButton;
   constructor() { }
 
@@ -47,6 +53,15 @@ export class LbryModalComponent implements OnInit {
     document.getElementById(this.idModal).style.display = "none";
     this.openModal = false;
     this.openModalStatus.emit(this.openModal);
+  }
+  
+  nbpRightClick() {
+    this.rightClick.emit(true);
+  }
+
+  nbpLeftClick() {
+    this.leftClick.emit(true);
+    this.onclick();
   }
   
 }
