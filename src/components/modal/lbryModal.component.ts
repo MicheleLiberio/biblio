@@ -32,6 +32,8 @@ export class LbryModalComponent implements OnInit {
     // console.log(changes);
     if(this.openModal) {
       document.getElementById(this.idModal).style.display = "block";
+    } else {
+      document.getElementById(this.idModal).style.display = "none";
     }
   }
 
@@ -57,11 +59,12 @@ export class LbryModalComponent implements OnInit {
   
   nbpRightClick() {
     this.rightClick.emit(true);
+    this.openModal = false;
   }
 
   nbpLeftClick() {
     this.leftClick.emit(true);
-    this.onclick();
+    // this.onclick();
   }
   
 }
