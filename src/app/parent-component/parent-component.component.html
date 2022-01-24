@@ -552,17 +552,26 @@
 
   <div *ngIf = "comp == 'radio'">
     <lbry-radio
+      ngDefaultControl
       [label]="'One'"
       [id]="'one'"
       [value]="'one'"
       [checked]="false"
-      [disabled]="true"
+      [(ngModel)]="number"
     ></lbry-radio>
     <lbry-radio
+      ngDefaultControl
       [label]="'Two'"
       [id]="'two'"
       [value]="'two'"
       [checked]="true"
+      [(ngModel)]="number"
     ></lbry-radio>
+    <lbry-button
+          [style]="styleButton.third"
+          [title] = "'prova'"
+          [disabled] = "false"
+          (nbpClick) = "prova()"
+        ></lbry-button>
   </div>
 </div>
