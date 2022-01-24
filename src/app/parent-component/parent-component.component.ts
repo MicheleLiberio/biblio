@@ -39,6 +39,7 @@ export class ParentComponentComponent implements OnInit {
   comp: string;
   openModal: boolean;
   openLoader: boolean;
+  number: string;
   
   constructor(
     private cdref: ChangeDetectorRef
