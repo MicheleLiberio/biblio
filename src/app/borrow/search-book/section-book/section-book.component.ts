@@ -16,6 +16,8 @@ export class SectionBookComponent implements OnInit {
 
   sizeModal = sizeModal;
 
+  copia: any;
+
   constructor() {}
 
   ngOnInit() {}
@@ -25,7 +27,22 @@ export class SectionBookComponent implements OnInit {
   }
 
   prova(event: any) {
-    console.log(event);
+    // console.log(event);
     this.openModal = true;
+  }
+
+  cancel(event) {
+    this.openModal = false;
+  }
+
+  conferm(event){
+    console.log('onaoincao');
+    console.log(this.book);
+    let bookChosen = {
+      "title": this.book.title,
+      "authors": this.book.authors
+    }
+    localStorage.setItem('book', JSON.stringify(bookChosen));
+    this.openModal = false;
   }
 }
