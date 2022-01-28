@@ -2,6 +2,7 @@ import { PagesComponent } from './pages/pages.component';
 import { ParentComponentComponent } from './parent-component/parent-component.component';
 import { BorrowComponent } from './borrow/borrow.component';
 import { SearchBookComponent } from './borrow/search-book/search-book.component';
+import { DataTablesComponent } from './borrow/data-tables/data-tables.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -34,7 +35,7 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent, SearchBookComponent]
+export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent, SearchBookComponent,DataTablesComponent]
 export const components = [LbryButtonComponent, 
                           LbryInputComponent, 
                           LbryDropdownComponent, 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { styleButton } from "./../../../../components/button/LbryButton.enum";
 import { sizeModal } from "./../../../../components/modal/lbryModal.enum";
 
@@ -9,6 +9,8 @@ import { sizeModal } from "./../../../../components/modal/lbryModal.enum";
 })
 export class SectionBookComponent implements OnInit {
   @Input() book: any;
+  @Input() indexPage: string;
+  @Output() indexPageChange: EventEmitter<any> = new EventEmitter<any>();
 
   styleButton = styleButton;
 
@@ -40,9 +42,12 @@ export class SectionBookComponent implements OnInit {
     console.log(this.book);
     let bookChosen = {
       "title": this.book.title,
-      "authors": this.book.authors
+      "authors": this.book.authors,
+      "copia": this.copia
     }
     localStorage.setItem('book', JSON.stringify(bookChosen));
+    // localStorage.setItem('page', '2')
+    this.indexPageChange.emit('2');
     this.openModal = false;
   }
 }

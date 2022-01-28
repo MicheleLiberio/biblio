@@ -80,38 +80,47 @@
   [leftButtonDisabled]="false"
   (leftClick)="cancel($event)"
   [rightButtonTitle]="'CONFERMA'"
-  [rightButtonDisabled]="false"
+  [rightButtonDisabled]="!copia"
   (rightClick)="conferm($event)"
 >
   <lbry-radio
-    [name]="book.copia"
+    ngDefaultControl
+    [name]="'23.2413'"
     [label]="'23.2413'"
     [id]="'23.2413'"
     [value]="'23.2413'"
     [disabled]="true"
   ></lbry-radio>
   <lbry-radio
-    [name]="copia"
+    ngDefaultControl
+    [name]="'23.2414'"
     [label]="'23.2414'"
     [id]="'23.2414'"
     [value]="'23.2414'"
+    [(ngModel)]="copia"
   ></lbry-radio>
   <lbry-radio
-    [name]="copia"
+    ngDefaultControl
+    [name]="'23.2415'"
     [label]="'23.2415'"
     [id]="'23.2415'"
     [value]="'23.2415'"
+    [(ngModel)]="copia"
   ></lbry-radio>
   <lbry-radio
-    [name]="copia"
+    ngDefaultControl
+    [name]="'23.2416'"
     [label]="'23.2416'"
     [id]="'23.2416'"
     [value]="'23.2416'"
+    [(ngModel)]="copia"
   ></lbry-radio>
   <lbry-radio
-    [name]="copia"
+    ngDefaultControl
+    [name]="'23.2417'"
     [label]="'23.2417'"
     [id]="'23.2417'"
     [value]="'23.2417'"
+    [(ngModel)]="copia"
   ></lbry-radio>
 </lbry-modal>

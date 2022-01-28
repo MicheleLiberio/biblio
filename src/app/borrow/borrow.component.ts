@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-borrow',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BorrowComponent implements OnInit {
 
-  constructor() { }
+  indexPage: string;
+
+  constructor(private cdRef : ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.indexPage = '1';
+    // localStorage.setItem('page', this.indexPage)
+    // if(localStorage.getItem('page')){
+    //   this.indexPage = localStorage.getItem('page')
+    // } else {
+    //   this.indexPage = '1';
+    //   localStorage.setItem('page', this.indexPage)
+    // }
+  }
+
+  ngAfterViewChecked() {
+    this.cdRef.detectChanges();
   }
 
 }

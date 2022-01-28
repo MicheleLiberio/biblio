@@ -1,5 +1,5 @@
 import { styleButton } from "./../../../components/button/LbryButton.enum";
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, Input, OnInit, Output, ViewChild, EventEmitter, SimpleChanges } from "@angular/core";
 import { sizeModal } from "./../../../components/modal/lbryModal.enum";
 import { NgForm } from "@angular/forms";
 import data from "../../../files/bookList2.json";
@@ -33,6 +33,9 @@ export class SearchBookComponent implements OnInit {
 
   books = data;
 
+  @Input() indexPage: string;
+  @Output() indexPageChange: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() {}
 
   ngOnInit() {
@@ -45,6 +48,13 @@ export class SearchBookComponent implements OnInit {
       }
       book["read"] = false;
     });
+  }
+
+  ngAfterViewChecked() {
+    if(this.indexPage == '2') {
+      console.log('ciwuciues');
+      this.indexPageChange.emit(this.indexPage);
+    }
   }
 
   selectPage(page: string) {

@@ -20,7 +20,7 @@
 </div>
 <div *ngIf="isSearched">
     <div *ngFor="let book of searchBooks">
-        <section-book [book]="book"></section-book>
+        <section-book [book]="book" [(indexPage)]="indexPage"></section-book>
     </div>
 </div>
 <!-- <div class="row mt-5 mb-4">
