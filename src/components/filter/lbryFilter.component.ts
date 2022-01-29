@@ -23,12 +23,7 @@ export class LbryFilterComponent implements OnInit {
     this.dataFilter = [];
     this.arrayFilterNew = this.arrayFilter;
     this.getArrayFilters.emit(this.arrayFilterNew);
-    // console.log('ascscascas');
   }
-
-  // ngOnChange(changes: SimpleChanges) {
-  //   console.log('rvsdvsdvsdvsdv')
-  // }
 
   getItem(element: any) {
     element.ngModel = '';
@@ -63,11 +58,8 @@ export class LbryFilterComponent implements OnInit {
   }
 
   ricerca() {
-    // console.log('cascasc');    
     this.arrayFilterNew = this.arrayFilter.filter(element => this.filter(element))
-    this.getArrayFilters.emit(this.arrayFilterNew)
-    // console.log('dvsdv', this.arrayFilterNew)
-     
+    this.getArrayFilters.emit(this.arrayFilterNew)     
   }
 
   filter(element) {
@@ -101,7 +93,6 @@ export class LbryFilterComponent implements OnInit {
         }
         break;
     }
-    // console.log('vsfvsdvsdvsdv')
   }
 
 }

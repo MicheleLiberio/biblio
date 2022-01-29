@@ -17,8 +17,8 @@ export class LbryDropdownComponent implements OnInit {
   @Input() array: any;
   @Input() idArray: string;
   @Input() valueArray: string;
-  @Input() sharedVar: any;
-  @Output() sharedVarChange = new EventEmitter();
+  @Input() blModel: any;
+  @Output() blModelChange = new EventEmitter();
   open: boolean = false;
   valueChose: string;
   tooltipInp: any;
@@ -30,10 +30,10 @@ export class LbryDropdownComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (!this.sharedVar) {
-      this.sharedVar = {};
-      this.sharedVar[this.valueArray] = null;
-      this.valueChose = this.sharedVar[this.valueArray];
+    if (!this.blModel) {
+      this.blModel = {};
+      this.blModel[this.valueArray] = null;
+      this.valueChose = this.blModel[this.valueArray];
     }
     this.array2 = Object.assign([],  this.array);
     this.tooltipInp = false;
@@ -61,21 +61,21 @@ export class LbryDropdownComponent implements OnInit {
 
   change(newValue) {
     console.log('newvalue', newValue)
-    // this.sharedVar = newValue;
+    // this.blModel = newValue;
   }
   
   choose(val) {
-    this.sharedVar = Object.assign({}, val);
-    this.valueChose = this.sharedVar[this.valueArray];
+    this.blModel = Object.assign({}, val);
+    this.valueChose = this.blModel[this.valueArray];
     this.open = !this.open;
-    this.sharedVarChange.emit(this.sharedVar);
+    this.blModelChange.emit(this.blModel);
   }
 
   cancel(f: NgForm) {
     f.reset();
-    this.sharedVar = {};
-    this.sharedVar[this.valueArray] = null;
-    this.sharedVarChange.emit(this.sharedVar);
+    this.blModel = {};
+    this.blModel[this.valueArray] = null;
+    this.blModelChange.emit(this.blModel);
   }
 
 }

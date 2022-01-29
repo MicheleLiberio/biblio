@@ -238,8 +238,8 @@
           [array]="array"
           [idArray]="'id'"
           [valueArray]="'value'"
-          [(sharedVar)]="occupationalState"
-          (sharedVarChange)="prova($event)"
+          [(blModel)]="occupationalState"
+          (blModelChange)="prova($event)"
         ></lbry-dropdown>
       </div>
     </div>
@@ -473,6 +473,8 @@
             [field]= "'capital'"
             (getItem) = "myTable.getItem($event)"
           ></app-col>
+          <!-- nel nuova versione dell'api countries currency e languages 
+          sono diversi
           <app-col
             [id]="'currencies'"
             [title]="'currencies'"
@@ -483,7 +485,7 @@
             [title]="'languages'"
             [field]= "'languages'"
             (getItem) = "myTable.getItem($event)"
-          ></app-col>
+          ></app-col> -->
           <app-col
             [id]="'region'"
             [title]="'region'"
@@ -491,7 +493,7 @@
             (getItem) = "myTable.getItem($event)"
           >
         </app-col>
-        <app-col
+        <!-- <app-col
             [id]="'flag'"
             [title]="'flag'"
             [field]="'flag'"
@@ -500,7 +502,7 @@
           <ng-template let-data>
             <img  src="{{data}}" alt="HTML5 Icon" style="width:50px;height:50px;">
           </ng-template>
-          </app-col>
+          </app-col> -->
     
         </app-table>
       </div>
