@@ -58,10 +58,6 @@ export class LbryDropdownComponent implements OnInit {
       this.array2 = this.array
     }
   }
-
-  change(newValue) {
-    console.log('newvalue', newValue)
-  }
   
   choose(val) {
     this.blModel = Object.assign({}, val);

@@ -65,8 +65,6 @@ export class TableComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // console.log(changes);
-    // console.log(this.arrayTable);
     this.array = Object.assign([], this.arrayTable);
     // this.cdref.detectChanges();
   }
