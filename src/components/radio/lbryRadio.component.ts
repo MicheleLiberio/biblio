@@ -13,7 +13,8 @@ export class LbryRadioComponent implements OnInit {
   @Input() name: any;
   @Input() checked: boolean = false;
   @Input() disabled: boolean = false;
-  @Output() ngModelChange = new EventEmitter();
+  @Input() blModel: string;
+  @Output() blModelChange = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -23,7 +24,7 @@ export class LbryRadioComponent implements OnInit {
   change(newValue) {
     // console.log('newvalue', newValue)
     // this.sharedVar = newValue;
-    this.ngModelChange.emit(newValue);
+    this.blModelChange.emit(newValue);
   }
 
 }
