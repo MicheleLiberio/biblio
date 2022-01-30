@@ -11,7 +11,7 @@ export class LbryButtonComponent implements OnInit {
   @Input() style: string;
   @Input() title: string;
   @Input() disabled: boolean;
-  @Output() nbpClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() nbpClick: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class LbryButtonComponent implements OnInit {
   }
 
   click() {
-    if (this.disabled === false) {
+    if (!this.disabled) {
       this.nbpClick.emit(true);
     }
   } 
