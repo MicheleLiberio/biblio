@@ -11,11 +11,11 @@ export class LbryFilterComponent implements OnInit {
 
   @Input() arrayFilter: any;
   @Output() getArrayFilters = new EventEmitter<any>();
+  @ContentChild(TemplateRef, {static: true}) template: TemplateRef<any>;
   dataFilter: any;
   styleButton = styleButton;
   ngModel = []
   arrayFilterNew: any;
-  @ContentChild(TemplateRef, {static: true}) template: TemplateRef<any>;
 
   constructor() { }
 
