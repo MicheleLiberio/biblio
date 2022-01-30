@@ -7,7 +7,7 @@
       <div class="row">
         <div id="" class="col-md-12 selectdiv" [ngClass]="{'disabledD': disabled === true}" (click) = "clickOnDrop()">
           <input #idForm="ngModel" [(ngModel)]="valueChose" [disabled]="disabled" placeholder="{{placeholder}}" 
-                (ngModelChange)="filter($event)">
+                (blModelChange)="filter($event)">
           <span *ngIf="valueChose" class="cancel" (click)="cancel(idForm)" (click) = "clickOnDrop()">
             <i class="bi bi-x-lg"></i>
           </span>

@@ -11,8 +11,8 @@
             [id]="data.id"
             [label]="data.title"
             [placeholder] = "null"
-            [(ngModel)]="data.ngModel"
-            (sharedVarChange)="changeNgModel($event, 'input')"
+            [(blModel)]="data.ngModel"
+            (blModelChange)="changeNgModel($event, 'input')"
           ></lbry-input>
         </div>
         <ng-template #dropdown>
@@ -23,8 +23,8 @@
             [array]="data.array"
             [idArray]="data.id"
             [valueArray]="data.field"
-            [(sharedVar)]="data.ngModel"
-            (sharedVarChange)="changeNgModel($event, 'dropdown')"
+            [(blModel)]="data.ngModel"
+            (blModelChange)="changeNgModel($event, 'dropdown')"
           >
           </lbry-dropdown>
         </ng-template>

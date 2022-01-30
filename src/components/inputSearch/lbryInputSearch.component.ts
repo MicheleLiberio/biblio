@@ -16,21 +16,19 @@ export class LbryInputSearchComponent implements OnInit {
   @Input() placeholder: string;
   @Input() type: any
   @Input() disabled: boolean;
-  @Input() ngModel: string;
-  @Output() ngModelChange = new EventEmitter();
+  @Input() blModel: string;
+  @Output() blModelChange = new EventEmitter();
 
   ngOnInit() {
   }
 
   change(newValue) {
-    // console.log('newvalue', newValue)
-    // this.sharedVar = newValue;
-    this.ngModelChange.emit(newValue);
+    this.blModelChange.emit(newValue);
   }
 
   cancel(f: NgForm) {
-    this.ngModel = "";
-    this.change(this.ngModel)
+    this.blModel = "";
+    this.change(this.blModel)
   }
 
 }

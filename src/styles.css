@@ -12,6 +12,8 @@
     --black-color: rgba(0, 0, 0, 0.4);
     /*fontsize*/
     --family: 'Roboto',sans-serif;
+    --font-size-written: 15px;
+    --font-size-icon: 30px;
     /*border*/
     --main-border: 1px solid rgba(219, 46, 37, 1);
     --dark-border: 1px solid rgba(61, 61, 61, 1);

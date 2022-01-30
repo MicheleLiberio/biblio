@@ -1,12 +1,9 @@
 .btn_first {
     display: inline-block;
     padding: 10px 20px;
-    // background: rgba(255,255,255,0.2);
     text-transform: uppercase;
     background-color: var(--main-color);
     border: var(--main-border);
-    // font-family: 'Roboto',sans-serif;
-    // font-size: 15px;
     line-height: 1.6;
     font-weight: 400;
     color: var(--white-color);
@@ -22,12 +19,9 @@
 .btn_disabled {
   display: inline-block;
   padding: 10px 20px;
-  // background: rgba(255,255,255,0.2);
   border: var(--white-border);
   text-transform: uppercase;
   background-color: var(--main-light-color);
-  // font-family: 'Roboto',sans-serif;
-  // font-size: 15px;
   line-height: 1.6;
   font-weight: 400;
   color: var(--white-color);
@@ -37,11 +31,8 @@
 .btn_second {
   display: inline-block;
   padding: 9px 20px;
-  // background: rgba(255,255,255,0.2); 
   text-transform: uppercase;
   background-color: var(--white-color);
-  // font-family: 'Roboto',sans-serif;
-  // font-size: 15px;
   line-height: 1.6;
   font-weight: 400;
   color: var(--main-color);
@@ -51,7 +42,6 @@
 }
 
 .btn_second:hover {
-	// background-color: var(--dark-color);
   border: var(--dark-border);
   color:  var(--dark-color);
   
@@ -60,11 +50,8 @@
 .btn_third {
   display: inline-block;
   padding: 9px 20px;
-  // background: rgba(255,255,255,0.2);
   text-transform: uppercase;
   background-color: var(--white-color);
-  // font-family: 'Roboto',sans-serif;
-  // font-size: 15px;
   line-height: 1.6;
   font-weight: 400;
   color: var(--main-color);
@@ -75,7 +62,6 @@
 }
 
 .btn_third:hover {
-	// background-color: var(--dark-color);
   border: var(--dark-border);
   color:  var(--dark-color);
   

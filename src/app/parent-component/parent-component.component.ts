@@ -59,7 +59,7 @@ export class ParentComponentComponent implements OnInit {
   }
 
   getCountries() {
-    ajax('https://restcountries.eu/rest/v2/all')
+    ajax('https://restcountries.com/v3.1/all')
     .subscribe(
       resp => {
          this.country = resp.response;
@@ -69,8 +69,10 @@ export class ParentComponentComponent implements OnInit {
         //   {
         //     if(element.area){element.area = element.area.toLocaleString()} 
         //   })
-         this.country.forEach(element => element.currencies = element.currencies.map(e => e.name));
-         this.country.forEach(element => element.languages = element.languages.map(e => e.name));
+         this.country.forEach(element => element.name = element.name.common);
+        //  this.country.forEach(element => element.currencies = element.currencies.map(e => e.name));
+        //  this.country.forEach(element => element.languages = element.languages.map(e => e.name));
+         this.country.forEach(element => element.flag = element.flags['svg']);
       }
     )
   }

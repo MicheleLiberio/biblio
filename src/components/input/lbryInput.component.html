@@ -8,8 +8,8 @@
     <div class="d-inline">
       <div class="intrn">
         <input #idForm="ngModel" [type]="type" [pattern]="pattern" class="form-control inp" [disabled]="disabled" placeholder="{{placeholder}}"
-        [required]="required" [(ngModel)]="ngModel" (ngModelChange)="change($event)">
-        <span *ngIf="ngModel" class="cancel" (click)="cancel()">
+        [required]="required" [(ngModel)]="blModel" (ngModelChange)="change($event)">
+        <span *ngIf="blModel" class="cancel" (click)="cancel()">
           <i class="bi bi-x-lg"></i>
         </span>
       </div>

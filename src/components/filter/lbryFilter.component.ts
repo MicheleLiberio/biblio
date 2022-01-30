@@ -11,11 +11,11 @@ export class LbryFilterComponent implements OnInit {
 
   @Input() arrayFilter: any;
   @Output() getArrayFilters = new EventEmitter<any>();
+  @ContentChild(TemplateRef, {static: true}) template: TemplateRef<any>;
   dataFilter: any;
   styleButton = styleButton;
   ngModel = []
   arrayFilterNew: any;
-  @ContentChild(TemplateRef, {static: true}) template: TemplateRef<any>;
 
   constructor() { }
 
@@ -23,12 +23,7 @@ export class LbryFilterComponent implements OnInit {
     this.dataFilter = [];
     this.arrayFilterNew = this.arrayFilter;
     this.getArrayFilters.emit(this.arrayFilterNew);
-    // console.log('ascscascas');
   }
-
-  // ngOnChange(changes: SimpleChanges) {
-  //   console.log('rvsdvsdvsdvsdv')
-  // }
 
   getItem(element: any) {
     element.ngModel = '';
@@ -49,7 +44,6 @@ export class LbryFilterComponent implements OnInit {
   }
 
   abilita() {
-    // var check;
     var check = this.dataFilter.some(element => 
       { 
         if (element.type === 'input') {
@@ -63,11 +57,8 @@ export class LbryFilterComponent implements OnInit {
   }
 
   ricerca() {
-    // console.log('cascasc');    
     this.arrayFilterNew = this.arrayFilter.filter(element => this.filter(element))
-    this.getArrayFilters.emit(this.arrayFilterNew)
-    // console.log('dvsdv', this.arrayFilterNew)
-     
+    this.getArrayFilters.emit(this.arrayFilterNew)     
   }
 
   filter(element) {

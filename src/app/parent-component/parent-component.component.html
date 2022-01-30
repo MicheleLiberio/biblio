@@ -191,13 +191,12 @@
     <div class="row">
       <div class="col-3">
         <lbry-input
-          ngDefaultControl
           [id]="'Nome'"
           [label]="'Nome'"
           [pattern]="'mail'"
           [placeholder] = "'Inserisci nome'"
           [disabled]="false"
-          [(ngModel)]="modelNome"
+          [(blModel)]="modelNome"
           [required]="false"
         ></lbry-input>
       </div>
@@ -211,12 +210,11 @@
     <div class="row">
       <div class="col-3">
         <lbry-input-search
-          ngDefaultControl
           [id]="'Nome'"
           [label]="'Nome'"
           [placeholder] = "'Inserisci ricerca'"
           [disabled]="false"
-          [(ngModel)]="modelNome"
+          [(blModel)]="modelNome"
         ></lbry-input-search>
       </div>
     </div>
@@ -238,8 +236,8 @@
           [array]="array"
           [idArray]="'id'"
           [valueArray]="'value'"
-          [(sharedVar)]="occupationalState"
-          (sharedVarChange)="prova($event)"
+          [(blModel)]="occupationalState"
+          (blModelChange)="prova($event)"
         ></lbry-dropdown>
       </div>
     </div>
@@ -473,6 +471,8 @@
             [field]= "'capital'"
             (getItem) = "myTable.getItem($event)"
           ></app-col>
+          <!-- nel nuova versione dell'api countries currency e languages 
+          sono diversi
           <app-col
             [id]="'currencies'"
             [title]="'currencies'"
@@ -483,7 +483,7 @@
             [title]="'languages'"
             [field]= "'languages'"
             (getItem) = "myTable.getItem($event)"
-          ></app-col>
+          ></app-col> -->
           <app-col
             [id]="'region'"
             [title]="'region'"
@@ -491,7 +491,7 @@
             (getItem) = "myTable.getItem($event)"
           >
         </app-col>
-        <app-col
+        <!-- <app-col
             [id]="'flag'"
             [title]="'flag'"
             [field]="'flag'"
@@ -500,7 +500,7 @@
           <ng-template let-data>
             <img  src="{{data}}" alt="HTML5 Icon" style="width:50px;height:50px;">
           </ng-template>
-          </app-col>
+          </app-col> -->
     
         </lbry-table>
       </div>
@@ -552,20 +552,18 @@
 
   <div *ngIf = "comp == 'radio'">
     <lbry-radio
-      ngDefaultControl
       [label]="'One'"
       [id]="'one'"
       [value]="'one'"
       [checked]="false"
-      [(ngModel)]="number"
+      [(blModel)]="number"
     ></lbry-radio>
     <lbry-radio
-      ngDefaultControl
       [label]="'Two'"
       [id]="'two'"
       [value]="'two'"
       [checked]="true"
-      [(ngModel)]="number"
+      [(blModel)]="number"
     ></lbry-radio>
     <lbry-button
           [style]="styleButton.third"
