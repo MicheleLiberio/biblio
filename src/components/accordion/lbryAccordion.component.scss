@@ -1,6 +1,16 @@
 .headerAccordion {
     background-color: var(--main-color);
-    font-size: 25px;
+    font-size: 30px;
+    height: 38px;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 15px
+}
+
+.icon {
+    text-align: right
 }
 
 .collapse_sty {
