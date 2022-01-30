@@ -44,7 +44,6 @@ export class LbryFilterComponent implements OnInit {
   }
 
   abilita() {
-    // var check;
     var check = this.dataFilter.some(element => 
       { 
         if (element.type === 'input') {

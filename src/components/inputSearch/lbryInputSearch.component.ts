@@ -23,8 +23,6 @@ export class LbryInputSearchComponent implements OnInit {
   }
 
   change(newValue) {
-    // console.log('newvalue', newValue)
-    // this.sharedVar = newValue;
     this.blModelChange.emit(newValue);
   }
 
