@@ -11,8 +11,8 @@
             [id]="data.id"
             [label]="data.title"
             [placeholder] = "null"
-            [(ngModel)]="data.ngModel"
-            (sharedVarChange)="changeNgModel($event, 'input')"
+            [(blModel)]="data.ngModel"
+            (blModelChange)="changeNgModel($event, 'input')"
           ></lbry-input>
         </div>
         <ng-template #dropdown>
