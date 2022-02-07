@@ -1,28 +1,97 @@
 <form novalidate #form="ngForm" (ngSubmit)="submitForm()">
-    <div class="container my-5">
-        <div class="row justify-content-center label">CERCA LIBRO</div>
-        <div class="row justify-content-center">
-            <div class="col-5 text-center">
-                <div>
-                    <lbry-input-search ngDefaultControl [id]="'ricerca'" [name]="'ricerca'" [placeholder]="'Inserisci cosa vuoi cercare'" [disabled]="false" [(ngModel)]="ricerca" [required]="false"></lbry-input-search>
-                </div>
-            </div>
+  <div class="container my-5">
+    <div class="row justify-content-center label">CERCA LIBRO</div>
+    <div class="row justify-content-center">
+      <div class="col-5 text-center">
+        <div>
+          <lbry-input-search
+            [id]="'ricerca'"
+            [placeholder]="'Inserisci cosa vuoi cercare'"
+            [disabled]="false"
+            [(blModel)]="ricerca"
+          ></lbry-input-search>
         </div>
+      </div>
     </div>
+  </div>
 </form>
 
 <div *ngIf="isSearched" class="">
-    <div class="row">
-        <div class="label">
-            Risultati della ricerca: <span>{{ searchBooks.length }}</span>
-        </div>
+  <div class="row">
+    <div class="label">
+      Risultati della ricerca: <span>{{ searchBooks.length }}</span>
     </div>
+  </div>
 </div>
 <div *ngIf="isSearched">
-    <div *ngFor="let book of searchBooks">
-        <section-book [book]="book" [(indexPage)]="indexPage"></section-book>
-    </div>
+  <div *ngFor="let book of array">
+    <section-book
+      [book]="book"
+      (prenotabook)="onPrenotabook(book)"
+    ></section-book>
+    <lbry-modal
+      [idModal]="'prova'"
+      [title]="'Copie del libro'"
+      [openModal]="openModal"
+      [size]="sizeModal.SMALL"
+      (openModalStatus)="openModal = $event"
+      [leftButtonTitle]="'ANNULLA'"
+      [leftButtonDisabled]="false"
+      (leftClick)="cancel($event)"
+      [rightButtonTitle]="'CONFERMA'"
+      [rightButtonDisabled]="!copia"
+      (rightClick)="conferm($event)"
+    >
+      <div *ngFor="let copy of copie">
+        <lbry-radio
+          [name]="copy"
+          [label]="copy"
+          [id]="copy"
+          [value]="copy"
+          [(blModel)]="copia"
+        ></lbry-radio>
+      </div>
+    </lbry-modal>
+  </div>
 </div>
+
+<div *ngIf="searchBooks" class="row text-center pagination">
+  <span>
+    <span
+      ><i class="bi bi-chevron-double-left arrow" (click)="clickFirstPage()"></i
+    ></span>
+    <span
+      ><i
+        class="bi bi-chevron-left arrow"
+        (click)="clickNumberGroupPageBack()"
+        *ngIf="indexPagShow !== 1"
+      ></i
+    ></span>
+    <span><i class="bi bi-three-dots" *ngIf="indexPagShow !== 1"></i></span>
+    <span
+      *ngFor="let index of numPaginationsShow"
+      class="ind"
+      [ngClass]="index === indexChosen ? 'main-color' : 'black-color'"
+      (click)="clickNumberPag(index)"
+    >
+      {{ index }}
+    </span>
+    <span
+      ><i class="bi bi-three-dots" *ngIf="indexPagShow !== numPagShow"></i
+    ></span>
+    <span
+      ><i
+        class="bi bi-chevron-right arrow"
+        (click)="clickNumberGroupPageNext()"
+        *ngIf="indexPagShow !== numPagShow"
+      ></i
+    ></span>
+    <span
+      ><i class="bi bi-chevron-double-right arrow" (click)="clickLastPage()"></i
+    ></span>
+  </span>
+</div>
+
 <!-- <div class="row mt-5 mb-4">
     <div class="col-6">
         <lbry-button [style]="styleButton.first" [title]="'Annulla'" [disabled]="false"></lbry-button>

@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { pageName } from 'src/app/enum/routes.enum';
 
 @Component({
   selector: 'app-borrow',
@@ -12,14 +13,7 @@ export class BorrowComponent implements OnInit {
   constructor(private cdRef : ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.indexPage = '1';
-    // localStorage.setItem('page', this.indexPage)
-    // if(localStorage.getItem('page')){
-    //   this.indexPage = localStorage.getItem('page')
-    // } else {
-    //   this.indexPage = '1';
-    //   localStorage.setItem('page', this.indexPage)
-    // }
+    this.indexPage = pageName.SEARCHBOOK;
   }
 
   ngAfterViewChecked() {

@@ -1,8 +1,6 @@
-<div *ngIf="indexPage === '1'" class="search-book">
+<div *ngIf="indexPage === 'searchbook'" class="search-book">
   <search-book [(indexPage)]="indexPage"></search-book>
 </div>
-<div *ngIf="indexPage === '2'">
-  <data-tables></data-tables>
+<div *ngIf="indexPage === 'datatables'">
+  <data-tables [(indexPage)]="indexPage"></data-tables>
 </div>
-
-{{indexPage | json}}
