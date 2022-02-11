@@ -4,43 +4,79 @@
   </div>
 </div>
 <div>
-  <div class="sup d-flex">
+  <div class="sup">
     <div class="d-inline">
       <div class="intrn">
         <input #idForm="ngModel" [type]="type" [pattern]="pattern" class="form-control inp" [disabled]="disabled" placeholder="{{placeholder}}"
         [required]="required" [(ngModel)]="blModel" (ngModelChange)="change($event)">
-        <span *ngIf="blModel" class="cancel" (click)="cancel()">
+        <span *ngIf="blModel" class="cancel" (click)="cancel(idForm)">
           <i class="bi bi-x-lg"></i>
         </span>
+        <span
+          class="validation d-inline"
+          *ngIf="required; else noRequired"
+        >
+          <span
+            *ngIf="idForm.dirty"
+            [ngClass]="{
+              icon_invalid: idForm.invalid,
+              icon_valid: idForm.valid
+            }"
+          >
+            <span>
+              <i
+                [ngClass]="{
+                  'bi bi-exclamation': idForm.invalid,
+                  'bi bi-check': idForm.valid
+                }"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="{{
+                  idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid
+                }}"
+              >
+              </i>
+            </span>
+            <lbry-tooltip
+              [messageTool]="
+                idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid
+              "
+              [icon]="idForm.invalid ? 'bi bi-exclamation' : 'bi bi-check'"
+            ></lbry-tooltip>
+          </span>
+        </span>
+        <ng-template #noRequired>
+          <span *ngIf="idForm.value" class="validation d-inline">
+            <span
+              [ngClass]="{
+                icon_invalid: idForm.invalid,
+                icon_valid: idForm.valid
+              }"
+            >
+              <span *ngIf="false">
+                <i
+                  [ngClass]="{
+                    'bi bi-exclamation': idForm.invalid,
+                    'bi bi-check': idForm.valid
+                  }"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="{{
+                    idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid
+                  }}"
+                >
+                </i>
+              </span>
+              <lbry-tooltip
+                [messageTool]="
+                  idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid
+                "
+                [icon]="idForm.invalid ? 'bi bi-exclamation' : 'bi bi-check'"
+              ></lbry-tooltip>
+            </span>
+          </span>
+        </ng-template>
       </div>
     </div>
-    <span class="d-inline" *ngIf="required; else noRequired">
-      <span *ngIf="idForm.dirty" [ngClass]="{'icon_invalid': idForm.invalid, 'icon_valid' : idForm.valid}">
-        <span *ngIf="false">
-          <i [ngClass]="{'bi bi-exclamation': idForm.invalid, 'bi bi-check': idForm.valid}" data-toggle="tooltip"
-            data-placement="top" title="{{idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid}}">
-          </i>
-        </span>
-        <lbry-tooltip
-          [messageTool]= "idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid"
-          [icon]="idForm.invalid ? 'bi bi-exclamation' : 'bi bi-check'"
-        ></lbry-tooltip>
-      </span>
-    </span>
-    <ng-template #noRequired>
-      <span *ngIf="idForm.value" class="d-inline">
-        <span [ngClass]="{'icon_invalid': idForm.invalid, 'icon_valid' : idForm.valid}">
-          <span *ngIf="false">
-            <i [ngClass]="{'bi bi-exclamation': idForm.invalid, 'bi bi-check': idForm.valid}" data-toggle="tooltip"
-              data-placement="top" title="{{idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid}}">
-            </i>
-          </span>
-          <lbry-tooltip
-            [messageTool]= "idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid"
-            [icon]="idForm.invalid ? 'bi bi-exclamation' : 'bi bi-check'"
-          ></lbry-tooltip>
-        </span>
-      </span>
-    </ng-template>
   </div>
 </div>

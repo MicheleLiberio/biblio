@@ -35,12 +35,12 @@ label {
     
     
     .icon_invalid {
-        font-size: 30px;
+        font-size: 40px;
         color: var(--main-color);
     }
     
     .icon_valid {
-        font-size: 30px;
+        font-size: 40px;
         color: var(--green-color);
     }
 }
@@ -50,4 +50,12 @@ label {
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
     background-color: var(--grayer-color);
+}
+
+.validation {
+    position: absolute;
+    bottom: -11px;
+    right: -33px;
+    color: var(--main-color);
+    cursor: pointer;
 }
