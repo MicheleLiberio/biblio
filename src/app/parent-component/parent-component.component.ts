@@ -1,3 +1,4 @@
+import { patternInput } from './../../components/input/lbryInput.enum';
 import { styleButton } from './../../components/button/LbryButton.enum';
 import { sizeModal } from './../../components/modal/lbryModal.enum';
 import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
@@ -14,6 +15,7 @@ export class ParentComponentComponent implements OnInit {
   modelNome: string;
   styleButton = styleButton;
   sizeModal = sizeModal;
+  patternInp: string;
 
   array = [{'id': 'dog', 'value': 'dog'}, 
       {'id': 'cat', 'value': 'cat'},  
@@ -48,6 +50,7 @@ export class ParentComponentComponent implements OnInit {
   ngOnInit() {
     this.getCountries();
     this.getFlag();
+    this.patternInp = patternInput.MAIL;
   }
 
   ngAfterContentChecked() {
