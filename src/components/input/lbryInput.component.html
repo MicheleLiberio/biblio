@@ -9,7 +9,7 @@
       <div class="intrn">
         <input #idForm="ngModel" [type]="type" [pattern]="pattern" class="form-control inp" [disabled]="disabled" placeholder="{{placeholder}}"
         [required]="required" [(ngModel)]="blModel" (ngModelChange)="change($event)">
-        <span *ngIf="blModel" class="cancel" (click)="cancel(idForm)">
+        <span *ngIf="blModel && !disabled" class="cancel" (click)="cancel(idForm)">
           <i class="bi bi-x-lg"></i>
         </span>
         <span
@@ -17,7 +17,7 @@
           *ngIf="required; else noRequired"
         >
           <span
-            *ngIf="idForm.dirty"
+            *ngIf="idForm.dirty && !disabled"
             [ngClass]="{
               icon_invalid: idForm.invalid,
               icon_valid: idForm.valid
@@ -46,7 +46,7 @@
           </span>
         </span>
         <ng-template #noRequired>
-          <span *ngIf="idForm.value" class="validation d-inline">
+          <span *ngIf="idForm.value && !disabled" class="validation d-inline">
             <span
               [ngClass]="{
                 icon_invalid: idForm.invalid,
