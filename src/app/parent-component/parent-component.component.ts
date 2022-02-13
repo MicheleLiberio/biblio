@@ -51,6 +51,7 @@ export class ParentComponentComponent implements OnInit {
     this.getCountries();
     this.getFlag();
     this.patternInp = patternInput.MAIL;
+    // this.modelNome ="ascaisc@libero.it"
   }
 
   ngAfterContentChecked() {

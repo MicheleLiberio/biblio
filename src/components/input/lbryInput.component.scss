@@ -49,7 +49,7 @@ label {
 
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
-    background-color: var(--grayer-color);
+    background-color: rgba(239, 239, 239, 0.3)
 }
 
 .validation {
