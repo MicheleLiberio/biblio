@@ -1,63 +1,86 @@
-<lbry-section [title]="'Dati libro'">
-  <div class="container">
-    <form novalidate #form="ngForm" (ngSubmit)="submitForm(form)">
-      <div class="row">
-        <div class="col-4">
-          <div class="m-3">
-            <lbry-input
-              [id]="'Titolo'"
-              [value]="'Titolo'"
-              [label]="'Titolo'"
-              [disabled]="true"
-              [(blModel)]="bookChosen.title"
-              [required]="false"
-            ></lbry-input>
+<div style="padding-left: 100px; padding-right: 100px">
+  <lbry-section [title]="'Dati libro'">
+    <div class="container">
+      <form novalidate #form="ngForm" (ngSubmit)="submitForm(form)" style="
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 10px;
+  ">
+        <div class="row">
+          <div class="col-12">
+            <div class="m-3">
+              <lbry-input
+                [id]="'Titolo'"
+                [value]="'Titolo'"
+                [label]="'Titolo'"
+                [disabled]="true"
+                [(blModel)]="bookChosen.title"
+                [required]="false"
+              ></lbry-input>
+            </div>
+          </div>
+          <!-- </div> -->
+          <!-- <div class="row"> -->
+          <div class="col-12">
+            <div class="m-3">
+              <lbry-input
+                [id]="'Autore'"
+                [value]="'Autore'"
+                [label]="'Autore/i'"
+                [disabled]="true"
+                [(blModel)]="bookChosen.authors"
+                [required]="false"
+              ></lbry-input>
+            </div>
           </div>
         </div>
-        <div class="col-4">
-          <div class="m-3">
-            <lbry-input
-              [id]="'isbn'"
-              [value]="'isbn'"
-              [label]="'ISBN'"
-              [disabled]="true"
-              [(blModel)]="bookChosen.isbn"
-              [required]="false"
-            ></lbry-input>
+        <div class="row">
+          <div class="col-3">
+            <div class="m-3">
+              <lbry-input
+                [id]="'isbn'"
+                [value]="'isbn'"
+                [label]="'ISBN'"
+                [disabled]="true"
+                [(blModel)]="bookChosen.isbn"
+                [required]="false"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-3"></div>
+          <div class="col-3">
+            <div class="m-3">
+              <lbry-input
+                [id]="'copia'"
+                [value]="'copia'"
+                [label]="'Copia'"
+                [disabled]="true"
+                [(blModel)]="bookChosen.copia"
+                [required]="false"
+              ></lbry-input>
+            </div>
           </div>
         </div>
-        <div class="col-4">
-          <div class="m-3">
-            <lbry-input
-              [id]="'copia'"
-              [value]="'copia'"
-              [label]="'Copia'"
-              [disabled]="true"
-              [(blModel)]="bookChosen.copia"
-              [required]="false"
-            ></lbry-input>
+        <!-- <div class="row my-3">
+          <div class="col">
+            <lbry-button
+              [title]="'Annulla'"
+              [style]="styleButton.second"
+              [disabled]="false"
+            ></lbry-button>
           </div>
-        </div>
-      </div>
-      <!-- <div class="row my-3">
-        <div class="col">
-          <lbry-button
-            [title]="'Annulla'"
-            [style]="styleButton.second"
-            [disabled]="false"
-          ></lbry-button>
-        </div>
-        <div class="col text-end">
-          <lbry-button
-            type="submit"
-            [title]="'Ricerca'"
-            [disabled]="!control()"
-          ></lbry-button>
-        </div>
-      </div> -->
-    </form>
-  </div>
-</lbry-section>
+          <div class="col text-end">
+            <lbry-button
+              type="submit"
+              [title]="'Ricerca'"
+              [disabled]="!control()"
+            ></lbry-button>
+          </div>
+        </div> -->
+      </form>
+    </div>
+  </lbry-section>
+</div>
 
 <div class="row mt-5 mb-4">
   <div class="col-6">
