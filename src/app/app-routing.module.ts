@@ -18,6 +18,7 @@ import { LbryLoaderComponent } from '../components/loader/lbryLoader.component';
 import { LbrySectionComponent } from '../components/section/lbrySection.component';
 import { LbryRadioComponent } from '../components/radio/lbryRadio.component';
 import { LbryInputSearchComponent } from '../components/inputSearch/lbryInputSearch.component';
+import { LbryCalendarComponent } from './../components/calendar/lbryCalendar.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -46,4 +47,5 @@ export const components = [LbryButtonComponent,
                           LbryLoaderComponent,
                           LbrySectionComponent,
                           LbryRadioComponent,
-                          LbryInputSearchComponent]
+                          LbryInputSearchComponent, 
+                          LbryCalendarComponent]
