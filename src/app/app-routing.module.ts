@@ -21,6 +21,7 @@ import { LbrySectionComponent } from '../components/section/lbrySection.componen
 import { LbryRadioComponent } from '../components/radio/lbryRadio.component';
 import { LbryInputSearchComponent } from '../components/inputSearch/lbryInputSearch.component';
 import { SectionBookComponent } from './borrow/search-book/section-book/section-book.component';
+import { LbryCalendarComponent } from './../components/calendar/lbryCalendar.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -50,4 +51,5 @@ export const components = [LbryButtonComponent,
                           LbrySectionComponent,
                           LbryRadioComponent,
                           LbryInputSearchComponent,
-                          SectionBookComponent]
+                          SectionBookComponent,
+                          LbryCalendarComponent]
