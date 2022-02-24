@@ -36,7 +36,7 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent, SearchBookComponent,DataTablesComponent]
+export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent, SearchBookComponent, DataTablesComponent, SectionBookComponent]
 export const components = [LbryButtonComponent, 
                           LbryInputComponent, 
                           LbryDropdownComponent, 
@@ -51,5 +51,4 @@ export const components = [LbryButtonComponent,
                           LbrySectionComponent,
                           LbryRadioComponent,
                           LbryInputSearchComponent,
-                          SectionBookComponent,
                           LbryCalendarComponent]
