@@ -1,15 +1,36 @@
 <p>home works!</p>
-<div class="row">
+<form novalidate #form="ngForm">
+  <div class="row">
     <div class="col-3">
       <lbry-input
-        ngDefaultControl
-        [id]="'Mail'"
-        [type]="mail"
-        [label]="'mail'"
-        [pattern]="'[0-9]{10}'"
-        [placeholder] = "'Inserisci mail'"
-        [disabled]="false"
+        [id]="'Nome'"
+        [name]="nome"
+        [label]="'Nome'"
         [(ngModel)]="modelNome"
+        [required]="true"
       ></lbry-input>
+      <!-- <input
+        type="text"
+        class="form-control"
+        id="nome"
+        name="nome"
+        placeholder="Inserisci il tuo nome"
+        [(ngModel)]="modelNome"
+        required
+        minlength="2"
+      /> -->
     </div>
-</div>
+  </div>
+</form>
+
+<pre>{{ form.value | json }}</pre>
+
+<pre>{{ form.invalid | json }}</pre>
+
+<!-- <lbry-input
+                [id]="'Nome'"
+                [value]="'Nome'"
+                [label]="'Nome'"
+                [(blModel)]="modelNome"
+                [required]="true"
+              ></lbry-input> -->

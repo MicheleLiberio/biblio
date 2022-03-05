@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  modelNome: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  prova(event: any) {
+    console.log(event);
   }
 
 }
