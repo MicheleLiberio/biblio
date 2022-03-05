@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'lbry-calendar',
@@ -24,6 +25,15 @@ export class LbryCalendarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  change(newValue) {
+    this.blModelChange.emit(newValue);
+  }
+
+  cancel(f: NgForm) {
+    this.blModel = "";
+    this.change(this.blModel)
   }
 
 }
