@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { ControlContainer, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'lbry-calendar',
   templateUrl: './lbryCalendar.component.html',
-  styleUrls: ['./lbryCalendar.component.scss']
+  styleUrls: ['./lbryCalendar.component.scss'],
+  viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
 })
 export class LbryCalendarComponent implements OnInit {
 

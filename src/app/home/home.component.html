@@ -1,1 +1,61 @@
 <p>home works!</p>
+
+<form novalidate #form="ngForm" (ngSubmit)="onFormSubmit()">
+  <div class="row">
+    <div class="col-md-4 mb-2">
+      <lbry-input
+        [id]="'name'"
+        [label]="'Nome'"
+        [placeholder]="'Inserisci nome'"
+        [disabled]="false"
+        [(blModel)]="name"
+        [required]="true"
+      ></lbry-input>
+      <lbry-input
+        [id]="'surname'"
+        [label]="'Cognome'"
+        [placeholder]="'Inserisci cognome'"
+        [disabled]="false"
+        [(blModel)]="surname"
+        [required]="true"
+      ></lbry-input>
+      <lbry-input
+        [id]="'email'"
+        [label]="'Email'"
+        [pattern]="patternEmail"
+        [placeholder]="'Inserisci email'"
+        [disabled]="false"
+        [(blModel)]="email"
+        [required]="false"
+      ></lbry-input>
+      <lbry-calendar
+        [id]="'Data'"
+        [label]="'data'"
+        [placeholder]="'gg/mm/aaaa'"
+        [disabled]="false"
+        [(blModel)]="dataPrestito"
+        [required]="true"
+      ></lbry-calendar>
+      <!-- <lbry-input></lbry-input> -->
+      <!-- <input type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="Inserisci il tuo nome"
+        required="true"
+        [(ngModel)]="name"> -->
+    </div>
+  </div>
+  <div class="row">
+    <lbry-button
+      type="submit"
+      [style]="styleButton.first"
+      [title]="'ricerca'"
+      [disabled]="form.invalid"
+    ></lbry-button>
+  </div>
+</form>
+
+<pre><code>{{ form.value | json }}</code></pre>
+
+<pre>{{ form.valid | json }}</pre>

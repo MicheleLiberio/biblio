@@ -2,6 +2,6 @@
                 'btn_first': disabled === false && style === 'first',
                 'btn_second': style === 'second',
                 'btn_third': style === 'third'}" 
-    (click)="click()">
+    (click)="click()" [disabled]="disabled">
     {{title}} <span ng-if="icon" [ngClass]="icon ? icon : ''" class="icona"></span>
 </button>
