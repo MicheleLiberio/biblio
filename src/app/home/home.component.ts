@@ -1,4 +1,7 @@
+import { patternInput } from './../../components/input/lbryInput.enum';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { styleButton } from './../../components/button/LbryButton.enum';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  modelNome: string;
+  styleButton = styleButton;
+  name: string;
+  surname: string;
+  patternEmail = patternInput.MAIL;
+  dataPrestito: any;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  prova(event: any) {
-    console.log(event);
+  onFormSubmit() {
+    console.log(this.name + ' ' + this.surname);
   }
 
 }

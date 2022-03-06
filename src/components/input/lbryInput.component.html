@@ -8,7 +8,7 @@
     <div class="d-inline">
       <div class="intrn">
         <input #idForm="ngModel" [type]="type" [pattern]="pattern" class="form-control inp" [disabled]="disabled" placeholder="{{placeholder}}"
-        [required]="required" [(ngModel)]="blModel" (ngModelChange)="change($event)">
+        [required]="required" [(ngModel)]="blModel" name ="{{id}}" (ngModelChange)="change($event)">
         <span *ngIf="blModel && !disabled" class="cancel" (click)="cancel(idForm)">
           <i class="bi bi-x-lg"></i>
         </span>
@@ -23,7 +23,7 @@
               icon_valid: idForm.valid
             }"
           >
-            <span>
+            <!-- <span>
               <i
                 [ngClass]="{
                   'bi bi-exclamation': idForm.invalid,
@@ -36,7 +36,7 @@
                 }}"
               >
               </i>
-            </span>
+            </span> -->
             <lbry-tooltip
               [messageTool]="
                 idForm.invalid ? tooltipTitleInvalid : tooltipTitleValid
