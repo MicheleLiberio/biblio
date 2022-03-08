@@ -5,8 +5,8 @@ import { pageName } from "src/app/enum/routes.enum";
 import { DataService } from "src/app/services/data-service.service";
 import { styleButton } from "./../../../components/button/LbryButton.enum";
 import { sizeModal } from "./../../../components/modal/lbryModal.enum";
-import * as moment from "moment";
 import { User } from "src/app/class/user/user";
+import { patternInput } from "src/components/input/lbryInput.enum";
 
 @Component({
   selector: "data-tables",
@@ -24,6 +24,7 @@ export class DataTablesComponent implements OnInit {
   dateBorrow: string;
   dateReturn: string;
   user: User;
+  patternInput = patternInput;
 
   constructor(private dataService: DataService) {}
 

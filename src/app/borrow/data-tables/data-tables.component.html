@@ -64,25 +64,25 @@
           <div class="col-3">
             <div class="m-3" style="float: right">
               <lbry-calendar
-                [id]="'Data'"
+                [id]="'DataPrestito'"
                 [label]="'Data del prestito'"
                 [placeholder]="'gg/mm/aaaa'"
                 [disabled]="false"
                 [(blModel)]="dateBorrow"
                 (blModelChange)="getDateBorrow($event)"
-                [required]="false"
+                [required]="true"
               ></lbry-calendar>
             </div>
           </div>
           <div class="col-3">
             <div class="m-3" style="float: right">
               <lbry-calendar
-                [id]="'Data'"
+                [id]="'DataRestituzione'"
                 [label]="'Data della restituzione'"
                 [placeholder]="'gg/mm/aaaa'"
                 [disabled]="false"
                 [(blModel)]="dateReturn"
-                [required]="false"
+                [required]="true"
               ></lbry-calendar>
             </div>
           </div>
@@ -126,15 +126,14 @@
               ></lbry-input>
             </div>
           </div>
-          {{user.name | json}}
-          <!-- <div class="col-6">
+          <div class="col-6">
             <div class="m-3">
               <lbry-input
                 [id]="'Cognome'"
                 [value]="'Cognome'"
                 [label]="'Cognome'"
                 [(blModel)]="user.surname"
-                [required]="false"
+                [required]="true"
               ></lbry-input>
             </div>
           </div>
@@ -145,7 +144,7 @@
                 [value]="'Indirizzo'"
                 [label]="'Indirizzo'"
                 [(blModel)]="user.address"
-                [required]="false"
+                [required]="true"
               ></lbry-input>
             </div>
           </div>
@@ -156,7 +155,7 @@
                 [value]="'Città'"
                 [label]="'Città'"
                 [(blModel)]="user.town"
-                [required]="false"
+                [required]="true"
               ></lbry-input>
             </div>
           </div>
@@ -167,7 +166,7 @@
                 [value]="'Cap'"
                 [label]="'Cap'"
                 [(blModel)]="user.zip"
-                [required]="false"
+                [required]="true"
               ></lbry-input>
             </div>
           </div>
@@ -178,6 +177,7 @@
                 [value]="'Telefono'"
                 [label]="'Telefono'"
                 [(blModel)]="user.telephone"
+                [pattern]="patternInput.NUMCELL || patternInput.NUMFISSO"
                 [required]="false"
               ></lbry-input>
             </div>
@@ -190,9 +190,10 @@
                 [label]="'E-mail'"
                 [(blModel)]="user.email"
                 [required]="false"
+                [pattern]="patternInput.MAIL"
               ></lbry-input>
             </div>
-          </div> -->
+          </div>
         </div>
       </form>
     </div>
