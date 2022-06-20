@@ -198,6 +198,8 @@ export class SearchBookComponent implements OnInit {
       authors: this.book.authors,
       isbn: this.book.isbn,
       copia: this.copia,
+      dateBorrow: null,
+      dateRestitution: null
     };
     this.dataService.setBorrow(bookChosen);
     this.onPageChange(actionName.AHEAD);

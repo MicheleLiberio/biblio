@@ -3,6 +3,7 @@ import { ParentComponentComponent } from './parent-component/parent-component.co
 import { BorrowComponent } from './borrow/borrow.component';
 import { SearchBookComponent } from './borrow/search-book/search-book.component';
 import { DataTablesComponent } from './borrow/data-tables/data-tables.component';
+import { ConfirmComponent } from './borrow/confirm/confirm.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -36,7 +37,7 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent, SearchBookComponent, DataTablesComponent, SectionBookComponent]
+export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent, SearchBookComponent, DataTablesComponent, SectionBookComponent, ConfirmComponent]
 export const components = [LbryButtonComponent, 
                           LbryInputComponent, 
                           LbryDropdownComponent, 

@@ -68,7 +68,7 @@
                 [label]="'Data del prestito'"
                 [placeholder]="'gg/mm/aaaa'"
                 [disabled]="false"
-                [(blModel)]="dateBorrow"
+                [(blModel)]="bookChosen.dateBorrow"
                 (blModelChange)="getDateBorrow($event)"
                 [required]="true"
               ></lbry-calendar>
@@ -81,7 +81,7 @@
                 [label]="'Data della restituzione'"
                 [placeholder]="'gg/mm/aaaa'"
                 [disabled]="false"
-                [(blModel)]="dateReturn"
+                [(blModel)]="bookChosen.dateRestitution"
                 [required]="true"
               ></lbry-calendar>
             </div>

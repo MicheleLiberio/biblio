@@ -32,8 +32,8 @@ export class DataTablesComponent implements OnInit {
     this.bookChosen = this.dataService.getBorrow();
     let now = new Date();
     let today = this.getDate(now);
-    this.dateBorrow = today;
-    this.dateReturn = this.getDate(this.getReturnDate(now));
+    this.bookChosen.dateBorrow = today;
+    this.bookChosen.dateRestitution = this.getDate(this.getReturnDate(now));
     this.user = {
       name: null,
       surname: null,
@@ -73,7 +73,8 @@ export class DataTablesComponent implements OnInit {
   }
 
   goForward(){
-
+    this.dataService.setUser(this.user);
+    this.indexPageChange.emit(pageName.CONFIRM);
   }
 
   check(){

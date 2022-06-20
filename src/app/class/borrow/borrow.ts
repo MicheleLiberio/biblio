@@ -3,4 +3,6 @@ export class Borrow {
     authors: string[];
     isbn: string;
     copia: string;
+    dateBorrow: any;
+    dateRestitution: any;
 }

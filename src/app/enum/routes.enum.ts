@@ -1,6 +1,7 @@
 export enum pageName {
-    SEARCHBOOK = 'searchbook',
-    DATATABLES = 'datatables'
+  SEARCHBOOK = 'searchbook',
+  DATATABLES = 'datatables',
+  CONFIRM = "confirm"
 }
 
 export enum actionName {
