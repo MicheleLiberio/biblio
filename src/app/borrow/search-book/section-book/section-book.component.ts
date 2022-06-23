@@ -17,11 +17,13 @@ export class SectionBookComponent implements OnInit {
   copia: any;
   copie: any;
   idModal: string;
-
+  availables: any;
+  
   constructor() {}
 
   ngOnInit() {
-    this.idModal = 'prova';
+    this.idModal = "prova";
+    this.availables = this.book.copies.filter((copia) => copia.stato === "DISPONIBILE")
   }
 
   readMore(event: any) {
