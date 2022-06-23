@@ -1,16 +1,17 @@
+import { Authors } from "../author";
+import { Categories } from "../category";
+import { Copies } from "../copy";
+
 export class Book {
     title: string;
      isbn: string;
      pageCount: number;
-     publishedDate:{
-        $date: string
-     };
+     publishedDate: string;
      thumbnailUrl: string;
      shortDescription: string;
      longDescription: string;
      status: string;
-     authors: string[];
-     categories: string[];
-     copie: number;
-     prestiti: number;
+     authors: Authors[];
+     categories: Categories[];
+     copie: Copies[];
 }

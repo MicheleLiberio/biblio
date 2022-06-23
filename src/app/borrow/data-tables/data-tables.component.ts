@@ -25,6 +25,7 @@ export class DataTablesComponent implements OnInit {
   dateReturn: string;
   user: User;
   patternInput = patternInput;
+  authors: any;
 
   constructor(private dataService: DataService) {}
 
@@ -43,6 +44,7 @@ export class DataTablesComponent implements OnInit {
       telephone: null,
       email: null
     }
+    this.authors = this.bookChosen.authors.map(author => author.name)
   }
 
   goBack() {
