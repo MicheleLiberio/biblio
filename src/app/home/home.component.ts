@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   surname: string;
   patternEmail = patternInput.MAIL;
   dataPrestito: any;
+  modelNome: String;
 
   constructor() { }
 

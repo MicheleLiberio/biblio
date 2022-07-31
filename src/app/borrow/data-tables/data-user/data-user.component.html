@@ -1,0 +1,266 @@
+<lbry-section [title]="'Dati utente'">
+  <div class="container">
+    <div class="row m-4">
+      <div class="col-6">L'utente è già stato registrato?</div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-2">
+            <lbry-radio
+              [name]="'userRegistration'"
+              [label]="'Sì'"
+              [id]="userRegistration"
+              [value]="true"
+              [(blModel)]="userRegistration"
+              (blModelChange)="isRegistred()"
+            ></lbry-radio>
+          </div>
+          <div class="col-2">
+            <lbry-radio
+              [name]="userRegistration"
+              [label]="'No'"
+              [id]="userRegistration"
+              [value]="false"
+              [(blModel)]="userRegistration"
+              (blModelChange)="isRegistred()"
+            ></lbry-radio>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form
+      novalidate
+      #userForm="ngForm"
+      style="margin-left: 20px; margin-right: 20px; margin-top: 10px"
+    >
+      <div
+        *ngIf="
+          (!userRegistration && isUserRegistration && !isUserFound) ||
+          isUserFound
+        "
+      >
+        <div class="row">
+          <div class="col-4">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Nome'"
+                [value]="'Nome'"
+                [label]="'Nome'"
+                [(blModel)]="user.name"
+                [required]="true"
+                [disabled]="isUserFound"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Cognome'"
+                [value]="'Cognome'"
+                [label]="'Cognome'"
+                [(blModel)]="user.surname"
+                [required]="true"
+                [disabled]="isUserFound"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mb-4">
+              <lbry-calendar
+                [id]="'DataNascita'"
+                [label]="'Data di nascita'"
+                [placeholder]="'gg/mm/aaaa'"
+                [disabled]="false"
+                [(blModel)]="user.dateBirth"
+                [required]="true"
+                [disabled]="isUserFound"
+              ></lbry-calendar>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Indirizzo'"
+                [value]="'Indirizzo'"
+                [label]="'Indirizzo'"
+                [(blModel)]="user.address"
+                [required]="true"
+                [disabled]="isUserFound"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Città'"
+                [value]="'Città'"
+                [label]="'Città'"
+                [(blModel)]="user.town"
+                [required]="true"
+                [disabled]="isUserFound"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Cap'"
+                [value]="'Cap'"
+                [label]="'Cap'"
+                [(blModel)]="user.zip"
+                [required]="true"
+                [disabled]="isUserFound"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Telefono'"
+                [value]="'Telefono'"
+                [label]="'Telefono'"
+                [(blModel)]="user.telephone"
+                [pattern]="patternInput.NUMCELL || patternInput.NUMFISSO"
+                [required]="false"
+                [disabled]="isUserFound"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'E-mail'"
+                [value]="'E-mail'"
+                [label]="'E-mail'"
+                [(blModel)]="user.email"
+                [required]="false"
+                [pattern]="patternInput.MAIL"
+                [disabled]="isUserFound"
+              ></lbry-input>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5 mb-4">
+          <div
+            class="col-6"
+            style="text-align: right"
+            *ngIf="!userRegistration && isUserRegistration && !isUserFound"
+          >
+            <lbry-button
+              [style]="styleButton.first"
+              [title]="'Salva'"
+              [disabled]="false"
+              (nbpClick)="saveNewUser()"
+            ></lbry-button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="m-5"
+        *ngIf="userRegistration && isUserRegistration && !isUserFound"
+      >
+        <div class="row justify-content-center">
+          <div class="col-5">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Nome'"
+                [value]="'Nome'"
+                [label]="'Nome'"
+                [(blModel)]="nameSearch"
+                [required]="true"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Cognome'"
+                [value]="'Cognome'"
+                [label]="'Cognome'"
+                [(blModel)]="surnameSearch"
+                [required]="true"
+              ></lbry-input>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-10" style="text-align: right">
+            <lbry-button
+              [style]="styleButton.first"
+              [title]="'Ricerca utente'"
+              [disabled]="false"
+              (nbpClick)="search()"
+            ></lbry-button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <lbry-modal
+          [idModal]="'utenti'"
+          [title]="'Utenti trovati'"
+          [openModal]="openModal"
+          [size]="sizeModal.LARGE"
+          (openModalStatus)="openModal = $event"
+          [leftButtonTitle]="'ANNULLA'"
+          [leftButtonDisabled]="false"
+          (leftClick)="cancel($event)"
+          [rightButtonTitle]="'CONFERMA'"
+          [rightButtonDisabled]="false"
+          (rightClick)="conferm($event)"
+        >
+          <div class="row">
+            <lbry-table
+              *ngIf="usersFound"
+              [arrayTable]="usersFound"
+              [idTable]="'usersFoundTb'"
+              (nbpClick)="prova($event)"
+              #usersFoundTb
+            >
+              <app-col
+                [id]="'name'"
+                [title]="'name'"
+                [field]="'name'"
+                (getItem)="usersFoundTb.getItem($event)"
+              ></app-col>
+              <app-col
+                [id]="surname"
+                [title]="'surname'"
+                [field]="'surname'"
+                (getItem)="usersFoundTb.getItem($event)"
+              ></app-col>
+              <app-col
+                [id]="'dateBirth'"
+                [title]="'dateBirth'"
+                [field]="'dateBirth'"
+                [sort]="false"
+                (getItem)="usersFoundTb.getItem($event)"
+              ></app-col>
+              <app-col
+                [id]="'address'"
+                [title]="'address'"
+                [field]="'address'"
+                (getItem)="usersFoundTb.getItem($event)"
+              ></app-col>
+              <app-col
+                [id]="'checkUser'"
+                [title]="''"
+                [field]="'checkUser'"
+                (getItem)="usersFoundTb.getItem($event)"
+              >
+                <ng-template let-data="data">
+                  <lbry-radio
+                    [label]="''"
+                    [id]="'data.id'"
+                    [value]="data"
+                    [checked]="false"
+                    [(blModel)]="userFound"
+                    (blModelChange)="setUserFound(data)"
+                  ></lbry-radio>
+                </ng-template>
+              </app-col>
+            </lbry-table>
+          </div>
+        </lbry-modal>
+      </div>
+    </form>
+  </div>
+</lbry-section>

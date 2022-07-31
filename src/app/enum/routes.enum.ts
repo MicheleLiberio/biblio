@@ -1,5 +1,6 @@
 export enum pageName {
   SEARCHBOOK = 'searchbook',
+  DATABOOK = 'databook',
   DATATABLES = 'datatables',
   CONFIRM = "confirm"
 }

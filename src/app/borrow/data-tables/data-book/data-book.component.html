@@ -1,0 +1,107 @@
+  <lbry-section [title]="'Dati libro'">
+    <div class="container">
+      <form
+        novalidate
+        #bookForm="ngForm"
+        (ngSubmit)="submitForm(form)"
+        style="margin-left: 20px; margin-right: 20px; margin-top: 10px"
+      >
+        <div class="row">
+          <div class="col-12">
+            <div class="m-3">
+              <lbry-input
+                [id]="'Titolo'"
+                [value]="'Titolo'"
+                [label]="'Titolo'"
+                [disabled]="true"
+                [(blModel)]="bookChosen.title"
+                [required]="false"
+              ></lbry-input>
+            </div>
+          </div>
+          <!-- </div> -->
+          <!-- <div class="row"> -->
+          <div class="col-12">
+            <div class="m-3">
+              <lbry-input
+                [id]="'Autore'"
+                [value]="'Autore'"
+                [label]="'Autore/i'"
+                [disabled]="true"
+                [(blModel)]="authors"
+                [required]="false"
+              ></lbry-input>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <div class="m-3">
+              <lbry-input
+                [id]="'isbn'"
+                [value]="'isbn'"
+                [label]="'ISBN'"
+                [disabled]="true"
+                [(blModel)]="bookChosen.isbn"
+                [required]="false"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="m-3">
+              <lbry-input
+                [id]="'copia'"
+                [value]="'copia'"
+                [label]="'Copia'"
+                [disabled]="true"
+                [(blModel)]="bookChosen.copia"
+                [required]="false"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-2"></div>
+          <div class="col-3">
+            <div class="m-3" style="float: right">
+              <lbry-calendar
+                [id]="'DataPrestito'"
+                [label]="'Data del prestito'"
+                [placeholder]="'gg/mm/aaaa'"
+                [disabled]="false"
+                [(blModel)]="bookChosen.dateBorrow"
+                (blModelChange)="getDateBorrow($event)"
+                [required]="true"
+              ></lbry-calendar>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="m-3" style="float: right">
+              <lbry-calendar
+                [id]="'DataRestituzione'"
+                [label]="'Data della restituzione'"
+                [placeholder]="'gg/mm/aaaa'"
+                [disabled]="false"
+                [(blModel)]="bookChosen.dateRestitution"
+                [required]="true"
+              ></lbry-calendar>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row my-3">
+          <div class="col">
+            <lbry-button
+              [title]="'Annulla'"
+              [style]="styleButton.second"
+              [disabled]="false"
+            ></lbry-button>
+          </div>
+          <div class="col text-end">
+            <lbry-button
+              type="submit"
+              [title]="'Ricerca'"
+              [disabled]="!control()"
+            ></lbry-button>
+          </div>
+        </div> -->
+      </form>
+    </div>
+  </lbry-section>

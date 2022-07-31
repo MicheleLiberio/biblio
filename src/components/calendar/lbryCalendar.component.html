@@ -7,7 +7,7 @@
   <div class="sup">
     <div class="d-inline">
       <div class="intrn">
-        <input #idForm="ngModel" type="date" class="form-control inp" name ="{{id}}" [disabled]="disabled" placeholder="{{placeholder}}"
+        <input #idForm="ngModel" type="date" class="form-control inp" timezone="[[timezone]]" name ="{{id}}" [disabled]="disabled" placeholder="{{placeholder}}" pattern="\d{2}-\d{2}-\d{4}"
         [required]="required" [(ngModel)]="blModel" (ngModelChange)="change($event)">
         <!-- <span
           class="validation d-inline"

@@ -29,10 +29,12 @@ export class LbryModalComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(this.openModal) {
-      document.getElementById(this.idModal).style.display = "block";
-    } else {
-      document.getElementById(this.idModal).style.display = "none";
+    if(changes.openModal && !changes.openModal.isFirstChange()){
+      if(this.openModal) {
+        document.getElementById(this.idModal).style.display = "block";
+      } else {
+        document.getElementById(this.idModal).style.display = "none";
+      }
     }
   }
 

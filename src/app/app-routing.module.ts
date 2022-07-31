@@ -1,3 +1,5 @@
+import { DataUserComponent } from './borrow/data-tables/data-user/data-user.component';
+import { DataBookComponent } from './borrow/data-tables/data-book/data-book.component';
 import { PagesComponent } from './pages/pages.component';
 import { ParentComponentComponent } from './parent-component/parent-component.component';
 import { BorrowComponent } from './borrow/borrow.component';
@@ -37,7 +39,7 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent, SearchBookComponent, DataTablesComponent, SectionBookComponent, ConfirmComponent]
+export const routingComponents = [HomeComponent, BorrowComponent, ParentComponentComponent, SearchBookComponent, DataTablesComponent, SectionBookComponent, ConfirmComponent, DataBookComponent, DataUserComponent]
 export const components = [LbryButtonComponent, 
                           LbryInputComponent, 
                           LbryDropdownComponent, 
