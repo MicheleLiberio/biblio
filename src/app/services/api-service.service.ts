@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../class/user/user';
+import { Lend } from '../class/lend/lend';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-private url = 'http://localhost:8082/api';
+private url = 'http://localhost:8083/api';
 
 
 constructor(private httpClient: HttpClient) { }
@@ -17,13 +18,18 @@ getBooks(searchKey: String) {
 }
 
 getUsers(nameSearch: string, surnameSearch: string) {
-  return this.httpClient.get(this.url + '/users?name=' + (nameSearch ? nameSearch : '') +'&surname='+ (surnameSearch ? surnameSearch : '') );
+  return this.httpClient.get(this.url + '/readers?name=' + (nameSearch ? nameSearch : '') +'&surname='+ (surnameSearch ? surnameSearch : '') );
 }
 
 setUser(user: User) {
   console.log("user: ", user);
-  return this.httpClient.post(this.url + '/users', user)
+  return this.httpClient.post(this.url + '/readers', user)
   // throw new Error("Method not implemented.");
+}
+
+setLend(lend: Lend) {
+  console.log("lend: ", lend);
+  return this.httpClient.post(this.url + '/lends', lend)
 }
 
 }

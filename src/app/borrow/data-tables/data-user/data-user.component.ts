@@ -79,6 +79,7 @@ export class DataUserComponent implements OnInit {
   conferm() {
     this.openModal = false;
     this.user = this.userFound;
+    this.dataService.setUser(this.user);
     this.isUserFound = true;
   }
 

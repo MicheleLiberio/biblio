@@ -63,7 +63,7 @@ export class DataBookComponent implements OnInit {
     this.dateReturn = this.getDate(newDate);
   }
 
-  submitForm(userForm) {
+  submitForm(bookForm) {
     console.log("prova");
   }
   

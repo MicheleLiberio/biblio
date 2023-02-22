@@ -229,7 +229,7 @@ export class SearchBookComponent implements OnInit {
       title: this.book.title,
       authors: this.book.authors,
       isbn: this.book.isbn,
-      copia: this.copia,
+      copia: this.copie.find(copia => copia.id === this.copia),
       dateBorrow: null,
       dateRestitution: null,
     };

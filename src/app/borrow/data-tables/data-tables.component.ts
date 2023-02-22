@@ -8,7 +8,9 @@ import {
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Borrow } from "src/app/class/borrow/borrow";
+import { Lend } from "src/app/class/lend/lend";
 import { pageName } from "src/app/enum/routes.enum";
+import { ApiService } from "src/app/services/api-service.service";
 import { DataService } from "src/app/services/data-service.service";
 import { styleButton } from "./../../../components/button/LbryButton.enum";
 
@@ -28,7 +30,8 @@ export class DataTablesComponent implements OnInit {
   authors: any;
 
   constructor(
-    private dataService: DataService
+    private dataService: DataService,
+    private apiService: ApiService
   ) {}
 
   ngOnInit() {
@@ -42,12 +45,28 @@ export class DataTablesComponent implements OnInit {
   }
 
   goForward() {
-    // this.dataService.setUser(this.user);
+    let borrow = this.dataService.getBorrow()
+    let lend: Lend = {
+      copies: borrow.copia,
+      expectedReturningDate: borrow.dateRestitution,
+      isLent: true,
+      lendindDate: borrow.dateBorrow,
+      readers: this.dataService.getUser(),
+      returningDate: null,
+    };
+    this.apiService.setLend(lend).subscribe({
+      next: (lend) => {
+        console.log(lend);
+      },
+      error: (error) => {
+        console.error("There was an error!", error);
+      },
+    });
     this.indexPageChange.emit(pageName.CONFIRM);
   }
 
   check() {
-    return false; /*!(this.bookForm.valid && this.userForm.valid);*/
+    return !(this.dataService.getBorrow() && this.dataService.getUser());
   }
 }
 

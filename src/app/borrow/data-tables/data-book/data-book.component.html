@@ -54,7 +54,7 @@
                 [value]="'copia'"
                 [label]="'Copia'"
                 [disabled]="true"
-                [(blModel)]="bookChosen.copia"
+                [(blModel)]="bookChosen.copia.collocazione"
                 [required]="false"
               ></lbry-input>
             </div>
@@ -86,22 +86,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="row my-3">
-          <div class="col">
-            <lbry-button
-              [title]="'Annulla'"
-              [style]="styleButton.second"
-              [disabled]="false"
-            ></lbry-button>
-          </div>
-          <div class="col text-end">
-            <lbry-button
-              type="submit"
-              [title]="'Ricerca'"
-              [disabled]="!control()"
-            ></lbry-button>
-          </div>
-        </div> -->
       </form>
     </div>
   </lbry-section>
