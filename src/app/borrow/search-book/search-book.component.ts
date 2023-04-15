@@ -55,24 +55,15 @@ export class SearchBookComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.books.forEach((book) => {
-      if (book.publishedDate) {
-        let date = new Date(book.publishedDate.$date);
-        if (date) {
-          book["date"] = date.getFullYear();
-        }
-      }
-      book["read"] = false;
-    });
-    if (this.dataService.getSearch()) {
-      this.ricerca = this.dataService.getSearch();
+    if (localStorage.getItem("keySearch")) {
+      this.ricerca = localStorage.getItem("keySearch");
       this.submitForm();
     }
   }
 
   onPageChange(event: string) {
     if (event == actionName.AHEAD) {
-      this.dataService.setSearch(this.ricerca);
+      localStorage.setItem("keySearch", this.ricerca);
       this.indexPageChange.emit(pageName.DATATABLES);
     }
   }

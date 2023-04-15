@@ -18,8 +18,11 @@
         </span>
       </div>
       <div class="mt-1" style="font-size: 15px">
-        Manning Publications - {{ book.publishedDate }}
-        <span style="padding-left: 10px">{{ book.pageCount }} pag</span>
+        ISBN: {{ book.isbn}}
+      </div>
+      <div class="mt-1" style="font-size: 15px">
+        Data di pubblicazione: {{ book.publishedDate | date:'MMMM, yyyy'}}
+        <span *ngIf="book.pageCount" style="padding-left: 10px">{{ book.pageCount }} pag</span>
       </div>
       <div class="mt-1" style="font-size: 15px">
         <span
@@ -37,10 +40,10 @@
         {{ book.longDescription }}
       </div>
       <div *ngIf="book.longDescription" (click)="readMore(book)">
-        <span *ngIf="!book.read" style="font-weight: bold; cursor: pointer"
+        <span *ngIf="!book.read" class="longDescription"
           >Leggi di più...</span
         >
-        <span *ngIf="book.read" style="font-weight: bold; cursor: pointer"
+        <span *ngIf="book.read" class="longDescription"
           >Riduci</span
         >
       </div>

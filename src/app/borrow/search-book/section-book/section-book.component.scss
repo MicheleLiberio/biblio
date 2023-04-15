@@ -30,12 +30,21 @@
 
 .text_reduce {
     line-height: 1.5rem;
-    max-height: 4.5rem;
+    max-height: 1.5rem;
     -webkit-box-orient: vertical !important;
     display: block;
     display: -webkit-box;
     overflow: hidden !important;
     width: 90%;
+}
+
+.longDescription {
+    font-weight: bold; 
+    cursor: pointer
+}
+
+.longDescription:hover {
+    color: var(--main-color);
 }
 
 .text_more {

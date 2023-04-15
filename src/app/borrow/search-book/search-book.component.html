@@ -1,8 +1,8 @@
 <form novalidate #form="ngForm" (ngSubmit)="submitForm()">
   <div class="container my-5">
-    <div class="row justify-content-center label">CERCA LIBRO</div>
+    <div class="row justify-content-center label"><div class="mb-4 col-3">CERCA LIBRO</div></div>
     <div class="row justify-content-center">
-      <div class="col-5 text-center">
+      <div class="col-4 text-center" style="margin-left: 90px;">
         <div>
           <lbry-input-search
             [id]="'ricerca'"
@@ -12,6 +12,9 @@
           ></lbry-input-search>
         </div>
       </div>
+      <div class="col-3">
+        <lbry-button type="submit" [style]="styleButton.first" [title]="'Cerca'" [disabled]="ricerca == '' || ricerca == null"></lbry-button>
+    </div>
     </div>
   </div>
 </form>
@@ -55,7 +58,7 @@
   </div>
 </div>
 
-<div *ngIf="searchBooks" class="row text-center pagination">
+<div *ngIf="showPagination" class="row text-center pagination">
   <span>
     <span
       ><i class="bi bi-chevron-double-left arrow" (click)="clickFirstPage()"></i
