@@ -1,7 +1,20 @@
-<div class="row mt-4">
-    <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white-50">
+<div class="mt-4">
+    <script>
+
+        $(document).ready(function() {
+      
+         var docHeight = $(window).height();
+         var footerHeight = $('#sticky-footer').height();
+         var footerTop = $('#sticky-footer').position().top + footerHeight;
+      
+         if (footerTop < docHeight) {
+          $('#sticky-footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+         }
+        });
+       </script>
+    <footer id="sticky-footer" class="py-4">
         <div class="container text-center">
-            <small>Copyright &copy; Your Website</small>
+            <small>&copy; 2021 - {{year}} Bibliontheka.com - Ellevu.srl</small>
         </div>
     </footer>
 </div>
