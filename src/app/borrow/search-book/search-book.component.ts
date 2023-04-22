@@ -55,15 +55,15 @@ export class SearchBookComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (localStorage.getItem("keySearch")) {
-      this.ricerca = localStorage.getItem("keySearch");
+    if (sessionStorage.getItem("keySearch")) {
+      this.ricerca = sessionStorage.getItem("keySearch");
       this.submitForm();
     }
   }
 
   onPageChange(event: string) {
     if (event == actionName.AHEAD) {
-      localStorage.setItem("keySearch", this.ricerca);
+      sessionStorage.setItem("keySearch", this.ricerca);
       this.indexPageChange.emit(pageName.DATATABLES);
     }
   }

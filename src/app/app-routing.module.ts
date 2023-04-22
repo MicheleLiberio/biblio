@@ -27,6 +27,7 @@ import { SectionBookComponent } from './borrow/search-book/section-book/section-
 import { LbryCalendarComponent } from './../components/calendar/lbryCalendar.component';
 
 const routes: Routes = [
+  {path: '', component: BorrowComponent},
   {path: 'home', component: HomeComponent},
   {path: 'borrow', component: BorrowComponent},
   {path: 'parent', component: ParentComponentComponent},
