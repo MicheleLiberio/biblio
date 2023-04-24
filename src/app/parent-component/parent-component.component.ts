@@ -42,6 +42,7 @@ export class ParentComponentComponent implements OnInit {
   openModal: boolean;
   openLoader: boolean;
   number: string;
+  loader: boolean;
   
   constructor(
     private cdref: ChangeDetectorRef
@@ -93,6 +94,14 @@ export class ParentComponentComponent implements OnInit {
   prova(event) {
     // this.country = this.country.filter(element => element.region === this.modelNome);
     console.log(event);
+  }
+
+  provaLoader(event) {
+    console.log("clicked");
+    this.loader = true;
+    setTimeout(() => {
+      this.loader = false;
+    }, 2000)
   }
 
   getStatus(data) {
