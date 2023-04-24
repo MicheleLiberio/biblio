@@ -1,7 +1,9 @@
-<button id="btn" [ngClass]="{'btn_disabled': disabled === true, 
+<button id={{id}} [ngClass]="{'btn_disabled': disabled === true, 
                 'btn_first': disabled === false && style === 'first',
                 'btn_second': style === 'second',
-                'btn_third': style === 'third'}" 
+                'btn_third': style === 'third',
+                'btn_loading': loading === true
+                }" [ngStyle]="{'pointer-events': loading === true ? 'none' : ''}"
     (click)="click()" [disabled]="disabled">
-    {{title}} <span ng-if="icon" [ngClass]="icon ? icon : ''" class="icona"></span>
-</button>
+    <span *ngIf="!loading">{{title}}<span *ngIf="icon" [ngClass]="icon ? icon : ''" class="icona"></span></span> 
+    <span *ngIf="loading" class="loading"></span>
