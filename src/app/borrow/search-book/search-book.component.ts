@@ -43,6 +43,7 @@ export class SearchBookComponent implements OnInit {
   remainder: number;
   remainderPagShow: number;
   showPagination: boolean;
+  loadingSearch: boolean;
 
   copia: any;
   copie: any;
@@ -75,6 +76,7 @@ export class SearchBookComponent implements OnInit {
   submitForm() {
     this.isSearched = true;
     this.searchBooks = [];
+    this.loadingSearch = true;
     this.apiService.getBooks(this.ricerca).subscribe({
       next: (book) => {
         console.log(book);
@@ -109,10 +111,12 @@ export class SearchBookComponent implements OnInit {
             this.numPagShow = 1;
             this.indexPagShow = 1;
           }
+          this.loadingSearch = false;
         }
       },
       error: (error) => {
         console.error("There was an error!", error);
+        this.loadingSearch = false;
       },
     });
     // this.books.forEach((book) => {
