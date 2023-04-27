@@ -1,6 +1,6 @@
 .btn_first {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 7px 20px;
     text-transform: uppercase;
     background-color: var(--main-color);
     border: var(--main-border);
@@ -18,7 +18,7 @@
 
 .btn_disabled {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 7px 20px;
   border: var(--white-border);
   text-transform: uppercase;
   background-color: var(--main-light-color);
@@ -30,7 +30,7 @@
 
 .btn_second {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 7px 20px;
   text-transform: uppercase;
   background-color: var(--white-color);
   line-height: 1.6;
@@ -49,7 +49,7 @@
 
 .btn_third {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 7px 20px;
   text-transform: uppercase;
   background-color: var(--white-color);
   line-height: 1.6;
@@ -63,7 +63,7 @@
 
 .btn_loading {
   display: inline-grid;
-  padding: 0px 20px;
+  padding: 6px 20px;
   text-transform: uppercase;
   background-color: var(--main-light-color);
   border: var(--white-border);
@@ -89,9 +89,9 @@
   border-top: var(--white-border-xx);
   border-bottom: var(--white-border-xx);
   border-right: var(--white-border-xx);
-  width: 30px;
-  height: 30px;
-  margin: 7px auto;
+  width: 26px;
+  height: 26px;
+  margin: 0px auto;
   position: relative;
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
