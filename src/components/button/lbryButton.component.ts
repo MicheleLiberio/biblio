@@ -23,7 +23,7 @@ export class LbryButtonComponent implements OnInit {
     if (!this.style && !this.disabled) {
       this.style = 'first'
     }
-    if(this.id == null) {
+    if(this.id != null) {
       this.id = "btn" + this.id ? ("_" + this.id) : "";
     }
   }
@@ -31,7 +31,9 @@ export class LbryButtonComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     if(this.loading) {
       this.disabled = true;
-      document.getElementById(this.id).style.width = document.getElementById(this.id).offsetWidth + 'px';
+      if(document.getElementById(this.id)){
+        document.getElementById(this.id).style.width = document.getElementById(this.id).offsetWidth + 'px';
+      }
     } else {
       this.disabled = false;
     }
