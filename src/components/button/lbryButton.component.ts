@@ -14,7 +14,6 @@ export class LbryButtonComponent implements OnInit {
   @Input() title: string;
   @Input() id: string;
   @Input() disabled: boolean;
-  // @Input() loading: boolean;
   @Output() nbpClick: EventEmitter<boolean> = new EventEmitter<boolean>();
   isLoading$: Observable<boolean>
   isLoading: boolean = false;
@@ -34,7 +33,6 @@ export class LbryButtonComponent implements OnInit {
   }
 
   ngAfterViewInit()	{
-    // console.log("aaaaaa");
     document.getElementById(this.id).style.width = document.getElementById(this.id).offsetWidth + 'px';
   }
 
@@ -50,7 +48,6 @@ export class LbryButtonComponent implements OnInit {
   }
 
   click() {
-    console.log("aaaaa")
     if (!this.disabled) {
       this.nbpClick.emit(true);
     }
