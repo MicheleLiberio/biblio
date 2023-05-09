@@ -1,5 +1,5 @@
 .btn_first {
-    display: inline-block;
+    display: flex;
     padding: 7px 20px;
     text-transform: uppercase;
     background-color: var(--main-color);
@@ -63,7 +63,7 @@
 
 .btn_loading {
   display: inline-grid;
-  padding: 6px 20px;
+  padding: 7px 20px;
   text-transform: uppercase;
   background-color: var(--main-light-color);
   border: var(--white-border);
@@ -89,8 +89,8 @@
   border-top: var(--white-border-xx);
   border-bottom: var(--white-border-xx);
   border-right: var(--white-border-xx);
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   margin: 0px auto;
   position: relative;
   -webkit-animation: spin 1s linear infinite;

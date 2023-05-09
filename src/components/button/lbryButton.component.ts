@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnInit, SimpleChanges } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'lbry-button',
@@ -12,11 +14,14 @@ export class LbryButtonComponent implements OnInit {
   @Input() title: string;
   @Input() id: string;
   @Input() disabled: boolean;
-  @Input() loading: boolean;
+  // @Input() loading: boolean;
   @Output() nbpClick: EventEmitter<boolean> = new EventEmitter<boolean>();
+  isLoading$: Observable<boolean>
   isLoading: boolean = false;
   width: number;
-  constructor() { }
+  constructor(
+    private loadingService: LoadingService
+    ) { this.isLoading$ = this.loadingService.loading$}
 
   ngOnInit() {
     this.title = this.title.toUpperCase();
@@ -24,12 +29,17 @@ export class LbryButtonComponent implements OnInit {
       this.style = 'first'
     }
     if(this.id != null) {
-      this.id = "btn" + this.id ? ("_" + this.id) : "";
+      this.id = "btn" + (this.id ? ("_" + this.id) : "");
     }
   }
 
+  ngAfterViewInit()	{
+    // console.log("aaaaaa");
+    document.getElementById(this.id).style.width = document.getElementById(this.id).offsetWidth + 'px';
+  }
+
   ngOnChanges(changes: SimpleChanges) {
-    if(this.loading) {
+    if(this.isLoading$._isScalar.valueOf()) {
       this.disabled = true;
       if(document.getElementById(this.id)){
         document.getElementById(this.id).style.width = document.getElementById(this.id).offsetWidth + 'px';
@@ -40,6 +50,7 @@ export class LbryButtonComponent implements OnInit {
   }
 
   click() {
+    console.log("aaaaa")
     if (!this.disabled) {
       this.nbpClick.emit(true);
     }
