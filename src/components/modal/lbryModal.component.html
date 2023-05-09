@@ -17,6 +17,7 @@
             <div class="row">
               <div class="col-6">
                 <lbry-button
+                [id]="leftButtonTitle + idModal"
                 [style]="styleButton.second"
                 [title] = "leftButtonTitle"
                 [disabled]="leftButtonDisabled"
@@ -26,6 +27,7 @@
               <div class="col-6 button-right">
                 <div style="flex-flow: row-reverse;">
                   <lbry-button
+                    [id]="rightButtonTitle + idModal"
                     [title] = "rightButtonTitle"
                     [disabled] = "rightButtonDisabled"
                     (nbpClick) = "nbpRightClick()"
