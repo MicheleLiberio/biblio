@@ -6,6 +6,7 @@
 <div class="row mt-5 mb-4">
   <div class="col-6">
     <lbry-button
+      [id]="'indietro'"
       [style]="styleButton.first"
       [title]="'Indietro'"
       [disabled]="false"
@@ -14,6 +15,7 @@
   </div>
   <div class="col-6" style="text-align: right">
     <lbry-button
+      [id]="'prosegui'"
       [style]="styleButton.first"
       [title]="'Prosegui'"
       [disabled]="check()"

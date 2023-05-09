@@ -146,6 +146,7 @@
             *ngIf="!userRegistration && isUserRegistration && !isUserFound"
           >
             <lbry-button
+              [id]="'salva'"
               [style]="styleButton.first"
               [title]="'Salva'"
               [disabled]="false"
@@ -185,6 +186,7 @@
         <div class="row justify-content-center">
           <div class="col-10" style="text-align: right">
             <lbry-button
+              [id]="'ricerca_utente'"
               [style]="styleButton.first"
               [title]="'Ricerca utente'"
               [disabled]="false"
