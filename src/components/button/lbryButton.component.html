@@ -2,8 +2,8 @@
                 'btn_first': disabled === false && style === 'first',
                 'btn_second': style === 'second',
                 'btn_third': style === 'third',
-                'btn_loading': (isLoading$ | async)
+                'btn_loading': (isLoading$ | async) && id === idLoading
                 }" [ngStyle]="{'pointer-events': (isLoading$ | async) ? 'none' : ''}"
     (click)="click()" [disabled]="disabled">
-    <span *ngIf="!(isLoading$ | async)">{{title}}<span *ngIf="icon" [ngClass]="icon ? icon : ''" class="icona"></span></span> 
-    <span *ngIf="(isLoading$ | async)" class="loading"></span>
+    <span *ngIf="!((isLoading$ | async) && id === idLoading)">{{title}}<span *ngIf="icon" [ngClass]="icon ? icon : ''" class="icona"></span></span> 
+    <span *ngIf="(isLoading$ | async) && id === idLoading" class="loading"></span>
