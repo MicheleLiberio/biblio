@@ -17,11 +17,14 @@ export class LbryButtonComponent implements OnInit {
   // @Input() loading: boolean;
   @Output() nbpClick: EventEmitter<boolean> = new EventEmitter<boolean>();
   isLoading$: Observable<boolean>
-  isLoading: boolean = false;
+  idLoading: string;
   width: number;
   constructor(
     private loadingService: LoadingService
-    ) { this.isLoading$ = this.loadingService.loading$}
+    ) { 
+      this.isLoading$ = this.loadingService.loading$,
+      this.idLoading = this.loadingService.idLoading;
+    }
 
   ngOnInit() {
     this.title = this.title.toUpperCase();
@@ -34,8 +37,9 @@ export class LbryButtonComponent implements OnInit {
   }
 
   ngAfterViewInit()	{
-    // console.log("aaaaaa");
-    document.getElementById(this.id).style.width = document.getElementById(this.id).offsetWidth + 'px';
+    if(document.getElementById(this.id).offsetWidth){
+      document.getElementById(this.id).style.width = document.getElementById(this.id).offsetWidth + 'px';
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -52,6 +56,8 @@ export class LbryButtonComponent implements OnInit {
   click() {
     console.log("aaaaa")
     if (!this.disabled) {
+      this.loadingService.setIdLoading(this.id)
+      this.idLoading = this.id;
       this.nbpClick.emit(true);
     }
   } 

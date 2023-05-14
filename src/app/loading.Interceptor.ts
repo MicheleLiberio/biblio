@@ -24,6 +24,7 @@ export class LoadingInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       // Clear the loading state after the request completes
       finalize(() => {
+        this.loadingService.setIdLoading(null);
         this.loadingService.setLoading(false);
       })
     );
