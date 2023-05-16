@@ -1,14 +1,21 @@
+.btn_basic {
+  display: flex;
+  padding: 7px 20px;
+  text-transform: uppercase;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+
 .btn_first {
-    display: flex;
-    padding: 7px 20px;
-    text-transform: uppercase;
-    background-color: var(--main-color);
-    border: var(--main-border);
-    line-height: 1.6;
-    font-weight: 400;
-    color: var(--white-color);
     width: max-content;
-    cursor:pointer;
+    color: var(--white-color);
+}
+
+.btn_not_disabled {
+  cursor:pointer;
+  background-color: var(--main-color);
+  border: var(--main-border);
 }
 
 .btn_first:hover {
@@ -17,28 +24,18 @@
 }
 
 .btn_disabled {
-  display: inline-block;
-  padding: 7px 20px;
-  border: var(--white-border);
-  text-transform: uppercase;
+  pointer-events: none;
   background-color: var(--main-light-color);
-  line-height: 1.6;
-  font-weight: 400;
-  color: var(--white-color);
+  border: var(--white-border);
   width: max-content;
 }
 
 .btn_second {
-  display: inline-block;
-  padding: 7px 20px;
-  text-transform: uppercase;
-  background-color: var(--white-color);
-  line-height: 1.6;
-  font-weight: 400;
-  color: var(--main-color);
   width: max-content;
-  border: var(--main-border);
   cursor:pointer;
+  color: var(--main-color);
+  background-color: var(--white-color);
+  border: var(--main-border);
 }
 
 .btn_second:hover {
@@ -48,29 +45,18 @@
 }
 
 .btn_third {
-  display: inline-block;
-  padding: 7px 20px;
-  text-transform: uppercase;
-  background-color: var(--white-color);
-  line-height: 1.6;
-  font-weight: 400;
-  color: var(--main-color);
   width: max-content;
+  color: var(--main-color);
   border: 1px solid var(--main-color);
+  background-color: var(--white-color);
   border-radius: 25px;
-  cursor:pointer;
 }
 
 .btn_loading {
-  display: inline-grid;
-  padding: 7px 20px;
-  text-transform: uppercase;
   background-color: var(--main-light-color);
   border: var(--white-border);
-  line-height: 1.6;
-  font-weight: 400;
   color: var(--white-color);
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .btn_third:hover {

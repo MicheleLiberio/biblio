@@ -1,7 +1,9 @@
-<button id={{id}} [ngClass]="{'btn_disabled': disabled === true, 
-                'btn_first': disabled === false && style === 'first',
+<button id={{id}} class="btn_basic" [ngClass]="{
+                'btn_first': style === 'first',
                 'btn_second': style === 'second',
                 'btn_third': style === 'third',
+                'btn_not_disabled': disabled === false,
+                'btn_disabled': disabled === true, 
                 'btn_loading': (isLoading$ | async) && id === idLoading
                 }" [ngStyle]="{'pointer-events': (isLoading$ | async) ? 'none' : ''}"
     (click)="click()" [disabled]="disabled">
