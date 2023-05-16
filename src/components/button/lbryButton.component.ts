@@ -47,18 +47,6 @@ export class LbryButtonComponent implements OnInit {
     }
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (this.isLoading$._isScalar.valueOf()) {
-      this.disabled = true;
-      if (document.getElementById(this.id)) {
-        document.getElementById(this.id).style.width =
-          document.getElementById(this.id).offsetWidth + "px";
-      }
-    } else {
-      this.disabled = false;
-    }
-  }
-
   click() {
     if (!this.disabled) {
       this.loadingService.setIdLoading(this.id);
