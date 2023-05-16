@@ -1,39 +1,66 @@
-import { patternInput } from './../../components/input/lbryInput.enum';
-import { styleButton } from './../../components/button/LbryButton.enum';
-import { sizeModal } from './../../components/modal/lbryModal.enum';
-import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { patternInput } from "./../../components/input/lbryInput.enum";
+import { styleButton } from "./../../components/button/LbryButton.enum";
+import { sizeModal } from "./../../components/modal/lbryModal.enum";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 
-import {ajax} from 'rxjs/ajax';
+import { ajax } from "rxjs/ajax";
 
 @Component({
-  selector: 'app-parent-component',
-  templateUrl: './parent-component.component.html',
-  styleUrls: ['./parent-component.component.scss']
+  selector: "app-parent-component",
+  templateUrl: "./parent-component.component.html",
+  styleUrls: ["./parent-component.component.scss"],
 })
 export class ParentComponentComponent implements OnInit {
-
   modelNome: string;
   styleButton = styleButton;
   sizeModal = sizeModal;
   patternInp: string;
+  condition = true;
 
-  array = [{'id': 'dog', 'value': 'dog'}, 
-      {'id': 'cat', 'value': 'cat'},  
-      {'id': 'hamster', 'value': 'hamster'},
-      {'id': 'bird', 'value': 'bird'},
-      {'id': 'spider', 'value': 'spider'},
-      {'id': 'fish', 'value': 'fish'},
-      {'id': 'cow', 'value': 'cow'}]
-  
-  array2 = [{"autore": "Alessandro Manzoni" , "titolo": "I Promessi Sposi", "anno": "2017", 
-  "editore": "Mondadori", "status": "disponibile", "catalogazione": "A12E3"},
-  {"autore": "Alessandro Manzoni" , "titolo": "I Promessi Sposi", "anno": "2012", 
-  "editore": "Mondadori", "status": "solo lettura", "catalogazione": "A12E4"},
-  {"autore": "Alessandro Manzoni" , "titolo": "I Promessi Sposi", "anno": "2013", 
-  "editore": "Mondadori", "status": "non disponbile", "catalogazione": "A12E3"},
-  {"autore": "Alessandro Manzoni" , "titolo": "I Promessi Sposi", "anno": "2014", 
-  "editore": "Mondadori", "status": "disponibile", "catalogazione": "A12E1"}
-  ]
+  array = [
+    { id: "dog", value: "dog" },
+    { id: "cat", value: "cat" },
+    { id: "hamster", value: "hamster" },
+    { id: "bird", value: "bird" },
+    { id: "spider", value: "spider" },
+    { id: "fish", value: "fish" },
+    { id: "cow", value: "cow" },
+  ];
+
+  array2 = [
+    {
+      autore: "Alessandro Manzoni",
+      titolo: "I Promessi Sposi",
+      anno: "2017",
+      editore: "Mondadori",
+      status: "disponibile",
+      catalogazione: "A12E3",
+    },
+    {
+      autore: "Alessandro Manzoni",
+      titolo: "I Promessi Sposi",
+      anno: "2012",
+      editore: "Mondadori",
+      status: "solo lettura",
+      catalogazione: "A12E4",
+    },
+    {
+      autore: "Alessandro Manzoni",
+      titolo: "I Promessi Sposi",
+      anno: "2013",
+      editore: "Mondadori",
+      status: "non disponbile",
+      catalogazione: "A12E3",
+    },
+    {
+      autore: "Alessandro Manzoni",
+      titolo: "I Promessi Sposi",
+      anno: "2014",
+      editore: "Mondadori",
+      status: "disponibile",
+      catalogazione: "A12E1",
+    },
+  ];
 
   country: any;
   arrayFilterNew: any;
@@ -43,10 +70,8 @@ export class ParentComponentComponent implements OnInit {
   openLoader: boolean;
   number: string;
   loader: boolean;
-  
-  constructor(
-    private cdref: ChangeDetectorRef
-    ) { }
+
+  constructor(private cdref: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.getCountries();
@@ -64,31 +89,25 @@ export class ParentComponentComponent implements OnInit {
   }
 
   getCountries() {
-    ajax('https://restcountries.com/v3.1/all')
-    .subscribe(
-      resp => {
-         this.country = resp.response;
-        //  this.country = resp.response.filter(element => element.population > 100000000)
-        //  this.country.forEach(element => element.population = element.population.toLocaleString());
-        //  this.country.forEach(element => 
-        //   {
-        //     if(element.area){element.area = element.area.toLocaleString()} 
-        //   })
-         this.country.forEach(element => element.name = element.name.common);
-        //  this.country.forEach(element => element.currencies = element.currencies.map(e => e.name));
-        //  this.country.forEach(element => element.languages = element.languages.map(e => e.name));
-         this.country.forEach(element => element.flag = element.flags['svg']);
-      }
-    )
+    ajax("https://restcountries.com/v3.1/all").subscribe((resp) => {
+      this.country = resp.response;
+      //  this.country = resp.response.filter(element => element.population > 100000000)
+      //  this.country.forEach(element => element.population = element.population.toLocaleString());
+      //  this.country.forEach(element =>
+      //   {
+      //     if(element.area){element.area = element.area.toLocaleString()}
+      //   })
+      this.country.forEach((element) => (element.name = element.name.common));
+      //  this.country.forEach(element => element.currencies = element.currencies.map(e => e.name));
+      //  this.country.forEach(element => element.languages = element.languages.map(e => e.name));
+      this.country.forEach((element) => (element.flag = element.flags["svg"]));
+    });
   }
 
   getFlag() {
-    ajax('https://restcountries.eu/data/ala.svg')
-    .subscribe(
-      resp => {
-        this.flag = resp;  
-     }
-    )
+    ajax("https://restcountries.eu/data/ala.svg").subscribe((resp) => {
+      this.flag = resp;
+    });
   }
 
   prova(event) {
@@ -101,14 +120,14 @@ export class ParentComponentComponent implements OnInit {
     this.loader = true;
     setTimeout(() => {
       this.loader = false;
-    }, 2000)
+    }, 2000);
   }
 
   getStatus(data) {
     console.log(data);
   }
 
-  getArrayFilters(event){
+  getArrayFilters(event) {
     this.arrayFilterNew = event;
   }
 
@@ -116,13 +135,13 @@ export class ParentComponentComponent implements OnInit {
     this.comp = comp;
   }
 
-  onclickModal(){
+  onclickModal() {
     this.openModal = true;
   }
 
   onClickLoader() {
     this.openLoader = true;
-    
+
     setTimeout(() => {
       this.openLoader = false;
     }, 5000);
@@ -135,5 +154,4 @@ export class ParentComponentComponent implements OnInit {
   clicksecond(event: any) {
     console.log("left button clicked!!!!");
   }
-
 }
