@@ -31,7 +31,7 @@ export class LbryButtonComponent implements OnInit {
 
   ngOnInit() {
     this.title = this.title.toUpperCase();
-    if (!this.style && !this.disabled) {
+    if (!this.style) {
       this.style = "first";
     }
     if (this.id != null) {
@@ -40,7 +40,7 @@ export class LbryButtonComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if (document.getElementById(this.id).offsetWidth) {
+    if (this.id && document.getElementById(this.id).offsetWidth) {
       document.getElementById(this.id).style.width =
         document.getElementById(this.id).offsetWidth + "px";
     }
