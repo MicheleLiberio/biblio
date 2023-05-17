@@ -7,5 +7,5 @@
                 'btn_loading': (isLoading$ | async) && id === idLoading
                 }" [ngStyle]="{'pointer-events': (isLoading$ | async) ? 'none' : ''}"
     (click)="click()" [disabled]="disabled">
-    <span *ngIf="!((isLoading$ | async) && id === idLoading)">{{title}}<span *ngIf="icon" [ngClass]="icon ? icon : ''" class="icona"></span></span> 
+    <span *ngIf="!((isLoading$ | async) && id === idLoading)"><span *ngIf="icon" [ngClass]="icon ? icon : ''" class="icona"></span>{{title}}</span> 
     <span *ngIf="(isLoading$ | async) && id === idLoading" class="loading"></span>
