@@ -249,7 +249,8 @@
                 (getItem)="usersFoundTb.getItem($event)"
               >
                 <ng-template let-data="data">
-                  <lbry-radio
+                  <div class="d-grid">
+                    <lbry-radio
                     [label]="''"
                     [id]="'data.id'"
                     [value]="data"
@@ -257,6 +258,7 @@
                     [(blModel)]="userFound"
                     (blModelChange)="setUserFound(data)"
                   ></lbry-radio>
+                  </div>
                 </ng-template>
               </app-col>
             </lbry-table>
