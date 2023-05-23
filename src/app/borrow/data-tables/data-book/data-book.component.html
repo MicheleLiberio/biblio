@@ -4,7 +4,7 @@
         novalidate
         #bookForm="ngForm"
         (ngSubmit)="submitForm(form)"
-        style="margin-left: 20px; margin-right: 20px; margin-top: 10px"
+        class="data_book"
       >
         <div class="row">
           <div class="col-12">
@@ -19,8 +19,6 @@
               ></lbry-input>
             </div>
           </div>
-          <!-- </div> -->
-          <!-- <div class="row"> -->
           <div class="col-12">
             <div class="m-3">
               <lbry-input
@@ -35,7 +33,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-2">
+          <div class="col-3">
             <div class="m-3">
               <lbry-input
                 [id]="'isbn'"
@@ -47,7 +45,7 @@
               ></lbry-input>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <div class="m-3">
               <lbry-input
                 [id]="'copia'"
@@ -59,12 +57,12 @@
               ></lbry-input>
             </div>
           </div>
-          <div class="col-2"></div>
+          
           <div class="col-3">
-            <div class="m-3" style="float: right">
+            <div class="m-3">
               <lbry-calendar
                 [id]="'DataPrestito'"
-                [label]="'Data del prestito'"
+                [label]="'Data prestito'"
                 [placeholder]="'gg/mm/aaaa'"
                 [disabled]="false"
                 [(blModel)]="bookChosen.dateBorrow"
@@ -74,10 +72,10 @@
             </div>
           </div>
           <div class="col-3">
-            <div class="m-3" style="float: right">
+            <div id="return_date" class="m-3">
               <lbry-calendar
                 [id]="'DataRestituzione'"
-                [label]="'Data della restituzione'"
+                [label]="'Data restituzione'"
                 [placeholder]="'gg/mm/aaaa'"
                 [disabled]="false"
                 [(blModel)]="bookChosen.dateRestitution"
