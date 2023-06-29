@@ -45,7 +45,7 @@ export class DataTablesComponent implements OnInit {
   }
 
   goForward() {
-    let borrow = this.dataService.getBorrow()
+    let borrow = this.dataService.getBorrow();
     let lend: Lend = {
       copies: borrow.copia,
       expectedReturningDate: borrow.dateRestitution,
@@ -57,16 +57,16 @@ export class DataTablesComponent implements OnInit {
     this.apiService.setLend(lend).subscribe({
       next: (lend) => {
         console.log(lend);
+        this.indexPageChange.emit(pageName.CONFIRM);
       },
       error: (error) => {
         console.error("There was an error!", error);
+        this.indexPageChange.emit(pageName.ERROR);
       },
     });
-    this.indexPageChange.emit(pageName.CONFIRM);
   }
 
   check() {
     return !(this.dataService.getBorrow() && this.dataService.getUser());
   }
 }
-

@@ -95,7 +95,7 @@ export class SearchBookComponent implements OnInit {
           this.numPaginations = Array.from({ length: numPag }, (_, i) => i + 1);
           this.clickNumberPag(1);
           this.indexChosen = 1;
-    
+
           //non mostriamo tutti gli indici ma solo
           //un numero massimo di 5.
           if (numPag > 5) {
@@ -104,7 +104,10 @@ export class SearchBookComponent implements OnInit {
             if (this.remainderPagShow > 0) {
               this.numPagShow++;
             }
-            this.numPaginationsShow = Array.from({ length: 5 }, (_, i) => i + 1);
+            this.numPaginationsShow = Array.from(
+              { length: 5 },
+              (_, i) => i + 1
+            );
             this.indexPagShow = 1;
           } else {
             this.numPaginationsShow = this.numPaginations;
@@ -210,7 +213,7 @@ export class SearchBookComponent implements OnInit {
   onPrenotabook(book) {
     this.openModal = true;
     this.book = book;
-    this.copie = book.copies.filter(copia => copia.stato === 'DISPONIBILE');
+    this.copie = book.copies; //.filter(copia => copia.stato === 'DISPONIBILE');
   }
 
   cancel() {
@@ -224,7 +227,7 @@ export class SearchBookComponent implements OnInit {
       title: this.book.title,
       authors: this.book.authors,
       isbn: this.book.isbn,
-      copia: this.copie.find(copia => copia.id === this.copia),
+      copia: this.copie.find((copia) => copia.id === this.copia),
       dateBorrow: null,
       dateRestitution: null,
     };

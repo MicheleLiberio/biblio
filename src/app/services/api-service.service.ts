@@ -32,6 +32,6 @@ export class ApiService {
 
   setLend(lend: Lend) {
     console.log("lend: ", lend);
-    return this.httpClient.post(`${this.url}'/lends`, lend);
+    return this.httpClient.post(`${this.url}/lends`, lend);
   }
 }

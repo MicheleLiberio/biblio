@@ -51,6 +51,7 @@
           [label]="copy.collocazione"
           [id]="copy.collocazione"
           [value]="copy.id"
+          [disabled]="copy.stato !='DISPONIBILE'"
           [(blModel)]="copia"
         ></lbry-radio>
       </div>
