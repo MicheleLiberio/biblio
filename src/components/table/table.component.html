@@ -22,6 +22,16 @@
           </ng-template>
         </td>
       </tr>
+      <tr *ngIf="array.length === 0">
+        <td *ngFor="let date of dataTable" class="value">
+          <span *ngIf="!date.template; else template">
+
+          </span>
+          <ng-template #template>
+
+          </ng-template>
+        </td>
+      </tr>
     </table>
     
     <div class="row main-color text-center" *ngIf="showPagination">

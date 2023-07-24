@@ -4,9 +4,8 @@
         <div class="modal-content" [ngStyle]= "{'width': size === 'large' ? '80%' : (size === 'medium' ? '50%' : '30%')}">
           <span>
             <div class="row" style="position: relative; height: 30px;">
-              <div class="col-12" style="text-align: center;">
-                {{title}}
-              </div>
+              <div class="col-12" style="text-align: center; font-weight: bold">
+                {{title.toUpperCase()}}
               <div class="col-12" style="text-align: right;position: absolute;left: 9px;top: -11px;">
                 <span class="close bi bi-x-lg" (click) = onclick()></span>
               </div>
