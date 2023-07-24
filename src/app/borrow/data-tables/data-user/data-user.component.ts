@@ -1,16 +1,16 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { User } from 'src/app/class/user/user';
-import { ApiService } from 'src/app/services/api-service.service';
-import { DataService } from 'src/app/services/data-service.service';
-import { styleButton } from 'src/components/button/LbryButton.enum';
-import { patternInput } from 'src/components/input/lbryInput.enum';
-import { sizeModal } from 'src/components/modal/lbryModal.enum';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { User } from "src/app/class/user/user";
+import { ApiService } from "src/app/services/api-service.service";
+import { DataService } from "src/app/services/data-service.service";
+import { styleButton } from "src/components/button/LbryButton.enum";
+import { patternInput } from "src/components/input/lbryInput.enum";
+import { sizeModal } from "src/components/modal/lbryModal.enum";
 
 @Component({
-  selector: 'data-user',
-  templateUrl: './data-user.component.html',
-  styleUrls: ['./data-user.component.scss']
+  selector: "data-user",
+  templateUrl: "./data-user.component.html",
+  styleUrls: ["./data-user.component.scss"],
 })
 export class DataUserComponent implements OnInit {
   @ViewChild("userForm", { static: true }) userForm: NgForm;
@@ -20,36 +20,40 @@ export class DataUserComponent implements OnInit {
   user: User;
   patternInput = patternInput;
   userRegistration: boolean;
-  isUserRegistration: boolean;
+  isUserEnrolled: boolean;
   nameSearch: string;
   surnameSearch: string;
   openModal: boolean;
   usersFound: any;
   userFound: any;
-  isUserFound: boolean;
-
-  
+  isUserFound: boolean = false;
 
   constructor(
     private dataService: DataService,
     private apiService: ApiService,
-    private cdRef : ChangeDetectorRef) { }
+    private cdRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
-    this.user = {
-      name: null,
-      surname: null,
-      dateBirth: null,
-      address: null,
-      town: null,
-      zip: null,
-      telephone: null,
-      email: null,
-    };
+    this.user = new User();
+    this.isUserEnrolled = true;
   }
 
-  isRegistred() {
-    this.isUserRegistration = true;
+  isEnrolled(isUserEnrolled: boolean) {
+    this.isUserEnrolled = isUserEnrolled;
+    if (this.isUserEnrolled == false) {
+      this.isUserFound = false;
+      this.user = new User();
+    } else {
+      if (this.userFound.id != null) {
+        this.isUserFound = true;
+        this.user = this.userFound;
+      }
+    }
+  }
+
+  checkContacts() {
+    return Boolean(this.user.telephone || this.user.email);
   }
 
   search() {
@@ -57,7 +61,7 @@ export class DataUserComponent implements OnInit {
       this.apiService.getUsers(this.nameSearch, this.surnameSearch).subscribe({
         next: (user) => {
           console.log(user);
-          this.usersFound = user
+          this.usersFound = user;
           this.openModal = true;
           this.cdRef.detectChanges();
         },
@@ -87,8 +91,8 @@ export class DataUserComponent implements OnInit {
     this.userFound = data;
   }
 
-  saveNewUser(){
-      this.apiService.setUser(this.user).subscribe({
+  saveNewUser() {
+    this.apiService.setUser(this.user).subscribe({
       next: (user) => {
         console.log(user);
       },
@@ -108,5 +112,4 @@ export class DataUserComponent implements OnInit {
       },
     });*/
   }
-
 }

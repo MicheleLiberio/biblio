@@ -10,8 +10,8 @@
               [label]="'Sì'"
               [id]="userRegistration"
               [value]="true"
-              [(blModel)]="userRegistration"
-              (blModelChange)="isRegistred()"
+              [(blModel)]="isUserEnrolled"
+              (blModelChange)="isEnrolled($event)"
             ></lbry-radio>
           </div>
           <div class="col-2">
@@ -20,23 +20,133 @@
               [label]="'No'"
               [id]="userRegistration"
               [value]="false"
-              [(blModel)]="userRegistration"
-              (blModelChange)="isRegistred()"
+              [(blModel)]="isUserEnrolled"
+              (blModelChange)="isEnrolled($event)"
             ></lbry-radio>
           </div>
         </div>
       </div>
     </div>
-    <form
-      novalidate
-      #userForm="ngForm"
-      class="data_user"
-    >
-      <div
-        *ngIf="
-          (!userRegistration && isUserRegistration && !isUserFound) ||
-          isUserFound
-        "
+    
+    <div class="m-5" *ngIf="isUserEnrolled">
+      <form
+        novalidate
+        #searchForm="ngForm"
+        class="data_user"
+        >
+        <div class="row justify-content-center">
+          <div class="col-5">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Nome'"
+                [value]="'Nome'"
+                [label]="'Nome'"
+                [(blModel)]="nameSearch"
+                [required]="true"
+              ></lbry-input>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="mb-4">
+              <lbry-input
+                [id]="'Cognome'"
+                [value]="'Cognome'"
+                [label]="'Cognome'"
+                [(blModel)]="surnameSearch"
+                [required]="true"
+              ></lbry-input>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-10" style="text-align: right">
+            <lbry-button
+              [id]="'ricerca_utente'"
+              [style]="styleButton.first"
+              [title]="'Ricerca utente'"
+              [disabled]="false"
+              (nbpClick)="search()"
+            ></lbry-button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>
+        <lbry-modal
+          [idModal]="'utenti'"
+          [title]="'Utenti trovati'"
+          [openModal]="openModal"
+          [size]="sizeModal.LARGE"
+          (openModalStatus)="openModal = $event"
+          [leftButtonTitle]="'ANNULLA'"
+          [leftButtonDisabled]="false"
+          (leftClick)="cancel($event)"
+          [rightButtonTitle]="'CONFERMA'"
+          [rightButtonDisabled]="usersFound && usersFound.length == 0"
+          (rightClick)="conferm($event)"
+        >
+          <div class="row">
+            <lbry-table
+              *ngIf="usersFound"
+              [arrayTable]="usersFound"
+              [idTable]="'usersFoundTb'"
+              (nbpClick)="prova($event)"
+              #usersFoundTb
+            >
+              <app-col
+                [id]="'name'"
+                [title]="'name'"
+                [field]="'name'"
+                (getItem)="usersFoundTb.getItem($event)"
+              ></app-col>
+              <app-col
+                [id]="surname"
+                [title]="'surname'"
+                [field]="'surname'"
+                (getItem)="usersFoundTb.getItem($event)"
+              ></app-col>
+              <app-col
+                [id]="'dateBirth'"
+                [title]="'dateBirth'"
+                [field]="'dateBirth'"
+                [sort]="false"
+                (getItem)="usersFoundTb.getItem($event)"
+              ></app-col>
+              <app-col
+                [id]="'address'"
+                [title]="'address'"
+                [field]="'address'"
+                (getItem)="usersFoundTb.getItem($event)"
+              ></app-col>
+              <app-col
+                [id]="'checkUser'"
+                [title]="''"
+                [field]="'checkUser'"
+                (getItem)="usersFoundTb.getItem($event)"
+              >
+                <ng-template let-data="data">
+                  <div class="d-grid">
+                    <lbry-radio
+                    [label]="''"
+                    [id]="'data.id'"
+                    [value]="data"
+                    [checked]="false"
+                    [(blModel)]="userFound"
+                    (blModelChange)="setUserFound(data)"
+                  ></lbry-radio>
+                  </div>
+                </ng-template>
+              </app-col>
+            </lbry-table>
+          </div>
+        </lbry-modal>
+    </div>
+    <div *ngIf="!isUserEnrolled || isUserFound">
+      <form
+        novalidate
+        #userForm="ngForm"
+        (ngSubmit)="saveNewUser(form)"
+        class="data_user"
       >
         <div class="row">
           <div class="col-4">
@@ -69,10 +179,9 @@
                 [id]="'DataNascita'"
                 [label]="'Data di nascita'"
                 [placeholder]="'gg/mm/aaaa'"
-                [disabled]="false"
+                [disabled]="isUserFound"
                 [(blModel)]="user.dateBirth"
                 [required]="true"
-                [disabled]="isUserFound"
               ></lbry-calendar>
             </div>
           </div>
@@ -142,129 +251,21 @@
         <div class="row mt-5 mb-4">
           <div
             class="col-6"
-            style="text-align: right"
-            *ngIf="!userRegistration && isUserRegistration && !isUserFound"
-          >
+            style="text-align: right">
             <lbry-button
               [id]="'salva'"
               [style]="styleButton.first"
+              type="submit"
               [title]="'Salva'"
-              [disabled]="false"
-              (nbpClick)="saveNewUser()"
+              [disabled]="!(userForm.valid && checkContacts()) || isUserFound"
             ></lbry-button>
+
+            <!-- <pre><code>{{ userForm.value | json }}</code></pre>
+
+            <pre>{{ userForm.valid | json }}</pre> -->
           </div>
         </div>
-      </div>
-      <div
-        class="m-5"
-        *ngIf="userRegistration && isUserRegistration && !isUserFound"
-      >
-        <div class="row justify-content-center">
-          <div class="col-5">
-            <div class="mb-4">
-              <lbry-input
-                [id]="'Nome'"
-                [value]="'Nome'"
-                [label]="'Nome'"
-                [(blModel)]="nameSearch"
-                [required]="true"
-              ></lbry-input>
-            </div>
-          </div>
-          <div class="col-5">
-            <div class="mb-4">
-              <lbry-input
-                [id]="'Cognome'"
-                [value]="'Cognome'"
-                [label]="'Cognome'"
-                [(blModel)]="surnameSearch"
-                [required]="true"
-              ></lbry-input>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-10" style="text-align: right">
-            <lbry-button
-              [id]="'ricerca_utente'"
-              [style]="styleButton.first"
-              [title]="'Ricerca utente'"
-              [disabled]="false"
-              (nbpClick)="search()"
-            ></lbry-button>
-          </div>
-        </div>
-      </div>
-      <div>
-        <lbry-modal
-          [idModal]="'utenti'"
-          [title]="'Utenti trovati'"
-          [openModal]="openModal"
-          [size]="sizeModal.LARGE"
-          (openModalStatus)="openModal = $event"
-          [leftButtonTitle]="'ANNULLA'"
-          [leftButtonDisabled]="false"
-          (leftClick)="cancel($event)"
-          [rightButtonTitle]="'CONFERMA'"
-          [rightButtonDisabled]="false"
-          (rightClick)="conferm($event)"
-        >
-          <div class="row">
-            <lbry-table
-              *ngIf="usersFound"
-              [arrayTable]="usersFound"
-              [idTable]="'usersFoundTb'"
-              (nbpClick)="prova($event)"
-              #usersFoundTb
-            >
-              <app-col
-                [id]="'name'"
-                [title]="'name'"
-                [field]="'name'"
-                (getItem)="usersFoundTb.getItem($event)"
-              ></app-col>
-              <app-col
-                [id]="surname"
-                [title]="'surname'"
-                [field]="'surname'"
-                (getItem)="usersFoundTb.getItem($event)"
-              ></app-col>
-              <app-col
-                [id]="'dateBirth'"
-                [title]="'dateBirth'"
-                [field]="'dateBirth'"
-                [sort]="false"
-                (getItem)="usersFoundTb.getItem($event)"
-              ></app-col>
-              <app-col
-                [id]="'address'"
-                [title]="'address'"
-                [field]="'address'"
-                (getItem)="usersFoundTb.getItem($event)"
-              ></app-col>
-              <app-col
-                [id]="'checkUser'"
-                [title]="''"
-                [field]="'checkUser'"
-                (getItem)="usersFoundTb.getItem($event)"
-              >
-                <ng-template let-data="data">
-                  <div class="d-grid">
-                    <lbry-radio
-                    [label]="''"
-                    [id]="'data.id'"
-                    [value]="data"
-                    [checked]="false"
-                    [(blModel)]="userFound"
-                    (blModelChange)="setUserFound(data)"
-                  ></lbry-radio>
-                  </div>
-                </ng-template>
-              </app-col>
-            </lbry-table>
-          </div>
-        </lbry-modal>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </lbry-section>
