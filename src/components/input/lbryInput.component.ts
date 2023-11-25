@@ -1,21 +1,20 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import {ControlContainer, NgForm} from '@angular/forms';
+import { Component, Input, Output, OnInit, EventEmitter } from "@angular/core";
+import { ControlContainer, NgForm } from "@angular/forms";
 
 @Component({
-  selector: 'lbry-input',
-  templateUrl: './lbryInput.component.html',
-  styleUrls: ['./lbryInput.component.scss'],
-  viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
+  selector: "lbry-input",
+  templateUrl: "./lbryInput.component.html",
+  styleUrls: ["./lbryInput.component.scss"],
+  // viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
 })
 export class LbryInputComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   @Input() id: any;
-  @Input() value: any
+  @Input() value: any;
   @Input() label: string;
   @Input() placeholder: string;
-  @Input() type: any
+  @Input() type: any;
   @Input() disabled: boolean;
   @Input() blModel: string;
   @Input() required: boolean;
@@ -27,9 +26,9 @@ export class LbryInputComponent implements OnInit {
 
   ngOnInit() {
     this.tooltipInp = false;
-    this.tooltipTitleInvalid = 'Il campo ' + this.id + ' non è valido.'
-    this.tooltipTitleValid = 'Il campo ' + this.id + ' è valido.'
-    setTimeout(()=> this.tooltipInp = true, 500)
+    this.tooltipTitleInvalid = "Il campo " + this.id + " non è valido.";
+    this.tooltipTitleValid = "Il campo " + this.id + " è valido.";
+    setTimeout(() => (this.tooltipInp = true), 500);
   }
 
   change(newValue) {
@@ -38,6 +37,6 @@ export class LbryInputComponent implements OnInit {
 
   cancel(f: NgForm) {
     this.blModel = "";
-    this.change(this.blModel)
+    this.change(this.blModel);
   }
 }
