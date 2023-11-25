@@ -9,15 +9,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PagesComponent } from './pages/pages.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoadingInterceptor } from './loading.Interceptor';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
     NavComponent,
     routingComponents,
     components,
       PagesComponent,
-      FooterComponent
+      FooterComponent,
+      LoginComponent
    ],
   imports: [
     BrowserModule,
