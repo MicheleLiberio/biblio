@@ -23,7 +23,10 @@ import { LoadingInterceptor } from './loading.Interceptor';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgbdModalBasiccc,
+    NgbdModalContent,
+    NgbdModalComponent
   ],
   providers: [
     {
