@@ -17,6 +17,7 @@ export class LbryInputSearchComponent implements OnInit {
   @Input() type: any
   @Input() disabled: boolean;
   @Input() blModel: string;
+  @Input() required: boolean;
   @Output() blModelChange = new EventEmitter();
 
   ngOnInit() {
