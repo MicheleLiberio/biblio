@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   styleButton = styleButton;
   name: string;
   surname: string;
+  email: string;
   patternEmail = patternInput.MAIL;
   dataPrestito: any;
 
