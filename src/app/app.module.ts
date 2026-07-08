@@ -19,16 +19,20 @@ import { NgbdModalContent, NgbdModalComponent } from './modal-component/modal-co
     routingComponents,
     components,
       PagesComponent,
-      FooterComponent
+      FooterComponent,
+      NgbdModalBasiccc,
+      NgbdModalContent,
+      NgbdModalComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    NgbdModalBasiccc,
-    NgbdModalContent,
-    NgbdModalComponent
+    HttpClientModule
+  ],
+  entryComponents: [
+    NgbdModalContent
   ],
   providers: [
     {
