@@ -3,7 +3,7 @@ import { Component, Input, OnInit, ContentChild, TemplateRef } from '@angular/co
 @Component({
   selector: 'lbry-accordion',
   templateUrl: './LbryAccordion.component.html',
-  styleUrls: ['./LbryAccordion.component.scss']
+  styleUrls: ['./lbryAccordion.component.scss']
 })
 export class LbryAccordionComponent implements OnInit {
 
