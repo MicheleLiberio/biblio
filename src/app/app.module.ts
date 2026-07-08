@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PagesComponent } from './pages/pages.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoadingInterceptor } from './loading.Interceptor';
+import { NgbdModalBasiccc } from './modal-basic/modal-basic';
+import { NgbdModalContent, NgbdModalComponent } from './modal-component/modal-component';
 
 @NgModule({
   declarations: [				
