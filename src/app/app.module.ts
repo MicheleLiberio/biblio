@@ -31,6 +31,9 @@ import { LoginComponent } from './login/login.component';
     NgbModule,
     HttpClientModule
   ],
+  entryComponents: [
+    NgbdModalContent
+  ],
   providers: [
     {
     provide: HTTP_INTERCEPTORS,
