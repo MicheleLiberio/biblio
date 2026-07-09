@@ -2,8 +2,8 @@ import { Component, Input, OnInit, ContentChild, TemplateRef } from '@angular/co
 
 @Component({
   selector: 'lbry-accordion',
-  templateUrl: './LbryAccordion.component.html',
-  styleUrls: ['./LbryAccordion.component.scss']
+  templateUrl: './lbryAccordion.component.html',
+  styleUrls: ['./lbryAccordion.component.scss']
 })
 export class LbryAccordionComponent implements OnInit {
 
