@@ -10,6 +10,8 @@ import { PagesComponent } from './pages/pages.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoadingInterceptor } from './loading.Interceptor';
 import { LoginComponent } from './login/login.component';
+import { NgbdModalBasiccc } from './modal-basic/modal-basic';
+import { NgbdModalContent, NgbdModalComponent } from './modal-component/modal-component';
 
 @NgModule({
   declarations: [					
