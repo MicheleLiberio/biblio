@@ -19,7 +19,10 @@ import { LoginComponent } from './login/login.component';
     components,
       PagesComponent,
       FooterComponent,
-      LoginComponent
+      LoginComponent,
+      NgbdModalBasiccc,
+      NgbdModalContent,
+      NgbdModalComponent
    ],
   imports: [
     BrowserModule,
