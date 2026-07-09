@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lbry-loader',
-  templateUrl: './LbryLoader.component.html',
-  styleUrls: ['./LbryLoader.component.scss']
+  templateUrl: './lbryLoader.component.html',
+  styleUrls: ['./lbryLoader.component.scss']
 })
 export class LbryLoaderComponent implements OnInit {
 
