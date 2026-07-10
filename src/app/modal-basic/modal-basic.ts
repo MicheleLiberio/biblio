@@ -7,11 +7,11 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './modal-basic.html'
 })
 export class NgbdModalBasiccc {
-  closeResult: string;
+  closeResult: string|undefined;
 
   constructor(private modalService: NgbModal) {}
 
-  open(content) {
+  open(content: any) {
     this.modalService.open(content).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

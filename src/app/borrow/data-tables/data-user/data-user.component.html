@@ -11,7 +11,7 @@
               [id]="userRegistration"
               [value]="true"
               [(blModel)]="isUserEnrolled"
-              (blModelChange)="isEnrolled($event)"
+              (blModelChange)="isEnrolled()"
             ></lbry-radio>
           </div>
           <div class="col-2">
@@ -21,7 +21,7 @@
               [id]="userRegistration"
               [value]="false"
               [(blModel)]="isUserEnrolled"
-              (blModelChange)="isEnrolled($event)"
+              (blModelChange)="isEnrolled()"
             ></lbry-radio>
           </div>
         </div>
@@ -80,49 +80,49 @@
           (openModalStatus)="openModal = $event"
           [leftButtonTitle]="'ANNULLA'"
           [leftButtonDisabled]="false"
-          (leftClick)="cancel($event)"
+          (leftClick)="cancel()"
           [rightButtonTitle]="'CONFERMA'"
           [rightButtonDisabled]="usersFound && usersFound.length == 0"
-          (rightClick)="conferm($event)"
+          (rightClick)="conferm()"
         >
           <div class="row">
             <lbry-table
               *ngIf="usersFound"
               [arrayTable]="usersFound"
               [idTable]="'usersFoundTb'"
-              (nbpClick)="prova($event)"
+              (nbpClick)="prova()"
               #usersFoundTb
             >
               <app-col
                 [id]="'name'"
                 [title]="'name'"
                 [field]="'name'"
-                (getItem)="usersFoundTb.getItem($event)"
+                (getItem)="usersFoundTb.getItem()"
               ></app-col>
               <app-col
                 [id]="surname"
                 [title]="'surname'"
                 [field]="'surname'"
-                (getItem)="usersFoundTb.getItem($event)"
+                (getItem)="usersFoundTb.getItem()"
               ></app-col>
               <app-col
                 [id]="'dateBirth'"
                 [title]="'dateBirth'"
                 [field]="'dateBirth'"
                 [sort]="false"
-                (getItem)="usersFoundTb.getItem($event)"
+                (getItem)="usersFoundTb.getItem()"
               ></app-col>
               <app-col
                 [id]="'address'"
                 [title]="'address'"
                 [field]="'address'"
-                (getItem)="usersFoundTb.getItem($event)"
+                (getItem)="usersFoundTb.getItem()"
               ></app-col>
               <app-col
                 [id]="'checkUser'"
                 [title]="''"
                 [field]="'checkUser'"
-                (getItem)="usersFoundTb.getItem($event)"
+                (getItem)="usersFoundTb.getItem()"
               >
                 <ng-template let-data="data">
                   <div class="d-grid">

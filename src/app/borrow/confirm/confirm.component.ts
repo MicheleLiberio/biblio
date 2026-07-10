@@ -7,9 +7,9 @@ import { DataService } from "src/app/services/data-service.service";
   styleUrls: ["./confirm.component.scss"],
 })
 export class ConfirmComponent implements OnInit {
-  @Input() indexPage: string;
+  @Input() indexPage: string|undefined;
   @Output() indexPageChange: EventEmitter<string> = new EventEmitter<string>();
-  constructor(private dataService: DataService) {}
+  constructor(public dataService: DataService) {}
 
   ngOnInit() {
     sessionStorage.removeItem("keySearch");
