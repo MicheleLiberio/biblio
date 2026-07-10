@@ -13,13 +13,14 @@ import { styleButton } from 'src/components/button/LbryButton.enum';
   styleUrls: ['./data-book.component.css']
 })
 export class DataBookComponent implements OnInit {
-  @Input() indexPage: string;
+  form: any;
+  @Input() indexPage!: string;
   @Output() indexPageChange: EventEmitter<string> = new EventEmitter<string>();
-  @ViewChild("bookForm", { static: true }) bookForm: NgForm;
+  @ViewChild("bookForm", { static: true }) bookForm!: NgForm;
   styleButton = styleButton;
-  bookChosen: Borrow;
-  dateBorrow: string;
-  dateReturn: string;
+  bookChosen!: Borrow;
+  dateBorrow!: string;
+  dateReturn!: string;
   patternInput = patternInput;
   authors: any;
 
@@ -63,7 +64,7 @@ export class DataBookComponent implements OnInit {
     this.dateReturn = this.getDate(newDate);
   }
 
-  submitForm(bookForm) {
+  submitForm(bookForm: NgForm) {
     console.log("prova");
   }
   
